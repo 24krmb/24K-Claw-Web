@@ -9,8 +9,8 @@ import { topTabs, defaultTabKey } from '../data/tabs'
 import { findMenuItem } from '../data/menu'
 import { useAppStore } from '../store/useAppStore'
 
-/** 「内置助理」菜单对应的 Agent 标签页 */
-const AGENT_MENU_KEY = 'built-in-assistant'
+/** 「主 Agent」菜单对应的 Agent 标签页 */
+const AGENT_MENU_KEY = 'agents'
 
 /**
  * 工作区页面：左侧边栏 + 顶部标签页 + 内容区
