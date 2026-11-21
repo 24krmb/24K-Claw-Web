@@ -45,8 +45,8 @@ export const menuItems: MenuItem[] = [
   },
 ]
 
-/** 默认展开的一级菜单分组（默认落地页为主 Agent，无需展开分组） */
-export const defaultExpandedGroups: string[] = []
+/** 默认展开的一级菜单分组（默认全部展开） */
+export const defaultExpandedGroups = ['ability', 'control', 'management']
 
 /** 默认选中的菜单项 */
 export const defaultActiveMenuKey = 'agents'
