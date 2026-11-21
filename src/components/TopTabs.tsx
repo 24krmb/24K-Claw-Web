@@ -59,7 +59,7 @@ export default function TopTabs({ activeTab, title, onChange }: TopTabsProps) {
                 type="button"
                 onClick={() => onChange?.(tab.key)}
                 aria-current={active ? 'page' : undefined}
-                className={`relative flex cursor-pointer items-center gap-2 border-none px-4 text-[15px] transition-colors duration-150 outline-none lg:px-5 ${
+                className={`relative flex cursor-pointer items-center gap-2 border-none px-4 text-sm transition-colors duration-150 outline-none lg:px-5 ${
                   active
                     ? 'font-semibold text-primary'
                     : 'text-muted-foreground hover:text-foreground'

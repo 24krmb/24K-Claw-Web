@@ -48,7 +48,7 @@ export default function MenuItemRow({ item, isChild = false }: MenuItemRowProps)
       {/* 菜单行（用 button 保证键盘可达） */}
       <button type="button" className={rowClass} onClick={handleClick}>
         <i className={`${item.icon} w-5 text-center text-[15px] ${selected ? 'text-sidebar-primary' : 'text-muted-foreground group-hover:text-sidebar-accent-foreground'}`} />
-        <span className="flex-1">{item.label}</span>
+        <span className="flex-1 font-medium">{item.label}</span>
         {hasChildren && (
           <i
             className={`fa-solid fa-chevron-right text-[10px] text-muted-foreground transition-transform duration-200 ${
