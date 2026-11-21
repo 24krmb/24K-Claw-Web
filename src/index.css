@@ -3,48 +3,45 @@
 /* 暗色模式：.dark 类挂在 <html> 上时生效（class 策略，配合顶栏切换按钮） */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ============================================
-   主题变量（与 Develop/globals.css 一致）
-   ============================================ */
 :root {
-  --background: oklch(1 0 0); /* 页面基础背景色（浅色模式：纯白） */
-  --foreground: oklch(0.141 0.005 285.823); /* 页面基础前景色 / 正文文字颜色（近黑的冷灰） */
+  --background: #f7faff; /* 页面基础背景色（浅色模式：纯白） */
+  --foreground: #183153; /* 页面基础前景色 / 正文文字颜色（近黑的冷灰） */
   --card: oklch(1 0 0); /* 卡片背景色（与页面背景一致的白） */
   --card-foreground: oklch(0.141 0.005 285.823); /* 卡片内文字颜色 */
   --popover: oklch(1 0 0); /* 弹出层（Popover / 下拉）背景色 */
   --popover-foreground: oklch(0.141 0.005 285.823); /* 弹出层内文字颜色 */
-  --primary: oklch(0.488 0.243 264.376); /* 主色 / 品牌色（蓝紫色，用于主按钮、链接、选中态） */
+  --primary: #66f; /* 主色 / 品牌色（蓝紫色，用于主按钮、链接、选中态） */
   --primary-foreground: oklch(0.97 0.014 254.604); /* 主色之上的文字颜色（浅色，保证对比度） */
   --secondary: oklch(0.967 0.001 286.375); /* 次级背景色（浅灰，用于次级按钮、次要区块底色） */
   --secondary-foreground: oklch(0.21 0.006 285.885); /* 次级背景上的文字颜色 */
   --muted: oklch(0.967 0.001 286.375); /* 弱化背景色（用于禁用区块、占位区域底色） */
-  --muted-foreground: oklch(0.552 0.016 285.938); /* 弱化文字颜色（次要说明文字、占位符） */
+  --muted-foreground: #33517E; /* 弱化文字颜色（次要说明文字、占位符） */
   --accent: oklch(0.967 0.001 286.375); /* 强调背景色（hover 高亮、菜单项悬停底色） */
   --accent-foreground: oklch(0.21 0.006 285.885); /* 强调背景上的文字颜色 */
   --destructive: oklch(0.577 0.245 27.325); /* 危险色（错误、删除、破坏性操作按钮） */
-  --border: oklch(0.92 0.004 286.32); /* 全局边框颜色 */
-  --input: oklch(0.92 0.004 286.32); /* 输入框边框颜色 */
+  --border: rgb(214,227,255); /* 全局边框颜色 */
+  --input: rgb(214,227,255); /* 输入框边框颜色 */
   --ring: oklch(0.708 0 0); /* 焦点环颜色（键盘聚焦时的 outline 高亮） */
-  --sidebar: oklch(0.985 0 0); /* 侧边栏背景色（极浅的灰白） */
+  --sidebar: #DBE7FF; /* 侧边栏背景色（极浅的灰白） */
   --sidebar-foreground: oklch(0.141 0.005 285.823); /* 侧边栏文字颜色 */
-  --sidebar-primary: oklch(0.546 0.245 262.881); /* 侧边栏主色（选中项、主按钮用的蓝色） */
+  --sidebar-primary: #66f; /* 侧边栏主色（选中项、主按钮用的蓝色） */
   --sidebar-primary-foreground: oklch(0.97 0.014 254.604); /* 侧边栏主色之上的文字颜色 */
-  --sidebar-accent: oklch(0.967 0.001 286.375); /* 侧边栏强调背景色（菜单项 hover / 激活底色） */
+  --sidebar-accent: #C0D2FF; /* 侧边栏强调背景色（菜单项 hover / 激活底色） */
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885); /* 侧边栏强调背景上的文字颜色 */
-  --sidebar-border: oklch(0.92 0.004 286.32); /* 侧边栏边框颜色 */
+  --sidebar-border: rgb(214,227,255); /* 侧边栏边框颜色 */
   --sidebar-ring: oklch(0.708 0 0); /* 侧边栏焦点环颜色 */
-  --box-shadow: 0 4px 12px 0 rgba(118, 94, 252, 0.1); /* 通用盒阴影（柔和的紫色投影，用于卡片、浮层） */
+  --box-shadow: 0 4px 12px 0 rgba(102, 102, 255, .24); /* 通用盒阴影（柔和的紫色投影，用于卡片、浮层） */
 }
 
 /* 暗色模式（.dark 类挂在 html 上时生效） */
 .dark {
-  --background: oklch(0.141 0.005 285.823); /* 页面基础背景色（深冷灰黑） */
+  --background: #181818; /* 页面基础背景色（深冷灰黑） */
   --foreground: oklch(0.985 0 0); /* 页面基础前景色 / 正文文字颜色（近白的冷灰） */
-  --card: oklch(0.21 0.006 285.885); /* 卡片背景色（比页面背景稍亮一档的深灰） */
+  --card: #232323; /* 卡片背景色（比页面背景稍亮一档的深灰） */
   --card-foreground: oklch(0.985 0 0); /* 卡片内文字颜色 */
-  --popover: oklch(0.21 0.006 285.885); /* 弹出层（Popover / 下拉）背景色 */
+  --popover: #232323; /* 弹出层（Popover / 下拉）背景色 */
   --popover-foreground: oklch(0.985 0 0); /* 弹出层内文字颜色 */
-  --primary: oklch(0.488 0.243 264.376); /* 主色 / 品牌色（蓝紫色，与浅色模式一致） */
+  --primary: #F4D1B4; /* 主色 / 品牌色（蓝紫色，与浅色模式一致） */
   --primary-foreground: oklch(0.97 0.014 254.604); /* 主色之上的文字颜色 */
   --secondary: oklch(0.274 0.006 286.033); /* 次级背景色（深灰，用于次级按钮、次要区块底色） */
   --secondary-foreground: oklch(0.985 0 0); /* 次级背景上的文字颜色 */
@@ -56,9 +53,9 @@
   --border: oklch(1 0 0 / 10%); /* 全局边框颜色（半透明白，营造柔和描边） */
   --input: oklch(1 0 0 / 15%); /* 输入框边框颜色（半透明白，比边框略亮） */
   --ring: oklch(0.556 0 0); /* 焦点环颜色 */
-  --sidebar: oklch(0.21 0.006 285.885); /* 侧边栏背景色（深灰） */
+  --sidebar: #232323; /* 侧边栏背景色（深灰） */
   --sidebar-foreground: oklch(0.985 0 0); /* 侧边栏文字颜色 */
-  --sidebar-primary: oklch(0.623 0.214 259.815); /* 侧边栏主色（选中项、主按钮用的亮蓝） */
+  --sidebar-primary: #F4D1B4; /* 侧边栏主色（选中项、主按钮用的亮蓝） */
   --sidebar-primary-foreground: oklch(0.97 0.014 254.604); /* 侧边栏主色之上的文字颜色 */
   --sidebar-accent: oklch(0.274 0.006 286.033); /* 侧边栏强调背景色（菜单项 hover / 激活底色） */
   --sidebar-accent-foreground: oklch(0.985 0 0); /* 侧边栏强调背景上的文字颜色 */
@@ -109,22 +106,11 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family:
-      'PingFang SC',
-      'Microsoft YaHei',
-      'Noto Sans SC',
-      system-ui,
-      -apple-system,
-      sans-serif;
-  }
+    font-family:'PingFang SC','Noto Sans SC','Microsoft YaHei',system-ui,-apple-system,sans-serif}
 }
 
-/* 细滚动条样式（跟随主题弱化色） */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
+.hide-scrollbar {-ms-overflow-style: none;scrollbar-width: none}
+.hide-scrollbar::-webkit-scrollbar {display: none}
 ::-webkit-scrollbar-thumb {
   @apply rounded-full bg-muted-foreground/30;
 }
