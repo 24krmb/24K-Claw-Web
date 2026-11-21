@@ -9,14 +9,14 @@ export const agentTemplates: AgentTemplate[] = [
     name: 'QA Agent',
     description:
       '内置的 QA Agent。帮助用户理解、配置与日常使用，帮助用户定位问题，寻找答案，给出解决方法。',
-    avatar: '/images/avatars/2.png',
+    avatar: '/images/avatars/1.png',
   },
   {
     id: 'ai-coding-mentor',
     name: 'AI 编程实战导师',
     description:
       '源自 ai-coding-guide 的 66 个 Claude Code 技巧与 9+ 款工具最佳实践，教你如何用出生产力：上下文管理、任务分解、提示词工程与代码评审流程。',
-    avatar: '/images/avatars/1.png',
+    avatar: '/images/avatars/2.png',
   },
   {
     id: 'karpathy-wiki-expert',

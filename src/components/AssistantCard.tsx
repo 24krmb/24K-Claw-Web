@@ -12,20 +12,15 @@ const actions = [
 
 /**
  * 单张「我的助理」卡片：
- * 金色顶条 + 头像/名称/助理ID/运行状态 + 启停开关 + 描述 + 操作行 + 「对话」按钮
+ * 金色顶条 + 头像/名称/运行状态 + 启停开关 + 描述 + 操作行 + 「对话」按钮
  */
 export default function AssistantCard({ assistant }: { assistant: Assistant }) {
   const [running, setRunning] = useState(assistant.running)
 
-  const handleCopyId = () => {
-    navigator.clipboard?.writeText(assistant.assistantId)
-    console.log(`[24KRMB] 已复制助理 ID：${assistant.assistantId}`)
-  }
-
   return (
     <article className="flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md">
       {/* 顶部金色装饰条 */}
-      <div className="h-1.5 shrink-0 bg-amber-400" />
+      
 
       <div className="flex flex-1 flex-col p-6">
         {/* 头像 + 信息 + 启停开关 */}
@@ -33,21 +28,12 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
           <img
             src={assistant.avatar}
             alt={`${assistant.name} 头像`}
-            className="size-10 shrink-0 rounded-full object-cover"
+            className="size-11 shrink-0 rounded-full object-cover"
           />
           <div className="min-w-0 flex-1">
-            <h3 className="text-base font-semibold text-foreground">{assistant.name}</h3>
-            <button
-              type="button"
-              onClick={handleCopyId}
-              title="点击复制助理 ID"
-              className="mt-1 flex cursor-pointer items-center gap-1.5 border-none bg-transparent p-0 text-xs text-muted-foreground outline-none transition-colors duration-150 hover:text-foreground"
-            >
-              <span>助理 ID {assistant.assistantId}</span>
-              <i className="fa-regular fa-copy text-xs" />
-            </button>
+            <h3 className="text-sm font-semibold text-foreground">{assistant.name}</h3>
             <span
-              className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${
+              className={`flex w-fit items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${
                 running ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400' : 'bg-muted text-muted-foreground'
               }`}
             >
@@ -94,11 +80,10 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
           </div>
           <button
             type="button"
-            className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-amber-400 bg-transparent px-4 py-2 text-sm font-semibold text-amber-500 outline-none transition-colors duration-150 hover:bg-amber-50 dark:hover:bg-amber-500/10"
+            className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-primary bg-transparent px-4 py-2 text-xs font-semibold text-primary outline-none transition-colors duration-150 hover:bg-primary/10"
           >
             <i className="fa-regular fa-comment text-xs" />
             <span>对话</span>
-            <i className="fa-solid fa-chevron-right text-xs" />
           </button>
         </div>
       </div>

@@ -14,13 +14,13 @@ export default function AgentCard({ agent }: { agent: AgentTemplate }) {
         <img
           src={agent.avatar}
           alt={`${agent.name} 头像`}
-          className="size-10 shrink-0 rounded-full object-cover"
+          className="size-11 shrink-0 rounded-full object-cover"
         />
-        <h3 className="text-base font-semibold text-foreground">{agent.name}</h3>
+        <h3 className="text-sm font-semibold text-foreground">{agent.name}</h3>
       </div>
 
       {/* 描述 */}
-      <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">{agent.description}</p>
+      <p className="mt-4 flex-1 text-[13px] font-medium leading-relaxed text-muted-foreground">{agent.description}</p>
 
       {/* 操作按钮 */}
       <button
