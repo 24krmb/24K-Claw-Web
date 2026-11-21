@@ -1,4 +1,6 @@
+import { useNavigate } from 'react-router-dom'
 import type { MenuItem } from '../types'
+import { getMenuRoute } from '../data/menu'
 import { useAppStore } from '../store/useAppStore'
 
 interface MenuItemRowProps {
@@ -11,9 +13,9 @@ interface MenuItemRowProps {
  * 单个菜单行：支持展开/收起子菜单，子菜单渲染采用 grid-rows 平滑过渡
  */
 export default function MenuItemRow({ item, isChild = false }: MenuItemRowProps) {
+  const navigate = useNavigate()
   const activeMenuKey = useAppStore((s) => s.activeMenuKey)
   const expandedGroups = useAppStore((s) => s.expandedGroups)
-  const setActiveMenuKey = useAppStore((s) => s.setActiveMenuKey)
   const toggleGroup = useAppStore((s) => s.toggleGroup)
   const setMobileSidebarOpen = useAppStore((s) => s.setMobileSidebarOpen)
 
@@ -27,10 +29,9 @@ export default function MenuItemRow({ item, isChild = false }: MenuItemRowProps)
       toggleGroup(item.key)
       return
     }
-    // 叶子菜单：选中并关闭移动端抽屉
-    setActiveMenuKey(item.key)
+    // 叶子菜单：跳转对应页面并关闭移动端抽屉（选中态由路由派生，见 WorkspacePage）
+    navigate(getMenuRoute(item.key))
     setMobileSidebarOpen(false)
-    // TODO: 后续接入真实路由时在此处跳转
   }
 
   const rowClass = [

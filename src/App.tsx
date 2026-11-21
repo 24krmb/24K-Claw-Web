@@ -8,6 +8,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Navigate to={`/agents/${defaultTabKey}`} replace />} />
       <Route path="/agents/:tabKey" element={<WorkspacePage />} />
+      <Route path="/m/:menuKey" element={<WorkspacePage />} />
       <Route path="*" element={<Navigate to={`/agents/${defaultTabKey}`} replace />} />
     </Routes>
   )

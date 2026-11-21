@@ -18,7 +18,7 @@ export const menuItems: MenuItem[] = [
     icon: 'fa-solid fa-robot',
     children: [
       { key: 'memory-overview', label: '记忆概览', icon: 'fa-solid fa-brain' },
-      { key: 'built-in-assistant', label: '内置助理', icon: 'fa-solid fa-wand-magic-sparkles' },
+      { key: 'built-in-assistant', label: '内置助理', icon: 'fa-solid fa-wand-magic-sparkles', route: '/agents/built-in' },
       { key: 'sub-agent-market', label: '子代理市场', icon: 'fa-solid fa-store' },
       { key: 'scheduled-tasks', label: '定时任务', icon: 'fa-solid fa-clock' },
       { key: 'knowledge-base', label: '知识库', icon: 'fa-solid fa-book' },
@@ -37,3 +37,22 @@ export const defaultExpandedGroups = ['assistant-center']
 
 /** 默认选中的菜单项 */
 export const defaultActiveMenuKey = 'built-in-assistant'
+
+function findInList(list: MenuItem[], key: string): MenuItem | undefined {
+  for (const item of list) {
+    if (item.key === key) return item
+    const found = item.children ? findInList(item.children, key) : undefined
+    if (found) return found
+  }
+  return undefined
+}
+
+/** 在菜单树中按 key 查找菜单项（含子菜单） */
+export function findMenuItem(key: string): MenuItem | undefined {
+  return findInList(menuItems, key)
+}
+
+/** 菜单点击后的跳转路由：配置了 route 用 route，否则 /m/:key */
+export function getMenuRoute(key: string): string {
+  return findMenuItem(key)?.route ?? `/m/${key}`
+}

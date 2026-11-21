@@ -6,6 +6,8 @@ export interface MenuItem {
   label: string
   /** Font Awesome 图标类名，如 "fa-solid fa-gauge-high" */
   icon: string
+  /** 自定义跳转路由；缺省为 /m/:key */
+  route?: string
   /** 子菜单（仅一级嵌套） */
   children?: MenuItem[]
 }
