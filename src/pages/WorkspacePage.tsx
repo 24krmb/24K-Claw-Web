@@ -69,8 +69,8 @@ export default function WorkspacePage() {
         <Sidebar />
       </div>
 
-      {/* 主内容区：桌面端为侧边栏预留 240px */}
-      <div className="flex min-h-screen flex-1 flex-col lg:pl-60">
+      {/* 主内容区：桌面端为侧边栏预留 220px */}
+      <div className="flex min-h-screen flex-1 flex-col lg:pl-[220px]">
         {isTabRoute ? (
           <TopTabs activeTab={activeTab} onChange={handleTabChange} />
         ) : (
