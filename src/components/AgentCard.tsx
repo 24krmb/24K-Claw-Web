@@ -4,7 +4,7 @@ import type { AgentTemplate } from '../types'
 export default function AgentCard({ agent }: { agent: AgentTemplate }) {
   const handleCreate = () => {
     // 占位交互：后续接入真实新建逻辑
-    console.log(`[24KRMB] 从模板新建：${agent.name}（id=${agent.id}）`)
+    console.log(`[24K-Claw] 从模板新建：${agent.name}（id=${agent.id}）`)
   }
 
   return (

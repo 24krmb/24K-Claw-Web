@@ -12,12 +12,12 @@ export default function Sidebar() {
       <div className="flex h-16 shrink-0 items-center px-6">
         <img
           src="/logo_horizontal_dark.png"
-          alt="24KRMB"
+          alt="24K-Claw"
           className="h-9 w-auto select-none dark:hidden"
         />
         <img
           src="/logo_horizontal_white.png"
-          alt="24KRMB"
+          alt="24K-Claw"
           className="hidden h-9 w-auto select-none dark:block"
         />
         {/* 移动端关闭按钮 */}
