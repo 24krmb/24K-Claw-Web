@@ -11,12 +11,11 @@ export default function AgentCard({ agent }: { agent: AgentTemplate }) {
     <article className="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
       {/* 头像 + 标题 */}
       <div className="flex items-center gap-3">
-        <span
-          className={`flex size-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-base font-bold text-white ${agent.avatarGradient}`}
-          aria-hidden="true"
-        >
-          {agent.avatarText}
-        </span>
+        <img
+          src={agent.avatar}
+          alt={`${agent.name} 头像`}
+          className="size-10 shrink-0 rounded-full object-cover"
+        />
         <h3 className="text-base font-semibold text-gray-900">{agent.name}</h3>
       </div>
 
