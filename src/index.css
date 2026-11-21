@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* 全局基础样式 */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+  font-family:
+    'PingFang SC',
+    'Microsoft YaHei',
+    'Noto Sans SC',
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* 细滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-gray-300;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

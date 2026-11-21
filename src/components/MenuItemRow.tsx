@@ -1,0 +1,78 @@
+import type { MenuItem } from '../types'
+import { useAppStore } from '../store/useAppStore'
+
+interface MenuItemRowProps {
+  item: MenuItem
+  /** 是否为子菜单（控制缩进与字号） */
+  isChild?: boolean
+}
+
+/**
+ * 单个菜单行：支持展开/收起子菜单，子菜单渲染采用 grid-rows 平滑过渡
+ */
+export default function MenuItemRow({ item, isChild = false }: MenuItemRowProps) {
+  const activeMenuKey = useAppStore((s) => s.activeMenuKey)
+  const expandedGroups = useAppStore((s) => s.expandedGroups)
+  const setActiveMenuKey = useAppStore((s) => s.setActiveMenuKey)
+  const toggleGroup = useAppStore((s) => s.toggleGroup)
+  const setMobileSidebarOpen = useAppStore((s) => s.setMobileSidebarOpen)
+
+  const hasChildren = !!item.children?.length
+  const expanded = expandedGroups.includes(item.key)
+  const selected = activeMenuKey === item.key
+
+  const handleClick = () => {
+    if (hasChildren) {
+      // 有子菜单：点击仅展开/收起
+      toggleGroup(item.key)
+      return
+    }
+    // 叶子菜单：选中并关闭移动端抽屉
+    setActiveMenuKey(item.key)
+    setMobileSidebarOpen(false)
+    // TODO: 后续接入真实路由时在此处跳转
+  }
+
+  const rowClass = [
+    'group flex w-full cursor-pointer items-center gap-3 border-none text-left',
+    'transition-colors duration-150 outline-none',
+    isChild ? 'py-2 pl-12 pr-5 text-sm' : 'py-2.5 pl-5 pr-4 text-[15px]',
+    selected
+      ? 'bg-indigo-50 font-medium text-indigo-600'
+      : 'bg-transparent text-gray-700 hover:bg-gray-100',
+  ].join(' ')
+
+  return (
+    <li>
+      {/* 菜单行（用 button 保证键盘可达） */}
+      <button type="button" className={rowClass} onClick={handleClick}>
+        <i className={`${item.icon} w-5 text-center text-[15px] ${selected ? 'text-indigo-600' : 'text-gray-500 group-hover:text-gray-700'}`} />
+        <span className="flex-1">{item.label}</span>
+        {hasChildren && (
+          <i
+            className={`fa-solid fa-chevron-right text-[10px] text-gray-400 transition-transform duration-200 ${
+              expanded ? 'rotate-90' : ''
+            }`}
+          />
+        )}
+      </button>
+
+      {/* 子菜单：grid-rows 平滑展开/收起 */}
+      {hasChildren && (
+        <div
+          className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+            expanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+          }`}
+        >
+          <div className="overflow-hidden">
+            <ul className="flex flex-col gap-0.5 py-0.5">
+              {item.children!.map((child) => (
+                <MenuItemRow key={child.key} item={child} isChild />
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </li>
+  )
+}
