@@ -3,6 +3,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import TopTabs from '../components/TopTabs'
 import AgentGrid from '../components/AgentGrid'
+import MyAssistantsPage from './MyAssistantsPage'
 import PlaceholderPage from './PlaceholderPage'
 import { agentTemplates } from '../data/agents'
 import { topTabs, defaultTabKey } from '../data/tabs'
@@ -80,6 +81,8 @@ export default function WorkspacePage() {
           {isTabRoute ? (
             activeTab === 'built-in' ? (
               <AgentGrid agents={agentTemplates} />
+            ) : activeTab === 'mine' ? (
+              <MyAssistantsPage />
             ) : (
               <PlaceholderPage title={activeTabMeta.label} />
             )

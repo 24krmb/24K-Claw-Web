@@ -20,6 +20,8 @@ export interface TopTab {
   label: string
   /** Font Awesome 图标类名 */
   icon: string
+  /** 可选徽标文字（如 BETA） */
+  badge?: string
 }
 
 /** Agent 模板卡片 */
@@ -32,4 +34,20 @@ export interface AgentTemplate {
   description: string
   /** 头像图片路径（public/images/avatars/ 下的静态资源，如 /images/avatars/1.png） */
   avatar: string
+}
+
+/** 「我的助理」列表项 */
+export interface Assistant {
+  /** 唯一标识 */
+  id: string
+  /** 对外展示的助理 ID（如 C9D270） */
+  assistantId: string
+  /** 助理名称 */
+  name: string
+  /** 头像图片路径 */
+  avatar: string
+  /** 是否运行中 */
+  running: boolean
+  /** 助理描述 */
+  description: string
 }

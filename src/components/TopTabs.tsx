@@ -43,6 +43,12 @@ export default function TopTabs({ activeTab, title, onChange }: TopTabsProps) {
               >
                 <i className={`${tab.icon} text-sm ${active ? 'text-indigo-600' : 'text-gray-400'}`} />
                 <span>{tab.label}</span>
+                {/* 可选徽标（如 BETA） */}
+                {tab.badge && (
+                  <span className="rounded-full bg-indigo-600 px-2 py-0.5 text-[11px] font-bold leading-4 text-white">
+                    {tab.badge}
+                  </span>
+                )}
                 {/* 选中态底部指示条 */}
                 <span
                   className={`absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-indigo-600 transition-opacity duration-150 ${
