@@ -1,6 +1,6 @@
 # 24K-Claw-Web
 
-24KCLAW Agent 助理中心的 Web 前端：左侧多级菜单 + 顶部标签页 + Agent 卡片网格。
+24KCLAW Agent 的 Web 前端：左侧多级菜单 + 顶部标签页 + 卡片网格。
 
 ## 技术栈
 
@@ -14,22 +14,6 @@
 | 状态 | Zustand 5 |
 
 > 未使用任何 UI 组件库，全部组件手写。
-
-## 快速开始
-
-```bash
-# 1. 安装依赖
-npm install
-
-# 2. 启动开发服务器（默认 http://localhost:5173）
-npm run dev
-
-# 3. 生产构建
-npm run build
-
-# 4. 本地预览构建产物
-npm run preview
-```
 
 ## 目录结构
 
@@ -61,6 +45,22 @@ src/
 - 卡片网格：`grid-cols-[repeat(auto-fill,minmax(320px,1fr))]`，窗口缩放自动换列
 - 子菜单展开/收起使用 `grid-rows-[1fr]/[0fr]` 高度过渡，无需测量高度
 - 标签页选中态：靛蓝文字 + 底部 2px 指示条，对应路由 `/agents/:tabKey`
+
+## 快速开始
+
+```bash
+# 1. 安装依赖
+npm install
+
+# 2. 启动开发服务器（默认 http://localhost:5173）
+npm run dev
+
+# 3. 生产构建
+npm run build
+
+# 4. 本地预览构建产物
+npm run preview
+```
 
 ## 二次开发提示
 
