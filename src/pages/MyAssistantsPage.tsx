@@ -5,7 +5,7 @@ import { myAssistants } from '../data/assistants'
 export default function MyAssistantsPage() {
   if (myAssistants.length === 0) {
     return (
-      <div className="flex h-64 flex-col items-center justify-center gap-3 text-gray-400">
+      <div className="flex h-64 flex-col items-center justify-center gap-3 text-muted-foreground">
         <i className="fa-regular fa-folder-open text-3xl" />
         <p className="text-sm">暂无助理</p>
       </div>
@@ -14,7 +14,7 @@ export default function MyAssistantsPage() {
 
   return (
     <div>
-      <p className="mb-4 text-sm text-gray-500">共 {myAssistants.length} 个助理</p>
+      <p className="mb-4 text-sm text-muted-foreground">共 {myAssistants.length} 个助理</p>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
         {myAssistants.map((assistant) => (
           <AssistantCard key={assistant.id} assistant={assistant} />

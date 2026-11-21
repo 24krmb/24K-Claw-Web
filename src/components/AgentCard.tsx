@@ -8,7 +8,7 @@ export default function AgentCard({ agent }: { agent: AgentTemplate }) {
   }
 
   return (
-    <article className="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
+    <article className="flex h-full flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
       {/* 头像 + 标题 */}
       <div className="flex items-center gap-3">
         <img
@@ -16,17 +16,17 @@ export default function AgentCard({ agent }: { agent: AgentTemplate }) {
           alt={`${agent.name} 头像`}
           className="size-10 shrink-0 rounded-full object-cover"
         />
-        <h3 className="text-base font-semibold text-gray-900">{agent.name}</h3>
+        <h3 className="text-base font-semibold text-foreground">{agent.name}</h3>
       </div>
 
       {/* 描述 */}
-      <p className="mt-4 flex-1 text-sm leading-relaxed text-gray-600">{agent.description}</p>
+      <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">{agent.description}</p>
 
       {/* 操作按钮 */}
       <button
         type="button"
         onClick={handleCreate}
-        className="mt-5 flex w-fit cursor-pointer items-center gap-1.5 border-none bg-transparent p-0 text-sm font-medium text-gray-700 transition-colors duration-150 outline-none hover:text-indigo-600"
+        className="mt-5 flex w-fit cursor-pointer items-center gap-1.5 border-none bg-transparent p-0 text-sm font-medium text-foreground/80 transition-colors duration-150 outline-none hover:text-primary"
       >
         <i className="fa-solid fa-plus text-xs" />
         <span>从此模板新建</span>

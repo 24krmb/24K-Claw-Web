@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>24KRMB - 助理中心</title>
+    <script>
+      // 主题防闪烁：CSS 加载前根据 localStorage（缺省跟随系统）挂 .dark 类
+      (function () {
+        var theme = localStorage.getItem('theme')
+        var dark = theme ? theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (dark) document.documentElement.classList.add('dark')
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

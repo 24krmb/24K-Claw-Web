@@ -50,7 +50,7 @@ export default function WorkspacePage() {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-background">
       {/* 遮罩（仅移动端抽屉打开时） */}
       <div
         className={`fixed inset-0 z-30 bg-black/40 transition-opacity duration-200 lg:hidden ${

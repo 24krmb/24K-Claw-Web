@@ -7,7 +7,7 @@ export default function Sidebar() {
   const setMobileSidebarOpen = useAppStore((s) => s.setMobileSidebarOpen)
 
   return (
-    <aside className="flex h-full w-60 flex-col border-r border-gray-200 bg-white">
+    <aside className="flex h-full w-60 flex-col border-r border-sidebar-border bg-sidebar">
       {/* Logo */}
       <div className="flex h-16 shrink-0 items-center px-6">
         <span className="text-2xl font-black tracking-widest text-red-500 italic select-none">
@@ -15,7 +15,7 @@ export default function Sidebar() {
         </span>
         {/* 移动端关闭按钮 */}
         <button
-          className="ml-auto rounded-md p-1.5 text-gray-400 hover:bg-gray-100 lg:hidden"
+          className="ml-auto rounded-md p-1.5 text-muted-foreground hover:bg-sidebar-accent lg:hidden"
           aria-label="关闭侧边栏"
           onClick={() => setMobileSidebarOpen(false)}
         >

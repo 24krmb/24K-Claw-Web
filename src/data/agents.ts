@@ -20,7 +20,7 @@ export const agentTemplates: AgentTemplate[] = [
   },
   {
     id: 'karpathy-wiki-expert',
-    name: '卡帕西知识库专家',
+    name: '卡帕西',
     description:
       '基于 Karpathy LLM Wiki 思路维护本地 Markdown 知识库：原始资料保持不变，AI 持续编译相互链接的 Wiki，并通过 MEMORY.md 维护长期记忆。',
     avatar: '/images/avatars/3.png',

@@ -5,7 +5,7 @@ import AgentCard from './AgentCard'
 export default function AgentGrid({ agents }: { agents: AgentTemplate[] }) {
   if (agents.length === 0) {
     return (
-      <div className="flex h-64 flex-col items-center justify-center gap-3 text-gray-400">
+      <div className="flex h-64 flex-col items-center justify-center gap-3 text-muted-foreground">
         <i className="fa-regular fa-folder-open text-3xl" />
         <p className="text-sm">暂无内容</p>
       </div>

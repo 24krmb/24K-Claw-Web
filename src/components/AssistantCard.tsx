@@ -23,9 +23,9 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
   }
 
   return (
-    <article className="flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow duration-200 hover:shadow-md">
+    <article className="flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md">
       {/* 顶部金色装饰条 */}
-      <div className="h-1.5 shrink-0" />
+      <div className="h-1.5 shrink-0 bg-amber-400" />
 
       <div className="flex flex-1 flex-col p-6">
         {/* 头像 + 信息 + 启停开关 */}
@@ -36,22 +36,22 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
             className="size-10 shrink-0 rounded-full object-cover"
           />
           <div className="min-w-0 flex-1">
-            <h3 className="text-base font-semibold text-gray-900">{assistant.name}</h3>
+            <h3 className="text-base font-semibold text-foreground">{assistant.name}</h3>
             <button
               type="button"
               onClick={handleCopyId}
               title="点击复制助理 ID"
-              className="mt-1 flex cursor-pointer items-center gap-1.5 border-none bg-transparent p-0 text-xs text-gray-500 outline-none transition-colors duration-150 hover:text-gray-700"
+              className="mt-1 flex cursor-pointer items-center gap-1.5 border-none bg-transparent p-0 text-xs text-muted-foreground outline-none transition-colors duration-150 hover:text-foreground"
             >
               <span>助理 ID {assistant.assistantId}</span>
               <i className="fa-regular fa-copy text-xs" />
             </button>
             <span
               className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${
-                running ? 'bg-emerald-50 text-emerald-600' : 'bg-gray-100 text-gray-500'
+                running ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400' : 'bg-muted text-muted-foreground'
               }`}
             >
-              <span className={`size-1.5 rounded-full ${running ? 'bg-emerald-500' : 'bg-gray-400'}`} />
+              <span className={`size-1.5 rounded-full ${running ? 'bg-emerald-500' : 'bg-muted-foreground/60'}`} />
               {running ? '运行中' : '已停止'}
             </span>
           </div>
@@ -63,7 +63,7 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
             aria-label={`${running ? '停止' : '启动'} ${assistant.name}`}
             onClick={() => setRunning(!running)}
             className={`mt-1 inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-none p-0.5 outline-none transition-colors duration-200 ${
-              running ? 'bg-emerald-500' : 'bg-gray-300'
+              running ? 'bg-emerald-500' : 'bg-muted-foreground/40'
             }`}
           >
             <span
@@ -75,7 +75,7 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
         </div>
 
         {/* 描述 */}
-        <p className="mt-5 flex-1 text-sm leading-relaxed text-gray-600">{assistant.description}</p>
+        <p className="mt-5 flex-1 text-sm leading-relaxed text-muted-foreground">{assistant.description}</p>
 
         {/* 操作行 */}
         <div className="mt-auto flex items-center justify-between gap-3 pt-6">
@@ -86,7 +86,7 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
                 type="button"
                 aria-label={b.label}
                 title={b.label}
-                className="flex size-8 cursor-pointer items-center justify-center rounded-lg border border-gray-200 bg-transparent text-gray-500 outline-none transition-colors duration-150 hover:bg-gray-50 hover:text-gray-700"
+                className="flex size-8 cursor-pointer items-center justify-center rounded-lg border border-border bg-transparent text-muted-foreground outline-none transition-colors duration-150 hover:bg-accent hover:text-accent-foreground"
               >
                 <i className={`${b.icon} text-xs`} />
               </button>
@@ -94,7 +94,7 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
           </div>
           <button
             type="button"
-            className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-amber-400 bg-transparent px-4 py-2 text-sm font-semibold text-amber-500 outline-none transition-colors duration-150 hover:bg-amber-50"
+            className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-amber-400 bg-transparent px-4 py-2 text-sm font-semibold text-amber-500 outline-none transition-colors duration-150 hover:bg-amber-50 dark:hover:bg-amber-500/10"
           >
             <i className="fa-regular fa-comment text-xs" />
             <span>对话</span>

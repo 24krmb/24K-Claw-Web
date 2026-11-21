@@ -39,19 +39,19 @@ export default function MenuItemRow({ item, isChild = false }: MenuItemRowProps)
     'transition-colors duration-150 outline-none',
     isChild ? 'py-2 pl-12 pr-5 text-sm' : 'py-2.5 pl-5 pr-4 text-[15px]',
     selected
-      ? 'bg-indigo-50 font-medium text-indigo-600'
-      : 'bg-transparent text-gray-700 hover:bg-gray-100',
+      ? 'bg-sidebar-accent font-medium text-sidebar-primary'
+      : 'bg-transparent text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
   ].join(' ')
 
   return (
     <li>
       {/* 菜单行（用 button 保证键盘可达） */}
       <button type="button" className={rowClass} onClick={handleClick}>
-        <i className={`${item.icon} w-5 text-center text-[15px] ${selected ? 'text-indigo-600' : 'text-gray-500 group-hover:text-gray-700'}`} />
+        <i className={`${item.icon} w-5 text-center text-[15px] ${selected ? 'text-sidebar-primary' : 'text-muted-foreground group-hover:text-sidebar-accent-foreground'}`} />
         <span className="flex-1">{item.label}</span>
         {hasChildren && (
           <i
-            className={`fa-solid fa-chevron-right text-[10px] text-gray-400 transition-transform duration-200 ${
+            className={`fa-solid fa-chevron-right text-[10px] text-muted-foreground transition-transform duration-200 ${
               expanded ? 'rotate-90' : ''
             }`}
           />
