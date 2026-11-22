@@ -11,12 +11,18 @@ export const myAssistants: Assistant[] = [
     running: true,
     description:'在汇总分析师团队与研究团队意见后，结合量化数据与情感信息等多维输入，做出具体买卖决策',
   },
-
+  {
+    id: 'quant-developer',
+    name: 'Quant Developer',
+    avatar: '/images/avatars/8.png',
+    running: true,
+    description:'策略代码实现、因子计算与行情数据管道，把研究想法落地为可回测、可上线的量化系统。',
+  },
   {
     id: 'Fundamental Analyst',
     name: 'Fundamental Analyst',
     avatar: '/images/avatars/2.png',
-    running: true,
+    running: false,
     description:'通过分析财报、收益报告、内部交易等数据来评估公司内在价值，判断是否被低估或高估。',
   },
   {
@@ -31,7 +37,7 @@ export const myAssistants: Assistant[] = [
     id: 'Technical Analyst',
     name: 'Technical Analyst',
     avatar: '/images/avatars/5.png',
-    running: true,
+    running: false,
     description:'计算MACD、RSI等技术指标，分析价量关系和价格形态，用于判断买卖时机和趋势走势。',
   },
   {
@@ -69,13 +75,6 @@ export const myAssistants: Assistant[] = [
     avatar: '/images/avatars/7.png',
     running: true,
     description:'按风控规则执行对冲、减仓、止损指令与情景压力测试，守住组合的风险底线。',
-  },
-  {
-    id: 'quant-developer',
-    name: 'Quant Developer',
-    avatar: '/images/avatars/8.png',
-    running: true,
-    description:'量化开发工程师，负责策略代码实现、因子计算与行情数据管道，把研究想法落地为可回测、可上线的量化系统。',
   },
   
   {
