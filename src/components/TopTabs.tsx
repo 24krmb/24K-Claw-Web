@@ -50,7 +50,7 @@ export default function TopTabs({ activeTab, title, onChange }: TopTabsProps) {
       </button>
 
       {activeTab ? (
-        <nav className="flex h-full items-stretch" aria-label="页面标签">
+        <nav className="flex h-full items-stretch lg:pl-1" aria-label="页面标签">
           {topTabs.map((tab) => {
             const active = tab.key === activeTab
             return (
