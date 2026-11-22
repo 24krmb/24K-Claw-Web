@@ -10,7 +10,7 @@
   --card-foreground: oklch(0.141 0.005 285.823); /* 卡片内文字颜色 */
   --popover: oklch(1 0 0); /* 弹出层（Popover / 下拉）背景色 */
   --popover-foreground: oklch(0.141 0.005 285.823); /* 弹出层内文字颜色 */
-  --primary: #66f; /* 主色 / 品牌色（蓝紫色，用于主按钮、链接、选中态） */
+  --primary: oklch(58.5% 0.233 277.117); /* 主色 / 品牌色（蓝紫色，用于主按钮、链接、选中态） */
   --primary-foreground: oklch(0.97 0.014 254.604); /* 主色之上的文字颜色（浅色，保证对比度） */
   --secondary: oklch(0.967 0.001 286.375); /* 次级背景色（浅灰，用于次级按钮、次要区块底色） */
   --secondary-foreground: oklch(0.21 0.006 285.885); /* 次级背景上的文字颜色 */
@@ -24,7 +24,7 @@
   --ring: oklch(0.708 0 0); /* 焦点环颜色（键盘聚焦时的 outline 高亮） */
   --sidebar: #DBE7FF; /* 侧边栏背景色（极浅的灰白） */
   --sidebar-foreground: oklch(0.141 0.005 285.823); /* 侧边栏文字颜色 */
-  --sidebar-primary: #66f; /* 侧边栏主色（选中项、主按钮用的蓝色） */
+  --sidebar-primary:oklch(58.5% 0.233 277.117); /* 侧边栏主色（选中项、主按钮用的蓝色） */
   --sidebar-primary-foreground: oklch(0.97 0.014 254.604); /* 侧边栏主色之上的文字颜色 */
   --sidebar-accent: #C0D2FF; /* 侧边栏强调背景色（菜单项 hover / 激活底色） */
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885); /* 侧边栏强调背景上的文字颜色 */
@@ -96,6 +96,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
   /* 通用柔和投影（globals.css 的 --box-shadow） */
   --shadow-soft: var(--box-shadow);
+  /* 覆盖默认 shadow-lg / shadow-xl：颜色改为品牌紫 #66f，档位透明度梯度保留（xl 比 lg 深） */
+  --shadow-lg: 0 10px 15px -3px rgb(102 102 255 / 0.18), 0 4px 6px -4px rgb(102 102 255 / 0.18);
+  --shadow-xl: 0 20px 25px -5px rgb(102 102 255 / 0.22), 0 8px 10px -6px rgb(102 102 255 / 0.22);
 }
 
 @layer base {

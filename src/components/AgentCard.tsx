@@ -8,7 +8,7 @@ export default function AgentCard({ agent }: { agent: AgentTemplate }) {
   }
 
   return (
-    <article className="flex h-full flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
+    <article className="flex h-full flex-col rounded-xl border border-border bg-card p-6 shadow-lg transition-shadow duration-200 hover:shadow-xl">
       {/* 头像 + 标题 */}
       <div className="flex items-center gap-3">
         <img
