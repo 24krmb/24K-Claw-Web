@@ -76,9 +76,9 @@ export default function SubagentsPage() {
               key={tab.key}
               type="button"
               onClick={() => setActiveCategory(tab.key)}
-              className={`-mb-px flex cursor-pointer items-center gap-2 border-b-2 bg-transparent pb-3 text-[15px] outline-none transition-colors duration-150 ${
+              className={`-mb-px flex cursor-pointer items-center gap-2 border-b-2 bg-transparent pb-3 font-medium text-[15px] outline-none transition-colors duration-150 ${
                 active
-                  ? 'border-primary font-medium text-primary'
+                  ? 'border-primary text-primary'
                   : 'border-transparent text-muted-foreground hover:text-foreground'
               }`}
             >
