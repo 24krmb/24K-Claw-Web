@@ -80,7 +80,7 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
           </div>
           <button
             type="button"
-            className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-primary bg-transparent px-4 py-2 text-xs font-semibold text-primary outline-none transition-colors duration-150 hover:bg-primary/10"
+            className="flex cursor-pointer items-center gap-1.5 rounded-lg border bg-transparent px-4 py-2 text-xs font-semibold outline-none transition-colors duration-150 hover:bg-primary/10"
           >
             <i className="fa-regular fa-comment text-xs" />
             <span>对话</span>
