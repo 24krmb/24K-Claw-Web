@@ -3,6 +3,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import TopTabs from '../components/TopTabs'
 import MyAssistantsPage from './MyAssistantsPage'
+import TeamPage from './TeamPage'
 import PlaceholderPage from './PlaceholderPage'
 import { topTabs, defaultTabKey } from '../data/tabs'
 import { findMenuItem } from '../data/menu'
@@ -79,6 +80,8 @@ export default function WorkspacePage() {
           {isTabRoute ? (
             activeTab === 'mine' ? (
               <MyAssistantsPage />
+            ) : activeTab === 'team' ? (
+              <TeamPage />
             ) : (
               <PlaceholderPage title={activeTabMeta.label} />
             )

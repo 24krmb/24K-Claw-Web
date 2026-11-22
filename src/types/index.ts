@@ -37,3 +37,19 @@ export interface Assistant {
   /** 助理描述 */
   description: string
 }
+
+/** 「团队」列表项 */
+export interface Team {
+  /** 唯一标识 */
+  id: string
+  /** 团队名称 */
+  name: string
+  /** 团队头像路径 */
+  avatar: string
+  /** 是否运行中 */
+  running: boolean
+  /** 团队描述 */
+  description: string
+  /** 成员头像路径列表 */
+  members: string[]
+}
