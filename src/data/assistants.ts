@@ -5,8 +5,15 @@ import type { Assistant } from '../types'
  */
 export const myAssistants: Assistant[] = [
   {
+    id: 'Goal',
+    name: 'Goal',
+    avatar: '/images/avatars/goal.png',
+    running: true,
+    description:
+      '在汇总分析师团队与研究团队意见后，结合量化数据与情感信息等多维输入，做出具体买卖决策',
+  },
+  {
     id: 'wen-ce',
-    assistantId: 'A5T8Q3',
     name: '问策',
     avatar: '/images/avatars/4.png',
     running: true,
@@ -14,7 +21,6 @@ export const myAssistants: Assistant[] = [
   },
   {
     id: 'jian-wei',
-    assistantId: 'D2N6W8',
     name: '见微',
     avatar: '/images/avatars/9.png',
     running: true,
@@ -23,7 +29,6 @@ export const myAssistants: Assistant[] = [
   },
   {
     id: 'karpathy-wiki-expert',
-    assistantId: 'E4H7J1',
     name: '卡帕西',
     avatar: '/images/avatars/3.png',
     running: true,
@@ -32,34 +37,16 @@ export const myAssistants: Assistant[] = [
   },
   {
     id: 'su-wei',
-    assistantId: 'F9L3X5',
     name: '溯薇',
     avatar: '/images/avatars/13.png',
     running: false,
     description:
       '溯流而上，采薇而得。学术论文检索的溯源者。批量 PDF 下载与元数据提取，高级检索自动化，引文规范管理与文献智能监测。',
   },
-  {
-    id: 'qa-agent',
-    assistantId: 'K7M2P4',
-    name: 'QA Agent',
-    avatar: '/images/avatars/1.png',
-    running: true,
-    description:
-      '内置的 QA Agent。帮助用户理解、配置与日常使用，帮助用户定位问题，寻找答案，给出解决方法。',
-  },
-  {
-    id: 'Goal',
-    assistantId: 'B3R8Y6',
-    name: 'Goal',
-    avatar: '/images/avatars/8.png',
-    running: true,
-    description:
-      '在汇总分析师团队与研究团队意见后，结合量化数据与情感信息等多维输入，做出具体买卖决策',
-  },
+
+
   {
     id: 'Fundamental Analyst',
-    assistantId: 'C5T9V2',
     name: 'Fundamental Analyst',
     avatar: '/images/avatars/2.png',
     running: true,
@@ -68,7 +55,6 @@ export const myAssistants: Assistant[] = [
   },
   {
     id: 'Sentiment Analyst',
-    assistantId: 'D8W4Z7',
     name: 'Sentiment Analyst',
     avatar: '/images/avatars/3.png',
     running: true,
@@ -77,7 +63,6 @@ export const myAssistants: Assistant[] = [
   },
   {
     id: 'News Analyst',
-    assistantId: 'E2X6Q9',
     name: 'News Analyst',
     avatar: '/images/avatars/4.png',
     running: true,
@@ -86,7 +71,6 @@ export const myAssistants: Assistant[] = [
   },
   {
     id: 'Technical Analyst',
-    assistantId: 'F5Y7R3',
     name: 'Technical Analyst',
     avatar: '/images/avatars/5.png',
     running: true,
@@ -95,7 +79,6 @@ export const myAssistants: Assistant[] = [
   },
   {
     id: 'ai-coding-mentor',
-    assistantId: 'G9Z3S8',
     name: 'AI 编程实战导师',
     avatar: '/images/avatars/6.png',
     running: true,
@@ -104,7 +87,6 @@ export const myAssistants: Assistant[] = [
   },
   {
     id: 'Bullish Researchers',
-    assistantId: 'H4A6T2',
     name: 'Bullish Researchers',
     avatar: '/images/avatars/9.png',
     running: true,
@@ -113,7 +95,6 @@ export const myAssistants: Assistant[] = [
   },
   {
     id: 'Bearish Researchers',
-    assistantId: 'J6B8U5',
     name: 'Bearish Researchers',
     avatar: '/images/avatars/10.png',
     running: true,

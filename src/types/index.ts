@@ -28,8 +28,6 @@ export interface TopTab {
 export interface Assistant {
   /** 唯一标识 */
   id: string
-  /** 对外展示的助理 ID（如 C9D270） */
-  assistantId: string
   /** 助理名称 */
   name: string
   /** 头像图片路径 */
