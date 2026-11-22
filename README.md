@@ -15,6 +15,54 @@
 
 > 未使用任何 UI 组件库，全部组件手写。
 
+## 目录结构
+
+```
+src/
+├── main.tsx              # 入口：引入 Font Awesome 与全局样式，挂载路由
+├── App.tsx               # 路由：标签页 /agents/:tabKey + 菜单 /:menuKey、/:groupKey/:menuKey
+├── index.css             # Tailwind v4 入口 + 全局基础样式（@theme 主题令牌）
+├── types/index.ts        # MenuItem / TopTab / Assistant / Team / Subagent / Skill 类型
+├── data/
+│   ├── menu.ts           # 侧边栏菜单树 + 路由生成（getMenuRoute）
+│   ├── tabs.ts           # 顶部标签页数据（mine / team）
+│   ├── assistants.ts     # 助理列表（主 Agent）
+│   ├── teams.ts          # 团队列表
+│   ├── subagents.ts      # 子 Agent 列表（金融任务型：数据/量化/资讯/风控）
+│   └── skills.ts         # 技能列表（内置技能 / 技能包）
+├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉
+├── components/
+│   ├── Sidebar.tsx       # 左侧边栏（Logo + 多级菜单）
+│   ├── MenuItemRow.tsx   # 单个菜单行（含子菜单展开/收起过渡）
+│   ├── TopTabs.tsx       # 顶部标签页导航 / 菜单页标题 + 明暗切换
+│   ├── AssistantCard.tsx # 助理卡片
+│   ├── TeamCard.tsx      # 团队卡片
+│   ├── SubagentCard.tsx  # 子 Agent 卡片
+│   └── SkillCard.tsx     # 技能卡片
+└── pages/
+    ├── WorkspacePage.tsx # 工作区布局骨架 + 路由分支（所有页面从这里分发）
+    ├── MyAssistantsPage.tsx # /agents/mine 助理卡片网格
+    ├── TeamPage.tsx      # /agents/team 团队卡片网格
+    ├── SubagentsPage.tsx # /subagents 子 Agent 页（分类页签 + 筛选）
+    ├── SkillsPage.tsx    # /ability/skills 技能页（来源页签 + 筛选）
+    └── PlaceholderPage.tsx # 未实现菜单的占位页
+```
+## 快速开始
+
+```bash
+# 1. 安装依赖
+npm install
+
+# 2. 启动开发服务器（默认 http://localhost:5173）
+npm run dev
+
+# 3. 生产构建
+npm run build
+
+# 4. 本地预览构建产物
+npm run preview
+```
+
 ## 页面与文件映射
 
 所有路由都渲染 `src/pages/WorkspacePage.tsx`（布局骨架），由它在内部按路由参数分支到具体页面。
@@ -48,39 +96,6 @@
 | `src/components/MenuItemRow.tsx` | 单个菜单行（含子菜单展开/收起过渡） |
 | `src/components/TopTabs.tsx` | 顶部栏：标签页路由渲染标签组，菜单页渲染页面标题，右侧明暗切换 |
 
-## 目录结构
-
-```
-src/
-├── main.tsx              # 入口：引入 Font Awesome 与全局样式，挂载路由
-├── App.tsx               # 路由：标签页 /agents/:tabKey + 菜单 /:menuKey、/:groupKey/:menuKey
-├── index.css             # Tailwind v4 入口 + 全局基础样式（@theme 主题令牌）
-├── types/index.ts        # MenuItem / TopTab / Assistant / Team / Subagent / Skill 类型
-├── data/
-│   ├── menu.ts           # 侧边栏菜单树 + 路由生成（getMenuRoute）
-│   ├── tabs.ts           # 顶部标签页数据（mine / team）
-│   ├── assistants.ts     # 助理列表（主 Agent）
-│   ├── teams.ts          # 团队列表
-│   ├── subagents.ts      # 子 Agent 列表（金融任务型：数据/量化/资讯/风控）
-│   └── skills.ts         # 技能列表（内置技能 / 技能包）
-├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉
-├── components/
-│   ├── Sidebar.tsx       # 左侧边栏（Logo + 多级菜单）
-│   ├── MenuItemRow.tsx   # 单个菜单行（含子菜单展开/收起过渡）
-│   ├── TopTabs.tsx       # 顶部标签页导航 / 菜单页标题 + 明暗切换
-│   ├── AssistantCard.tsx # 助理卡片
-│   ├── TeamCard.tsx      # 团队卡片
-│   ├── SubagentCard.tsx  # 子 Agent 卡片
-│   └── SkillCard.tsx     # 技能卡片
-└── pages/
-    ├── WorkspacePage.tsx # 工作区布局骨架 + 路由分支（所有页面从这里分发）
-    ├── MyAssistantsPage.tsx # /agents/mine 助理卡片网格
-    ├── TeamPage.tsx      # /agents/team 团队卡片网格
-    ├── SubagentsPage.tsx # /subagents 子 Agent 页（分类页签 + 筛选）
-    ├── SkillsPage.tsx    # /ability/skills 技能页（来源页签 + 筛选）
-    └── PlaceholderPage.tsx # 未实现菜单的占位页
-```
-
 ## 布局要点
 
 - 侧边栏固定 220px（`w-[220px]`），桌面端固定、窄屏（<1024px）变为抽屉 + 遮罩
@@ -89,24 +104,14 @@ src/
 - 菜单页标题与标签页左缘对齐内容区（24px，`ml-6` / `lg:pl-1`）
 - 品牌色随明暗主题切换（浅色靛蓝 / 深色暖橙），阴影用 `--shadow-color` 语义变量
 
-## 快速开始
-
-```bash
-# 1. 安装依赖
-npm install
-
-# 2. 启动开发服务器（默认 http://localhost:5173）
-npm run dev
-
-# 3. 生产构建
-npm run build
-
-# 4. 本地预览构建产物
-npm run preview
-```
-
 ## 二次开发提示
 
 - 新增菜单：在 `src/data/menu.ts` 中追加一项（含 Font Awesome 类名），路由自动按层级生成
 - 新增页面：新建 `pages/XxxPage.tsx` → `WorkspacePage.tsx` 加分支 → 页面数据放 `data/`
 - 顶部标题：菜单项配 `pageTitle`；卡片网格直接复用 `minmax(320px,1fr)` 保持各页列数一致
+
+## 关于我们
+
+**[24KRMB.COM](https://www.24krmb.com)**实战交流社区成立于 2012 年，社区实行实名认证与实盘认证制度。全网唯一 AI + A股/期货量化实战交流社区：股票、期货、期权的实战技术、实战案例、宏观分析、AI 量化投资实战交流。
+
+🔗 网址：<https://www.24krmb.com>
