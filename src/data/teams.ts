@@ -5,22 +5,13 @@ import type { Team } from '../types'
  */
 export const teams: Team[] = [
   {
-    id: 'research-team',
-    name: '研究团队',
-    avatar: '/images/avatars/11.png',
+    id: 'quant-team',
+    name: '量化团队',
+    avatar: '/images/avatars/16.png',
     running: true,
     description:
-      '主要负责对分析师团队提供的数据进行批判性评估，并以多空两个不同视角展开多轮辩论',
-    members: ['/images/avatars/9.png', '/images/avatars/10.png'],
-  },
-  {
-    id: 'analyst-team',
-    name: '分析师团队',
-    avatar: '/images/avatars/12.png',
-    running: true,
-    description:
-      '从基本面、情绪、新闻与技术四个维度并行分析标的，为研究团队提供多维输入数据',
-    members: ['/images/avatars/2.png', '/images/avatars/3.png', '/images/avatars/4.png', '/images/avatars/5.png'],
+      '覆盖量化策略研发全链路：策略代码实现与因子计算、回测引擎执行与统计建模验证',
+    members: ['/images/avatars/8.png', '/images/avatars/4.png', '/images/avatars/9.png'],
   },
   {
     id: 'strategy-team',
@@ -32,21 +23,30 @@ export const teams: Team[] = [
     members: ['/images/avatars/goal.png', '/images/avatars/4.png'],
   },
   {
+    id: 'research-team',
+    name: '研究团队',
+    avatar: '/images/avatars/11.png',
+    running: true,
+    description:
+      '主要负责对分析师团队提供的数据进行批判性评估，并以多空两个不同视角展开多轮辩论',
+    members: ['/images/avatars/9.png', '/images/avatars/10.png'],
+  },
+  {
     id: 'risk-team',
     name: '风险管理团队',
     avatar: '/images/avatars/15.png',
-    running: true,
+    running: false,
     description:
       '监控组合风险暴露与回撤，执行对冲、减仓、止损指令，并通过情景压力测试验证防御方案',
     members: ['/images/avatars/7.png', '/images/avatars/9.png', '/images/avatars/13.png'],
   },
   {
-    id: 'quant-team',
-    name: '量化团队',
-    avatar: '/images/avatars/16.png',
-    running: true,
+    id: 'analyst-team',
+    name: '分析师团队',
+    avatar: '/images/avatars/12.png',
+    running: false,
     description:
-      '覆盖量化策略研发全链路：策略代码实现与因子计算、回测引擎执行与统计建模验证',
-    members: ['/images/avatars/8.png', '/images/avatars/4.png', '/images/avatars/9.png'],
-  },
+      '从基本面、情绪、新闻与技术四个维度并行分析标的，为研究团队提供多维输入数据',
+    members: ['/images/avatars/2.png', '/images/avatars/3.png', '/images/avatars/4.png', '/images/avatars/5.png'],
+  }
 ]
