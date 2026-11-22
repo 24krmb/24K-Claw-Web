@@ -18,13 +18,13 @@ const categoryLabels: Record<Skill['category'], string> = {
   pack: '技能包',
 }
 
-/** 技能卡片：彩色图标块 + 名称 + 徽章 + 描述 + 底部操作（样式对照设计稿） */
+/** 技能卡片：图标块 + 标题/徽章 + 右上角启用切换 + 描述（无底部操作行） */
 export default function SkillCard({ skill }: { skill: Skill }) {
   const [enabled, setEnabled] = useState(skill.enabled)
 
   return (
-    <div className="flex flex-col rounded-xl border bg-card shadow-sm">
-      <div className="flex items-start gap-4 p-5 pb-0">
+    <div className="flex flex-col rounded-xl border bg-card shadow-sm p-5">
+      <div className="flex items-start gap-4">
         <div
           className={`flex size-11 shrink-0 items-center justify-center rounded-xl text-lg text-white ${toneClasses[skill.tone]}`}
         >
@@ -48,28 +48,16 @@ export default function SkillCard({ skill }: { skill: Skill }) {
             )}
           </div>
         </div>
-      </div>
-
-      <p className="mt-3 flex-1 px-5 text-sm leading-relaxed text-muted-foreground">
-        {skill.description}
-      </p>
-
-      <div className="mt-4 flex items-center justify-between border-t px-5 py-3.5">
-        <button
-          type="button"
-          className="flex cursor-pointer items-center gap-1.5 text-sm text-muted-foreground outline-none transition-colors duration-150 hover:text-foreground"
-        >
-          <i className="fa-solid fa-circle-info text-xs" />
-          {skill.category === 'pack' && skill.skillCount ? `${skill.skillCount} 个技能` : '查看详情'}
-        </button>
         <button
           type="button"
           onClick={() => setEnabled((v) => !v)}
-          className="cursor-pointer rounded-lg border bg-transparent px-4 py-1.5 text-sm text-foreground outline-none transition-colors duration-150 hover:bg-accent"
+          className="shrink-0 cursor-pointer rounded-lg border bg-transparent px-4 py-1.5 text-sm text-foreground outline-none transition-colors duration-150 hover:bg-accent"
         >
           {enabled ? '禁用' : '启用'}
         </button>
       </div>
+
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{skill.description}</p>
     </div>
   )
 }

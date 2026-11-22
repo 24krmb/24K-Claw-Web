@@ -214,7 +214,6 @@ export const skills: Skill[] = [
     tone: 'violet',
     category: 'pack',
     enabled: true,
-    skillCount: 6,
     description: '财报解析、行情采集与回测执行等投研全链路子能力，一键启用整套工作流。',
   },
   {
@@ -224,7 +223,6 @@ export const skills: Skill[] = [
     tone: 'sky',
     category: 'pack',
     enabled: false,
-    skillCount: 4,
     description: '选题、写作、排版与发布技能合集，覆盖图文创作全流程。',
   },
   {
