@@ -2,7 +2,7 @@ import type { Skill } from '../types'
 
 /**
  * 「技能」菜单页的技能数据（mock）
- * 来源分类：installed 已安装 / builtin 内置 / market 技能市场 / pack 技能包，共 20 条
+ * 来源分类：installed 已安装 / builtin 内置 / pack 技能包，共 20 条
  */
 export const skills: Skill[] = [
   {
@@ -113,6 +113,60 @@ export const skills: Skill[] = [
     enabled: true,
     description: '汇总重要经济数据发布、央行动态与新股申购日程，提醒关键时点。',
   },
+  {
+    id: 'web-summary',
+    name: '网页摘要',
+    icon: 'fa-solid fa-globe',
+    tone: 'sky',
+    category: 'builtin',
+    enabled: false,
+    description: '抓取任意网页正文，生成三句话摘要与关键要点。',
+  },
+  {
+    id: 'pdf-merge',
+    name: 'PDF 合并',
+    icon: 'fa-regular fa-file-pdf',
+    tone: 'rose',
+    category: 'builtin',
+    enabled: false,
+    description: '多个 PDF 一键合并、拆分与重排序。',
+  },
+  {
+    id: 'excel-clean',
+    name: 'Excel 清洗',
+    icon: 'fa-solid fa-table',
+    tone: 'slate',
+    category: 'builtin',
+    enabled: false,
+    description: '识别脏数据列，自动完成去重、补全与格式标准化。',
+  },
+  {
+    id: 'mail-digest',
+    name: '邮件摘要',
+    icon: 'fa-regular fa-envelope',
+    tone: 'violet',
+    category: 'builtin',
+    enabled: false,
+    description: '汇总邮箱未读，按重要性排序生成行动清单。',
+  },
+  {
+    id: 'meeting-notes',
+    name: '会议纪要',
+    icon: 'fa-solid fa-microphone',
+    tone: 'emerald',
+    category: 'builtin',
+    enabled: false,
+    description: '把录音转写为结构化会议纪要，自动提取待办事项。',
+  },
+  {
+    id: 'rival-watch',
+    name: '竞品监控',
+    icon: 'fa-solid fa-binoculars',
+    tone: 'amber',
+    category: 'builtin',
+    enabled: false,
+    description: '定时抓取竞品官网与公众号更新，输出变化日报。',
+  },
 
   // ── 已安装技能（4 条）──
   {
@@ -152,62 +206,6 @@ export const skills: Skill[] = [
     description: '对新闻与帖子打情绪标签，输出正面/中性/负面三分。',
   },
 
-  // ── 技能市场（6 条）──
-  {
-    id: 'web-summary',
-    name: '网页摘要',
-    icon: 'fa-solid fa-globe',
-    tone: 'sky',
-    category: 'market',
-    enabled: false,
-    description: '抓取任意网页正文，生成三句话摘要与关键要点。',
-  },
-  {
-    id: 'pdf-merge',
-    name: 'PDF 合并',
-    icon: 'fa-regular fa-file-pdf',
-    tone: 'rose',
-    category: 'market',
-    enabled: false,
-    description: '多个 PDF 一键合并、拆分与重排序。',
-  },
-  {
-    id: 'excel-clean',
-    name: 'Excel 清洗',
-    icon: 'fa-solid fa-table',
-    tone: 'slate',
-    category: 'market',
-    enabled: false,
-    description: '识别脏数据列，自动完成去重、补全与格式标准化。',
-  },
-  {
-    id: 'mail-digest',
-    name: '邮件摘要',
-    icon: 'fa-regular fa-envelope',
-    tone: 'violet',
-    category: 'market',
-    enabled: false,
-    description: '汇总邮箱未读，按重要性排序生成行动清单。',
-  },
-  {
-    id: 'meeting-notes',
-    name: '会议纪要',
-    icon: 'fa-solid fa-microphone',
-    tone: 'emerald',
-    category: 'market',
-    enabled: false,
-    description: '把录音转写为结构化会议纪要，自动提取待办事项。',
-  },
-  {
-    id: 'rival-watch',
-    name: '竞品监控',
-    icon: 'fa-solid fa-binoculars',
-    tone: 'amber',
-    category: 'market',
-    enabled: false,
-    description: '定时抓取竞品官网与公众号更新，输出变化日报。',
-  },
-
   // ── 技能包（2 条）──
   {
     id: 'invest-pack',
@@ -216,7 +214,8 @@ export const skills: Skill[] = [
     tone: 'violet',
     category: 'pack',
     enabled: true,
-    description: '财报解析、行情采集与回测执行三件套，一键启用整套投研子能力。',
+    skillCount: 6,
+    description: '财报解析、行情采集与回测执行等投研全链路子能力，一键启用整套工作流。',
   },
   {
     id: 'content-pack',
@@ -225,6 +224,7 @@ export const skills: Skill[] = [
     tone: 'sky',
     category: 'pack',
     enabled: false,
+    skillCount: 4,
     description: '选题、写作、排版与发布技能合集，覆盖图文创作全流程。',
   },
   {

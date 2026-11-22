@@ -15,7 +15,6 @@ const toneClasses: Record<Skill['tone'], string> = {
 const categoryLabels: Record<Skill['category'], string> = {
   installed: '已安装',
   builtin: '内置',
-  market: '市场',
   pack: '技能包',
 }
 
@@ -61,7 +60,7 @@ export default function SkillCard({ skill }: { skill: Skill }) {
           className="flex cursor-pointer items-center gap-1.5 text-sm text-muted-foreground outline-none transition-colors duration-150 hover:text-foreground"
         >
           <i className="fa-solid fa-circle-info text-xs" />
-          查看详情
+          {skill.category === 'pack' && skill.skillCount ? `${skill.skillCount} 个技能` : '查看详情'}
         </button>
         <button
           type="button"
