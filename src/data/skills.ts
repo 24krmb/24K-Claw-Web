@@ -2,7 +2,7 @@ import type { Skill } from '../types'
 
 /**
  * 「技能」菜单页的技能数据（mock）
- * 来源分类：installed 已安装 / builtin 内置 / pack 技能包，共 20 条
+ * 来源分类：builtin 内置 / pack 技能包，共 20 条
  */
 export const skills: Skill[] = [
   {
@@ -168,13 +168,13 @@ export const skills: Skill[] = [
     description: '定时抓取竞品官网与公众号更新，输出变化日报。',
   },
 
-  // ── 已安装技能（4 条）──
+  // ── 内置技能 · 金融向（原「已安装技能」并入）──
   {
     id: 'report-speedread',
     name: '财报速读',
     icon: 'fa-solid fa-file-invoice',
     tone: 'rose',
-    category: 'installed',
+    category: 'builtin',
     enabled: true,
     description: '上传财报 PDF 自动抽取关键指标，生成一页速读摘要。',
   },
@@ -183,7 +183,7 @@ export const skills: Skill[] = [
     name: '行情快照',
     icon: 'fa-solid fa-chart-line',
     tone: 'sky',
-    category: 'installed',
+    category: 'builtin',
     enabled: true,
     description: '一键抓取标的实时行情与分时走势，输出标准化快照。',
   },
@@ -192,7 +192,7 @@ export const skills: Skill[] = [
     name: '回测报告生成',
     icon: 'fa-solid fa-file-export',
     tone: 'emerald',
-    category: 'installed',
+    category: 'builtin',
     enabled: true,
     description: '把回测结果排版为含收益曲线与风险指标的完整报告。',
   },
@@ -201,7 +201,7 @@ export const skills: Skill[] = [
     name: '情绪打标',
     icon: 'fa-solid fa-tags',
     tone: 'amber',
-    category: 'installed',
+    category: 'builtin',
     enabled: true,
     description: '对新闻与帖子打情绪标签，输出正面/中性/负面三分。',
   },

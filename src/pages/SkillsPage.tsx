@@ -4,11 +4,10 @@ import { skills } from '../data/skills'
 import { myAssistants } from '../data/assistants'
 
 /** 技能来源页签（对应 Skill.category） */
-type SkillFilter = 'installed' | 'builtin' | 'pack'
+type SkillFilter = 'builtin' | 'pack'
 
-/** 技能页签配置：已安装 / 内置 / 技能包（对照设计稿，无计数） */
+/** 技能页签配置：内置 / 技能包（无计数） */
 const skillTabs: { key: SkillFilter; label: string; icon: string }[] = [
-  { key: 'installed', label: '已安装技能', icon: 'fa-solid fa-puzzle-piece' },
   { key: 'builtin', label: '内置技能', icon: 'fa-solid fa-table-cells' },
   { key: 'pack', label: '技能包', icon: 'fa-solid fa-box' },
 ]

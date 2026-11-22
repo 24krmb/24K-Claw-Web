@@ -82,8 +82,8 @@ export interface Skill {
   icon: string
   /** 图标块色调 */
   tone: 'violet' | 'sky' | 'emerald' | 'rose' | 'amber' | 'slate'
-  /** 来源分类（对应技能页页签：已安装 / 内置 / 技能包） */
-  category: 'installed' | 'builtin' | 'pack'
+  /** 来源分类（对应技能页页签：内置 / 技能包） */
+  category: 'builtin' | 'pack'
   /** 是否已启用 */
   enabled: boolean
   /** 包含的技能数（仅技能包分类使用，徽章显示「N 个技能」） */

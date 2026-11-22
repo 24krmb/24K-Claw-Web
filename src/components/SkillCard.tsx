@@ -13,7 +13,6 @@ const toneClasses: Record<Skill['tone'], string> = {
 
 /** 来源分类 → 徽章文字 */
 const categoryLabels: Record<Skill['category'], string> = {
-  installed: '已安装',
   builtin: '内置',
   pack: '技能包',
 }
