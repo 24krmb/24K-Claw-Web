@@ -3,16 +3,18 @@ import SubagentCard from '../components/SubagentCard'
 import { subagents } from '../data/subagents'
 import { myAssistants } from '../data/assistants'
 
-/** 分类筛选（installed / all 为虚拟页签，其余对应 Subagent.category） */
-type CategoryFilter = 'installed' | 'all' | 'finance' | 'academic' | 'engineering'
+/** 分类筛选（installed / all 为虚拟页签，其余对应 Subagent.category 的金融市场子分类） */
+type CategoryFilter = 'installed' | 'all' | 'research' | 'data' | 'quant' | 'news' | 'risk'
 
-/** 分类筛选页签配置（对照设计稿：已安装 / 全部分类 / 金融 / 学术 / 工程） */
+/** 分类筛选页签配置：已安装 / 全部分类 + 金融市场子分类（研究 / 数据 / 量化 / 资讯 / 风控） */
 const categoryTabs: { key: CategoryFilter; label: string; icon: string; showCount?: boolean }[] = [
-  { key: 'installed', label: '已安装', icon: 'fa-regular fa-circle-check' },
   { key: 'all', label: '全部分类', icon: 'fa-solid fa-table-cells' },
-  { key: 'finance', label: '金融', icon: 'fa-solid fa-dollar-sign', showCount: true },
-  { key: 'academic', label: '学术', icon: 'fa-solid fa-graduation-cap', showCount: true },
-  { key: 'engineering', label: '工程', icon: 'fa-solid fa-code', showCount: true },
+  { key: 'installed', label: '已安装', icon: 'fa-regular fa-circle-check' },
+  { key: 'research', label: '研究', icon: 'fa-solid fa-magnifying-glass-chart', showCount: true },
+  { key: 'data', label: '数据', icon: 'fa-solid fa-database', showCount: true },
+  { key: 'quant', label: '量化', icon: 'fa-solid fa-square-root-variable', showCount: true },
+  { key: 'news', label: '资讯', icon: 'fa-solid fa-newspaper', showCount: true },
+  { key: 'risk', label: '风控', icon: 'fa-solid fa-shield-halved', showCount: true },
 ]
 
 /** 「子 Agent」菜单页：助理选择条 + 分类筛选 + 子代理卡片网格（样式对照设计稿） */
@@ -20,7 +22,7 @@ export default function SubagentsPage() {
   // 选择条只显示「运行中」的助理，默认选中第一个运行中的
   const runningAssistants = myAssistants.filter((a) => a.running)
   const [selectedAssistantId, setSelectedAssistantId] = useState(runningAssistants[0]?.id ?? '')
-  const [activeCategory, setActiveCategory] = useState<CategoryFilter>('installed')
+  const [activeCategory, setActiveCategory] = useState<CategoryFilter>('all')
 
   const visibleSubagents = subagents.filter((s) =>
     activeCategory === 'installed'

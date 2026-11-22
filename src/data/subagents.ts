@@ -1,7 +1,8 @@
 import type { Subagent } from '../types'
 
 /**
- * 「子 Agent」菜单页的子代理数据（mock，样式对照设计稿）
+ * 「子 Agent」菜单页的子代理数据（mock）
+ * 分类体系：general 通用 / research 研究 / data 数据 / quant 量化 / news 资讯 / risk 风控（金融市场）
  */
 export const subagents: Subagent[] = [
   {
@@ -14,111 +15,111 @@ export const subagents: Subagent[] = [
       '通用子 agent，用于复杂、多步骤、上下文独立的任务。当工作会让主线程被工具输出塞满时，或者并行委托有帮助时使用。继承主 agent 的工具与权限配置。',
   },
   {
+    id: 'fundamental-analyst',
+    name: '基本面研究员',
+    slug: 'fundamental-analyst',
+    category: 'research',
+    installed: false,
+    description:
+      '拆解公司财务三表与商业模式，构建估值模型与同业对比，输出基本面评分与关键假设清单，供 Fundamental Analyst 复核引用。',
+  },
+  {
+    id: 'industry-analyst',
+    name: '行业研究员',
+    slug: 'industry-analyst',
+    category: 'research',
+    installed: false,
+    description:
+      '梳理产业链上下游格局与景气度周期，跟踪行业政策与竞争格局变化，输出行业配置建议与标的风险提示。',
+  },
+  {
+    id: 'macro-analyst',
+    name: '宏观策略研究员',
+    slug: 'macro-analyst',
+    category: 'research',
+    installed: false,
+    description:
+      '跟踪宏观经济指标、货币政策与重要会议日历，评估宏观事件对大类资产的传导路径，输出大类资产配置观点。',
+  },
+  {
     id: 'report-parser',
     name: '财报解析器',
     slug: 'report-parser',
-    category: 'finance',
+    category: 'data',
     installed: true,
     description:
-      '拉取并解析上市公司财报 PDF，抽取营收、利润、现金流等关键科目，输出结构化数据供基本面分析师使用。',
-  },
-  {
-    id: 'backtest-runner',
-    name: '回测执行器',
-    slug: 'backtest-runner',
-    category: 'finance',
-    installed: true,
-    description:
-      '接收策略参数驱动回测引擎跑批，输出收益曲线、最大回撤与逐笔交易明细，支撑问策的回测报告。',
+      '拉取并解析上市公司定期报告与公告 PDF，抽取营收、利润、现金流等关键科目，输出结构化财务指标时序表供基本面分析使用。',
   },
   {
     id: 'market-data',
     name: '行情采集器',
     slug: 'market-data',
-    category: 'finance',
+    category: 'data',
     installed: false,
     description:
-      '多源实时行情与历史 K 线采集，统一时间对齐与复权处理，为技术分析与量化计算提供数据底座。',
+      '多源实时行情与历史 K 线采集，统一时间对齐与复权处理，落库并做日级增量校验，为技术分析与量化计算提供数据底座。',
   },
   {
-    id: 'sentiment-crawler',
-    name: '舆情抓取器',
-    slug: 'sentiment-crawler',
-    category: 'finance',
-    installed: false,
+    id: 'backtest-runner',
+    name: '回测执行器',
+    slug: 'backtest-runner',
+    category: 'quant',
+    installed: true,
     description:
-      '社交媒体与新闻舆情抓取、打分与事件聚类去重，为情绪分析师提供持续的舆情输入流。',
+      '接收策略参数驱动回测引擎跑批，输出收益曲线、最大回撤、年化与夏普等绩效指标及逐笔交易明细，支撑问策的回测报告。',
   },
   {
-    id: 'risk-monitor',
-    name: '风险监控器',
-    slug: 'risk-monitor',
-    category: 'finance',
+    id: 'factor-miner',
+    name: '因子挖掘器',
+    slug: 'factor-miner',
+    category: 'quant',
     installed: false,
     description:
-      '持续跟踪持仓波动率、回撤与相关性变化，触发阈值时向风险管理团队推送告警与建议动作。',
+      '批量构建候选 Alpha 因子并做标准化预处理，输出 IC 序列、分层收益与衰减曲线报告，供见微做统计显著性复核。',
   },
   {
-    id: 'paper-search',
-    name: '文献检索器',
-    slug: 'paper-search',
-    category: 'academic',
+    id: 'strategy-translator',
+    name: '策略转换器',
+    slug: 'strategy-translator',
+    category: 'quant',
     installed: false,
     description:
-      '按关键词与语义检索学术数据库，批量获取摘要与全文链接，辅助溯薇完成文献溯源与监测。',
+      '把研究 notebook 中的策略逻辑转换为统一信号接口的生产代码，对齐 Quant Developer 的工程规范并生成回测对照。',
   },
   {
-    id: 'citation-checker',
-    name: '引文校验器',
-    slug: 'citation-checker',
-    category: 'academic',
+    id: 'news-sentiment',
+    name: '新闻情绪分析师',
+    slug: 'news-sentiment',
+    category: 'news',
     installed: false,
     description:
-      '校验引文格式与引用真实性，检测文献间的引用关系图谱，输出规范化引文列表。',
+      '实时摘要财经新闻并打情绪分，聚类关联事件与标的，输出事件影响评级，为 Sentiment Analyst 提供持续的输入流。',
   },
   {
-    id: 'stats-advisor',
-    name: '统计顾问',
-    slug: 'stats-advisor',
-    category: 'academic',
+    id: 'announcement-monitor',
+    name: '公告监控器',
+    slug: 'announcement-monitor',
+    category: 'news',
     installed: false,
     description:
-      '根据数据形态推荐统计方法与检验方案，复核建模假设前提，为见微提供方法选型依据。',
+      '监控交易所公告与公司公告的关键词规则，分钟级识别重大事项（减持、业绩预告、问询函）并推送告警卡片。',
   },
   {
-    id: 'code-reviewer',
-    name: '代码评审员',
-    slug: 'code-reviewer',
-    category: 'engineering',
+    id: 'risk-sentinel',
+    name: '风险哨兵',
+    slug: 'risk-sentinel',
+    category: 'risk',
     installed: false,
     description:
-      '对策略代码与工具实现进行静态评审，标记潜在缺陷、边界条件与性能隐患，输出修改建议。',
+      '持续跟踪组合波动率、回撤与持仓相关性变化，触发阈值时向风险管理团队与 Risk Manager 推送告警和建议动作。',
   },
   {
-    id: 'test-runner',
-    name: '测试执行器',
-    slug: 'test-runner',
-    category: 'engineering',
+    id: 'exposure-analyzer',
+    name: '暴露分析器',
+    slug: 'exposure-analyzer',
+    category: 'risk',
     installed: false,
     description:
-      '运行单元测试与集成测试套件，汇总失败用例与堆栈信息，回归结果自动比对历史基线。',
-  },
-  {
-    id: 'docs-writer',
-    name: '文档生成器',
-    slug: 'docs-writer',
-    category: 'engineering',
-    installed: false,
-    description:
-      '根据代码变更与使用示例生成、更新接口文档与使用指南，保持文档与实现同步。',
-  },
-  {
-    id: 'sql-optimizer',
-    name: 'SQL 优化器',
-    slug: 'sql-optimizer',
-    category: 'engineering',
-    installed: false,
-    description:
-      '分析慢查询执行计划，推荐索引与改写方案，验证优化前后性能差异并生成报告。',
+      '分解组合的行业、风格与因子暴露，识别集中度与隐性杠杆风险，输出压力情景下的损失估算供风控复盘。',
   },
 ]
