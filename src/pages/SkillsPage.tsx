@@ -2,30 +2,25 @@ import { useState } from 'react'
 import SkillCard from '../components/SkillCard'
 import { skills } from '../data/skills'
 import { myAssistants } from '../data/assistants'
-
 /** 技能来源页签（对应 Skill.category） */
 type SkillFilter = 'builtin' | 'pack'
-
 /** 技能页签配置：内置 / 技能包（无计数） */
 const skillTabs: { key: SkillFilter; label: string; icon: string }[] = [
   { key: 'builtin', label: '技能', icon: 'fa-solid fa-table-cells' },
   { key: 'pack', label: '技能包', icon: 'fa-solid fa-box' },
 ]
-
 /** 「技能」菜单页：助理选择条 + 来源页签 + 技能卡片网格（样式对照设计稿） */
 export default function SkillsPage() {
   // 选择条只显示「运行中」的助理，默认选中第一个运行中的
   const runningAssistants = myAssistants.filter((a) => a.running)
   const [selectedAssistantId, setSelectedAssistantId] = useState(runningAssistants[0]?.id ?? '')
   const [activeFilter, setActiveFilter] = useState<SkillFilter>('builtin')
-
   const visibleSkills = skills.filter((s) => s.category === activeFilter)
-
   return (
     <div>
       {/* 助理选择条：当前配置技能的目标助理（仅运行中） */}
       <div className="flex flex-wrap items-center gap-2 rounded-xl border bg-card px-5 py-4">
-        <span className="mr-2 text-sm text-muted-foreground">助理</span>
+        
         {runningAssistants.map((assistant) => {
           const selected = assistant.id === selectedAssistantId
           return (
@@ -52,7 +47,6 @@ export default function SkillsPage() {
           )
         })}
       </div>
-
       {/* 来源筛选行 */}
       <div className="mt-6 flex items-center gap-8 border-b">
         {skillTabs.map((tab) => {
@@ -73,7 +67,6 @@ export default function SkillsPage() {
             </button>
           )
         })}
-
         {/* 右侧操作：导入技能 / 创建技能 */}
         <div className="ml-auto flex items-center gap-2 pb-2">
           <button
@@ -92,7 +85,6 @@ export default function SkillsPage() {
           </button>
         </div>
       </div>
-
       {/* 技能卡片网格 */}
       <div className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
         {visibleSkills.map((skill) => (
