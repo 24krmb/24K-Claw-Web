@@ -35,8 +35,89 @@ export const myAssistants: Assistant[] = [
     assistantId: 'F9L3X5',
     name: '溯薇',
     avatar: '/images/avatars/13.png',
-    running: true,
+    running: false,
     description:
       '溯流而上，采薇而得。学术论文检索的溯源者。批量 PDF 下载与元数据提取，高级检索自动化，引文规范管理与文献智能监测。',
+  },
+  {
+    id: 'qa-agent',
+    assistantId: 'K7M2P4',
+    name: 'QA Agent',
+    avatar: '/images/avatars/1.png',
+    running: true,
+    description:
+      '内置的 QA Agent。帮助用户理解、配置与日常使用，帮助用户定位问题，寻找答案，给出解决方法。',
+  },
+  {
+    id: 'Goal',
+    assistantId: 'B3R8Y6',
+    name: 'Goal',
+    avatar: '/images/avatars/8.png',
+    running: true,
+    description:
+      '在汇总分析师团队与研究团队意见后，结合量化数据与情感信息等多维输入，做出具体买卖决策',
+  },
+  {
+    id: 'Fundamental Analyst',
+    assistantId: 'C5T9V2',
+    name: 'Fundamental Analyst',
+    avatar: '/images/avatars/2.png',
+    running: true,
+    description:
+      '通过分析财报、收益报告、内部交易等数据来评估公司内在价值，判断是否被低估或高估，为投资提供参考。',
+  },
+  {
+    id: 'Sentiment Analyst',
+    assistantId: 'D8W4Z7',
+    name: 'Sentiment Analyst',
+    avatar: '/images/avatars/3.png',
+    running: true,
+    description:
+      '关注社交媒体、舆情打分以及公司内部情绪等公众信息，预测短期投资者行为可能对股价带来的影响。',
+  },
+  {
+    id: 'News Analyst',
+    assistantId: 'E2X6Q9',
+    name: 'News Analyst',
+    avatar: '/images/avatars/4.png',
+    running: true,
+    description:
+      '追踪宏观经济指标、重大新闻及公司事件，识别对市场有潜在影响的突发消息或政策变化，为把握行情拐点提供依据。',
+  },
+  {
+    id: 'Technical Analyst',
+    assistantId: 'F5Y7R3',
+    name: 'Technical Analyst',
+    avatar: '/images/avatars/5.png',
+    running: true,
+    description:
+      '计算MACD、RSI等技术指标，分析价量关系和价格形态，用于判断买卖时机和趋势走势。',
+  },
+  {
+    id: 'ai-coding-mentor',
+    assistantId: 'G9Z3S8',
+    name: 'AI 编程实战导师',
+    avatar: '/images/avatars/6.png',
+    running: true,
+    description:
+      '源自 ai-coding-guide 的 66 个 Claude Code 技巧与 9+ 款工具最佳实践，教你如何用出生产力：上下文管理、任务分解、提示词工程与代码评审流程。',
+  },
+  {
+    id: 'Bullish Researchers',
+    assistantId: 'H4A6T2',
+    name: 'Bullish Researchers',
+    avatar: '/images/avatars/9.png',
+    running: true,
+    description:
+      '多头研究员，强调积极面与增长空间，为看多策略提供支撑性论据。',
+  },
+  {
+    id: 'Bearish Researchers',
+    assistantId: 'J6B8U5',
+    name: 'Bearish Researchers',
+    avatar: '/images/avatars/10.png',
+    running: true,
+    description:
+      '空头研究员。着重揭示潜在风险与消极信号，为避免盲目入场提供“对立”观点。',
   },
 ]
