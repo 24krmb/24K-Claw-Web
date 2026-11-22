@@ -5,10 +5,9 @@ import type { TopTab } from '../types'
  * key 同时用作路由参数：/agents/:tabKey
  */
 export const topTabs: TopTab[] = [
-  { key: 'built-in', label: '内置', icon: 'fa-solid fa-book-open' },
   { key: 'mine', label: '助理', icon: 'fa-solid fa-graduation-cap' },
   { key: 'team', label: '团队', icon: 'fa-solid fa-users' },
 ]
 
 /** 默认选中的标签页 */
-export const defaultTabKey = 'built-in'
+export const defaultTabKey = 'mine'

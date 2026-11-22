@@ -7,7 +7,7 @@ import type { MenuItem } from '../types'
 export const menuItems: MenuItem[] = [
   { key: 'chat', label: '对话', icon: 'fa-solid fa-comments' },
   { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock' },
-  { key: 'agents', label: '主 Agent', icon: 'fa-solid fa-robot', route: '/agents/built-in' },
+  { key: 'agents', label: '主 Agent', icon: 'fa-solid fa-robot', route: '/agents/mine' },
   { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-diagram-project' },
   {
     key: 'ability',

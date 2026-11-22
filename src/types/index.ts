@@ -24,18 +24,6 @@ export interface TopTab {
   badge?: string
 }
 
-/** Agent 模板卡片 */
-export interface AgentTemplate {
-  /** 唯一标识 */
-  id: string
-  /** 模板名称 */
-  name: string
-  /** 模板描述 */
-  description: string
-  /** 头像图片路径（public/images/avatars/ 下的静态资源，如 /images/avatars/1.png） */
-  avatar: string
-}
-
 /** 「我的助理」列表项 */
 export interface Assistant {
   /** 唯一标识 */

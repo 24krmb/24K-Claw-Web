@@ -2,10 +2,8 @@ import { useEffect } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import TopTabs from '../components/TopTabs'
-import AgentGrid from '../components/AgentGrid'
 import MyAssistantsPage from './MyAssistantsPage'
 import PlaceholderPage from './PlaceholderPage'
-import { agentTemplates } from '../data/agents'
 import { topTabs, defaultTabKey } from '../data/tabs'
 import { findMenuItem } from '../data/menu'
 import { useAppStore } from '../store/useAppStore'
@@ -16,7 +14,7 @@ const AGENT_MENU_KEY = 'agents'
 /**
  * 工作区页面：左侧边栏 + 顶部标签页 + 内容区
  * 两种路由模式：
- * - 标签页路由 /agents/:tabKey（「内置助理」的 Agent 管理页，顶部显示标签页）
+ * - 标签页路由 /agents/:tabKey（「助理中心」的标签页管理，顶部显示标签页）
  * - 菜单路由   /m/:menuKey（其余侧边栏菜单页，顶部显示页面标题）
  */
 export default function WorkspacePage() {
@@ -79,9 +77,7 @@ export default function WorkspacePage() {
 
         <main className="flex-1 p-6">
           {isTabRoute ? (
-            activeTab === 'built-in' ? (
-              <AgentGrid agents={agentTemplates} />
-            ) : activeTab === 'mine' ? (
+            activeTab === 'mine' ? (
               <MyAssistantsPage />
             ) : (
               <PlaceholderPage title={activeTabMeta.label} />
