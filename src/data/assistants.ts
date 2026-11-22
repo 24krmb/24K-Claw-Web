@@ -50,6 +50,20 @@ export const myAssistants: Assistant[] = [
     description:'空头研究员。着重揭示潜在风险与消极信号，为避免盲目入场提供“对立”观点。',
   },
   {
+    id: 'risk-manager',
+    name: 'Risk Manager',
+    avatar: '/images/avatars/7.png',
+    running: true,
+    description:'按风控规则执行对冲、减仓、止损指令与情景压力测试，守住组合的风险底线。',
+  },
+  {
+    id: 'quant-developer',
+    name: 'Quant Developer',
+    avatar: '/images/avatars/8.png',
+    running: true,
+    description:'量化开发工程师，负责策略代码实现、因子计算与行情数据管道，把研究想法落地为可回测、可上线的量化系统。',
+  },
+  {
     id: 'wen-ce',
     name: '问策',
     avatar: '/images/avatars/4.png',
