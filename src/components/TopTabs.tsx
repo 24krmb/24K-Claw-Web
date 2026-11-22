@@ -85,7 +85,7 @@ export default function TopTabs({ activeTab, title, onChange }: TopTabsProps) {
         </nav>
       ) : (
         title && (
-          <h1 className="ml-1 text-[15px] font-semibold text-foreground">{title}</h1>
+          <h1 className="ml-6 text-[15px] font-semibold text-foreground">{title}</h1>
         )
       )}
 
