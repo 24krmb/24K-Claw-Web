@@ -14,7 +14,7 @@ export const menuItems: MenuItem[] = [
     label: '能力',
     icon: 'fa-solid fa-bolt',
     children: [
-      { key: 'skills', label: '技能', icon: 'fa-solid fa-wand-magic-sparkles' },
+      { key: 'skills', label: '技能', icon: 'fa-solid fa-wand-magic-sparkles', pageTitle: '配置智能体' },
       { key: 'plugins', label: '插件', icon: 'fa-solid fa-plug' },
       { key: 'memory', label: '记忆', icon: 'fa-solid fa-brain' },
       { key: 'mcp', label: 'MCP', icon: 'fa-solid fa-server' },

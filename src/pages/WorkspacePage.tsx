@@ -5,6 +5,7 @@ import TopTabs from '../components/TopTabs'
 import MyAssistantsPage from './MyAssistantsPage'
 import TeamPage from './TeamPage'
 import SubagentsPage from './SubagentsPage'
+import SkillsPage from './SkillsPage'
 import PlaceholderPage from './PlaceholderPage'
 import { topTabs, defaultTabKey } from '../data/tabs'
 import { menuItems, findMenuItem } from '../data/menu'
@@ -98,6 +99,8 @@ export default function WorkspacePage() {
             )
           ) : menuKey === 'subagents' ? (
             <SubagentsPage />
+          ) : menuKey === 'skills' ? (
+            <SkillsPage />
           ) : (
             <PlaceholderPage title={activeMenu!.label} />
           )}

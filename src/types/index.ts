@@ -71,3 +71,21 @@ export interface Subagent {
   /** 描述 */
   description: string
 }
+
+/** 「技能」列表项 */
+export interface Skill {
+  /** 唯一标识 */
+  id: string
+  /** 显示名称 */
+  name: string
+  /** Font Awesome 图标类名（卡片左上角彩色图标块） */
+  icon: string
+  /** 图标块色调 */
+  tone: 'violet' | 'sky' | 'emerald' | 'rose' | 'amber' | 'slate'
+  /** 来源分类（对应技能页页签：已安装 / 内置 / 市场 / 技能包） */
+  category: 'installed' | 'builtin' | 'market' | 'pack'
+  /** 是否已启用 */
+  enabled: boolean
+  /** 描述 */
+  description: string
+}
