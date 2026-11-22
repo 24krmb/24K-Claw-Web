@@ -73,6 +73,24 @@ export default function SkillsPage() {
             </button>
           )
         })}
+
+        {/* 右侧操作：导入技能 / 创建技能 */}
+        <div className="ml-auto flex items-center gap-2 pb-2">
+          <button
+            type="button"
+            className="flex cursor-pointer items-center gap-2 rounded-lg border bg-transparent px-4 py-1.5 text-sm text-foreground outline-none transition-colors duration-150 hover:bg-accent"
+          >
+            <i className="fa-solid fa-file-import text-sm text-muted-foreground" />
+            导入技能
+          </button>
+          <button
+            type="button"
+            className="flex cursor-pointer items-center gap-2 rounded-lg border bg-transparent px-4 py-1.5 text-sm text-foreground outline-none transition-colors duration-150 hover:bg-accent"
+          >
+            <i className="fa-solid fa-plus text-sm text-muted-foreground" />
+            创建技能
+          </button>
+        </div>
       </div>
 
       {/* 技能卡片网格 */}
