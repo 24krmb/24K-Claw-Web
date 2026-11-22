@@ -4,13 +4,12 @@ import { subagents } from '../data/subagents'
 import { myAssistants } from '../data/assistants'
 
 /** 分类筛选（installed / all 为虚拟页签，其余对应 Subagent.category 的金融市场子分类） */
-type CategoryFilter = 'installed' | 'all' | 'research' | 'data' | 'quant' | 'news' | 'risk'
+type CategoryFilter = 'installed' | 'all' | 'data' | 'quant' | 'news' | 'risk'
 
-/** 分类筛选页签配置：已安装 / 全部分类 + 金融市场子分类（研究 / 数据 / 量化 / 资讯 / 风控） */
+/** 分类筛选页签配置：已安装 / 全部分类 + 金融市场子分类（数据 / 量化 / 资讯 / 风控） */
 const categoryTabs: { key: CategoryFilter; label: string; icon: string; showCount?: boolean }[] = [
   { key: 'all', label: '全部分类', icon: 'fa-solid fa-table-cells' },
   { key: 'installed', label: '已安装', icon: 'fa-regular fa-circle-check' },
-  { key: 'research', label: '研究', icon: 'fa-solid fa-magnifying-glass-chart', showCount: true },
   { key: 'data', label: '数据', icon: 'fa-solid fa-database', showCount: true },
   { key: 'quant', label: '量化', icon: 'fa-solid fa-square-root-variable', showCount: true },
   { key: 'news', label: '资讯', icon: 'fa-solid fa-newspaper', showCount: true },

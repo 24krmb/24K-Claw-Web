@@ -15,33 +15,6 @@ export const subagents: Subagent[] = [
       '通用子 agent，用于复杂、多步骤、上下文独立的任务。当工作会让主线程被工具输出塞满时，或者并行委托有帮助时使用。继承主 agent 的工具与权限配置。',
   },
   {
-    id: 'fundamental-analyst',
-    name: '基本面研究员',
-    slug: 'fundamental-analyst',
-    category: 'research',
-    installed: false,
-    description:
-      '拆解公司财务三表与商业模式，构建估值模型与同业对比，输出基本面评分与关键假设清单，供 Fundamental Analyst 复核引用。',
-  },
-  {
-    id: 'industry-analyst',
-    name: '行业研究员',
-    slug: 'industry-analyst',
-    category: 'research',
-    installed: false,
-    description:
-      '梳理产业链上下游格局与景气度周期，跟踪行业政策与竞争格局变化，输出行业配置建议与标的风险提示。',
-  },
-  {
-    id: 'macro-analyst',
-    name: '宏观策略研究员',
-    slug: 'macro-analyst',
-    category: 'research',
-    installed: false,
-    description:
-      '跟踪宏观经济指标、货币政策与重要会议日历，评估宏观事件对大类资产的传导路径，输出大类资产配置观点。',
-  },
-  {
     id: 'report-parser',
     name: '财报解析器',
     slug: 'report-parser',

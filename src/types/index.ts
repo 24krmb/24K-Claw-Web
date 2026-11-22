@@ -65,7 +65,7 @@ export interface Subagent {
   /** 标识符（卡片底部等宽字体展示，如 general-purpose） */
   slug: string
   /** 分类（general 不出现在分类筛选页签中，其余为金融市场子分类） */
-  category: 'general' | 'research' | 'data' | 'quant' | 'news' | 'risk'
+  category: 'general' | 'data' | 'quant' | 'news' | 'risk'
   /** 是否已安装 */
   installed: boolean
   /** 描述 */

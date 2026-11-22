@@ -11,7 +11,7 @@ export const myAssistants: Assistant[] = [
     running: true,
     description:'在汇总分析师团队与研究团队意见后，结合量化数据与情感信息等多维输入，做出具体买卖决策',
   },
-  
+
   {
     id: 'Fundamental Analyst',
     name: 'Fundamental Analyst',
@@ -33,6 +33,20 @@ export const myAssistants: Assistant[] = [
     avatar: '/images/avatars/5.png',
     running: true,
     description:'计算MACD、RSI等技术指标，分析价量关系和价格形态，用于判断买卖时机和趋势走势。',
+  },
+  {
+    id: 'industry-analyst',
+    name: 'Industry Analyst',
+    avatar: '/images/avatars/17.png',
+    running: true,
+    description:'梳理产业链上下游格局与景气度周期，跟踪行业政策与竞争格局变化，输出行业配置建议与标的风险提示。',
+  },
+  {
+    id: 'macro-analyst',
+    name: 'Macro Analyst',
+    avatar: '/images/avatars/19.png',
+    running: true,
+    description:'跟踪宏观经济指标、货币政策与重要会议，评估宏观事件对大类资产的传导路径，输出资产配置观点。',
   },
   
   {
@@ -63,6 +77,7 @@ export const myAssistants: Assistant[] = [
     running: true,
     description:'量化开发工程师，负责策略代码实现、因子计算与行情数据管道，把研究想法落地为可回测、可上线的量化系统。',
   },
+  
   {
     id: 'wen-ce',
     name: '问策',
