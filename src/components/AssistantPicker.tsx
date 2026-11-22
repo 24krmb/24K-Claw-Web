@@ -12,7 +12,7 @@ export default function AssistantPicker({ onChange }: AssistantPickerProps) {
   const [selectedId, setSelectedId] = useState(runningAssistants[0]?.id ?? '')
 
   return (
-    <div className="flex flex-wrap items-center gap-2" role="group" aria-label="选择助理">
+    <div className="flex flex-wrap items-center gap-4" role="group" aria-label="选择助理">
       {runningAssistants.map((assistant) => {
         const selected = assistant.id === selectedId
         return (
