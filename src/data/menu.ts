@@ -8,7 +8,7 @@ export const menuItems: MenuItem[] = [
   { key: 'chat', label: '对话', icon: 'fa-solid fa-comments' },
   { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock' },
   { key: 'agents', label: '主 Agent', icon: 'fa-solid fa-robot', route: '/agents/mine' },
-  { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-diagram-project' },
+  { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-diagram-project', pageTitle: '配置智能体' },
   {
     key: 'ability',
     label: '能力',
@@ -65,7 +65,26 @@ export function findMenuItem(key: string): MenuItem | undefined {
   return findInList(menuItems, key)
 }
 
-/** 菜单点击后的跳转路由：配置了 route 用 route，否则 /m/:key */
+/** 沿菜单树查找 key 的层级路径（如 skills → ['ability', 'skills']） */
+function findPathInList(list: MenuItem[], key: string, parents: string[] = []): string[] | undefined {
+  for (const item of list) {
+    if (item.key === key) return [...parents, item.key]
+    if (item.children) {
+      const found = findPathInList(item.children, key, [...parents, item.key])
+      if (found) return found
+    }
+  }
+  return undefined
+}
+
+/**
+ * 菜单点击后的跳转路由：
+ * 显式配置了 route 用 route（如「主 Agent」→ /agents/mine）；
+ * 否则按菜单层级生成路径——一级项 /subagents、二级项 /ability/skills（结构见 Develop/Navigation Directory.md）
+ */
 export function getMenuRoute(key: string): string {
-  return findMenuItem(key)?.route ?? `/m/${key}`
+  const item = findMenuItem(key)
+  if (item?.route) return item.route
+  const path = findPathInList(menuItems, key)
+  return path ? `/${path.join('/')}` : '/agents/mine'
 }

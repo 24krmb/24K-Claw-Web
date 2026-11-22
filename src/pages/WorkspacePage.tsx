@@ -4,9 +4,10 @@ import Sidebar from '../components/Sidebar'
 import TopTabs from '../components/TopTabs'
 import MyAssistantsPage from './MyAssistantsPage'
 import TeamPage from './TeamPage'
+import SubagentsPage from './SubagentsPage'
 import PlaceholderPage from './PlaceholderPage'
 import { topTabs, defaultTabKey } from '../data/tabs'
-import { findMenuItem } from '../data/menu'
+import { menuItems, findMenuItem } from '../data/menu'
 import { useAppStore } from '../store/useAppStore'
 
 /** 「主 Agent」菜单对应的 Agent 标签页 */
@@ -16,10 +17,14 @@ const AGENT_MENU_KEY = 'agents'
  * 工作区页面：左侧边栏 + 顶部标签页 + 内容区
  * 两种路由模式：
  * - 标签页路由 /agents/:tabKey（「助理中心」的标签页管理，顶部显示标签页）
- * - 菜单路由   /m/:menuKey（其余侧边栏菜单页，顶部显示页面标题）
+ * - 菜单路由   /:menuKey 或 /:groupKey/:menuKey（其余侧边栏菜单页，按菜单层级生成路径）
  */
 export default function WorkspacePage() {
-  const { tabKey, menuKey } = useParams<{ tabKey: string; menuKey: string }>()
+  const { tabKey, menuKey, groupKey } = useParams<{
+    tabKey: string
+    menuKey: string
+    groupKey: string
+  }>()
   const navigate = useNavigate()
   const mobileSidebarOpen = useAppStore((s) => s.mobileSidebarOpen)
   const setMobileSidebarOpen = useAppStore((s) => s.setMobileSidebarOpen)
@@ -27,7 +32,13 @@ export default function WorkspacePage() {
 
   const isTabRoute = tabKey !== undefined
   const tabValid = isTabRoute && topTabs.some((t) => t.key === tabKey)
-  const menuValid = !isTabRoute && menuKey !== undefined && !!findMenuItem(menuKey)
+  // 菜单路由校验：一级项必须存在顶层菜单；二级项必须是对应分组下的子项
+  const menuValid =
+    !isTabRoute &&
+    menuKey !== undefined &&
+    (groupKey !== undefined
+      ? !!findMenuItem(groupKey)?.children?.some((c) => c.key === menuKey)
+      : menuItems.some((i) => i.key === menuKey))
   const activeTab = tabValid ? tabKey! : defaultTabKey
   const activeTabMeta = topTabs.find((t) => t.key === activeTab)!
   const activeMenu = menuValid ? findMenuItem(menuKey!) : undefined
@@ -73,7 +84,7 @@ export default function WorkspacePage() {
         {isTabRoute ? (
           <TopTabs activeTab={activeTab} onChange={handleTabChange} />
         ) : (
-          <TopTabs title={activeMenu!.label} />
+          <TopTabs title={activeMenu!.pageTitle ?? activeMenu!.label} />
         )}
 
         <main className="flex-1 p-6">
@@ -85,6 +96,8 @@ export default function WorkspacePage() {
             ) : (
               <PlaceholderPage title={activeTabMeta.label} />
             )
+          ) : menuKey === 'subagents' ? (
+            <SubagentsPage />
           ) : (
             <PlaceholderPage title={activeMenu!.label} />
           )}
