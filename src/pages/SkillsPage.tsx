@@ -78,7 +78,7 @@ export default function SkillsPage() {
       </div>
 
       {/* 技能卡片网格 */}
-      <div className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(380px,1fr))] gap-6">
+      <div className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
         {visibleSkills.map((skill) => (
           <SkillCard key={skill.id} skill={skill} />
         ))}
