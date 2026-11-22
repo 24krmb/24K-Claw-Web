@@ -8,7 +8,7 @@ type SkillFilter = 'builtin' | 'pack'
 
 /** 技能页签配置：内置 / 技能包（无计数） */
 const skillTabs: { key: SkillFilter; label: string; icon: string }[] = [
-  { key: 'builtin', label: '内置技能', icon: 'fa-solid fa-table-cells' },
+  { key: 'builtin', label: '技能', icon: 'fa-solid fa-table-cells' },
   { key: 'pack', label: '技能包', icon: 'fa-solid fa-box' },
 ]
 

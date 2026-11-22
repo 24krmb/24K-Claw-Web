@@ -8,13 +8,13 @@ export const menuItems: MenuItem[] = [
   { key: 'chat', label: '对话', icon: 'fa-solid fa-comments' },
   { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock' },
   { key: 'agents', label: '主 Agent', icon: 'fa-solid fa-robot', route: '/agents/mine' },
-  { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-diagram-project', pageTitle: '为不同的Agent 配置 子Agent' },
+  { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-diagram-project', pageTitle: '为不同的Agent配置子Agent' },
   {
     key: 'ability',
     label: '能力',
     icon: 'fa-solid fa-bolt',
     children: [
-      { key: 'skills', label: '技能', icon: 'fa-solid fa-wand-magic-sparkles', pageTitle: '配置智能体' },
+      { key: 'skills', label: '技能', icon: 'fa-solid fa-wand-magic-sparkles', pageTitle: '为不同的Agent配置不同的技能' },
       { key: 'plugins', label: '插件', icon: 'fa-solid fa-plug' },
       { key: 'memory', label: '记忆', icon: 'fa-solid fa-brain' },
       { key: 'mcp', label: 'MCP', icon: 'fa-solid fa-server' },
