@@ -86,6 +86,8 @@ export interface Skill {
   category: 'installed' | 'builtin' | 'pack'
   /** 是否已启用 */
   enabled: boolean
+  /** 包含的技能数（仅技能包分类使用，徽章显示「N 个技能」） */
+  skillCount?: number
   /** 描述 */
   description: string
 }

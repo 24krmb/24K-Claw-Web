@@ -34,7 +34,9 @@ export default function SkillCard({ skill }: { skill: Skill }) {
           <h3 className="text-sm font-semibold text-foreground">{skill.name}</h3>
           <div className="mt-1.5 flex items-center gap-2">
             <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground">
-              {categoryLabels[skill.category]}
+              {skill.category === 'pack' && skill.skillCount
+                ? `${skill.skillCount} 个技能`
+                : categoryLabels[skill.category]}
             </span>
             {enabled ? (
               <span className="flex items-center gap-1 rounded-md bg-primary/10 px-2 py-0.5 text-xs text-primary">
