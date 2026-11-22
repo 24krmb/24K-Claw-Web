@@ -23,7 +23,7 @@ export const myAssistants: Assistant[] = [
     id: 'News Analyst',
     name: 'News Analyst',
     avatar: '/images/avatars/4.png',
-    running: true,
+    running: false,
     description:
       '追踪宏观经济指标、重大新闻及公司事件，识别对市场有潜在影响的突发消息或政策变化。',
   },
@@ -74,14 +74,14 @@ export const myAssistants: Assistant[] = [
     id: 'karpathy-wiki-expert',
     name: '卡帕西',
     avatar: '/images/avatars/3.png',
-    running: true,
+    running: false,
     description:'基于 Karpathy LLM Wiki 思路维护知识库，并让知识随每次摄取与研究不断积累。',
   },
   {
     id: 'ai-coding-mentor',
     name: 'AI 编程实战导师',
     avatar: '/images/avatars/6.png',
-    running: true,
+    running: false,
     description:'源自 ai-coding-guide 的 66 个 Claude Code 技巧与 9+ 款工具最佳实践，教你如何用出生产力：上下文管理、任务分解、提示词工程与代码评审流程。',
   },
   {
