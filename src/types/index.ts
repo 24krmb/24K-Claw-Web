@@ -72,6 +72,22 @@ export interface Subagent {
   description: string
 }
 
+/** 图标块色调（MCP / 命令等卡片共用） */
+export type IconTone =
+  | 'blue'
+  | 'indigo'
+  | 'sky'
+  | 'cyan'
+  | 'teal'
+  | 'emerald'
+  | 'lime'
+  | 'amber'
+  | 'orange'
+  | 'red'
+  | 'rose'
+  | 'violet'
+  | 'slate'
+
 /** 「MCP」列表项 */
 export interface McpServer {
   /** 唯一标识 */
@@ -81,20 +97,23 @@ export interface McpServer {
   /** Font Awesome 图标类名（卡片左侧品牌色图标块） */
   icon: string
   /** 图标块色调 */
-  tone:
-    | 'blue'
-    | 'indigo'
-    | 'sky'
-    | 'cyan'
-    | 'teal'
-    | 'emerald'
-    | 'lime'
-    | 'amber'
-    | 'orange'
-    | 'red'
-    | 'rose'
-    | 'violet'
-    | 'slate'
+  tone: IconTone
+  /** 是否已添加 */
+  installed: boolean
+  /** 描述（卡片内单行截断展示） */
+  description: string
+}
+
+/** 「命令」列表项 */
+export interface Command {
+  /** 唯一标识 */
+  id: string
+  /** 命令名（如 /site-deploy） */
+  name: string
+  /** Font Awesome 图标类名（卡片左侧色块图标） */
+  icon: string
+  /** 图标块色调 */
+  tone: IconTone
   /** 是否已添加 */
   installed: boolean
   /** 描述（卡片内单行截断展示） */

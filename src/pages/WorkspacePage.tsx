@@ -7,6 +7,7 @@ import TeamPage from './TeamPage'
 import SubagentsPage from './SubagentsPage'
 import SkillsPage from './SkillsPage'
 import McpPage from './McpPage'
+import CommandsPage from './CommandsPage'
 import PlaceholderPage from './PlaceholderPage'
 import { topTabs, defaultTabKey } from '../data/tabs'
 import { menuItems, findMenuItem } from '../data/menu'
@@ -104,6 +105,8 @@ export default function WorkspacePage() {
             <SkillsPage />
           ) : menuKey === 'mcp' ? (
             <McpPage />
+          ) : menuKey === 'commands' ? (
+            <CommandsPage />
           ) : (
             <PlaceholderPage title={activeMenu!.label} />
           )}

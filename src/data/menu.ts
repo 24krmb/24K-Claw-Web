@@ -17,7 +17,7 @@ export const menuItems: MenuItem[] = [
       { key: 'plugins', label: '插件', icon: 'fa-solid fa-plug' },
       { key: 'memory', label: '记忆', icon: 'fa-solid fa-brain' },
       { key: 'mcp', label: 'MCP', icon: 'fa-solid fa-server', pageTitle: '账户级连接；对话时按需勾选' },
-      { key: 'commands', label: '命令', icon: 'fa-solid fa-terminal' },
+      { key: 'commands', label: '命令', icon: 'fa-solid fa-terminal', pageTitle: 'Command 用来快速调用 24K-Claw 的内置能力'},
       { key: 'hooks', label: '钩子', icon: 'fa-solid fa-anchor' },
       { key: 'tools', label: '工具', icon: 'fa-solid fa-screwdriver-wrench' },
     ],
