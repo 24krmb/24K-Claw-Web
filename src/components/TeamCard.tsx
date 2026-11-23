@@ -28,7 +28,7 @@ export default function TeamCard({ team }: { team: Team }) {
             className="size-11 shrink-0 rounded-full object-cover"
           />
           <div className="flex min-w-0 flex-1 items-center gap-2 pt-2.5">
-            <h3 className="text-sm font-semibold text-foreground">{team.name}</h3>
+            <h3 className="text-sm font-medium text-foreground">{team.name}</h3>
             <span className="flex w-fit shrink-0 items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
               <i className="fa-solid fa-user-group text-[10px]" />
               团队
@@ -92,7 +92,7 @@ export default function TeamCard({ team }: { team: Team }) {
           </div>
           <button
             type="button"
-            className="flex cursor-pointer items-center gap-1.5 rounded-lg border bg-transparent px-4 py-2 text-xs font-semibold outline-none transition-colors duration-150 hover:bg-primary/10"
+            className="flex cursor-pointer items-center gap-1.5 rounded-lg border bg-transparent px-4 py-2 text-xs font-medium outline-none transition-colors duration-150 hover:bg-primary/10"
           >
             <i className="fa-regular fa-comment text-xs" />
             <span>对话</span>

@@ -215,7 +215,7 @@ export const skills: Skill[] = [
     category: 'pack',
     enabled: true,
     skillCount: 6,
-    description: '财报解析、行情采集与回测执行等投研全链路子能力，一键启用整套工作流。',
+    description: '财报解析、行情采集与回测执行等投研全链路子能力。',
   },
   {
     id: 'content-pack',

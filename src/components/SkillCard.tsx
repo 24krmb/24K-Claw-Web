@@ -30,7 +30,7 @@ export default function SkillCard({ skill }: { skill: Skill }) {
           <i className={skill.icon} />
         </div>
         <div className="min-w-0 flex-1">
-          <h3 className="text-sm font-semibold text-foreground">{skill.name}</h3>
+          <h3 className="text-sm font-medium text-foreground">{skill.name}</h3>
           <div className="mt-1.5 flex items-center gap-2">
             <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground">
               {skill.category === 'pack' && skill.skillCount
