@@ -32,7 +32,7 @@ export const menuItems: MenuItem[] = [
   {
     key: 'management',label: '管理',icon: 'fa-solid fa-gear',
     children: [
-      { key: 'models', label: '模型', icon: 'fa-solid fa-cubes' },
+      { key: 'models', label: '模型', icon: 'fa-solid fa-cubes',pageTitle: '配置对话、生成、语音、搜索和决策所用的模型'},
       { key: 'token', label: 'Token 统计', icon: 'fa-solid fa-coins' },
       { key: 'security', label: '安全防护', icon: 'fa-solid fa-shield-halved', pageTitle: '配置工具审批、命令防护、文件访问与敏感信息防护' },
     ],

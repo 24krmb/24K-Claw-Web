@@ -139,3 +139,21 @@ export interface Skill {
   /** 描述 */
   description: string
 }
+
+/** 「模型」列表项 */
+export interface Model {
+  /** 唯一标识 */
+  id: string
+  /** 显示名称 */
+  name: string
+  /** 模型 LOGO 图片路径（public/images/models 下的文件）；配置后忽略 icon/tone */
+  logo?: string
+  /** Font Awesome 图标类名（无 LOGO 时显示的色块图标） */
+  icon?: string
+  /** 图标块色调（无 LOGO 时显示的色块图标） */
+  tone?: IconTone
+  /** 模型分类（对应模型页页签：Chat Models / STT·TTS / Embedding / System One / Search） */
+  category: 'chat' | 'stt-tts' | 'embedding' | 'system' | 'search'
+  /** 是否已启用 */
+  enabled: boolean
+}
