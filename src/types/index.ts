@@ -72,6 +72,35 @@ export interface Subagent {
   description: string
 }
 
+/** 「MCP」列表项 */
+export interface McpServer {
+  /** 唯一标识 */
+  id: string
+  /** 显示名称 */
+  name: string
+  /** Font Awesome 图标类名（卡片左侧品牌色图标块） */
+  icon: string
+  /** 图标块色调 */
+  tone:
+    | 'blue'
+    | 'indigo'
+    | 'sky'
+    | 'cyan'
+    | 'teal'
+    | 'emerald'
+    | 'lime'
+    | 'amber'
+    | 'orange'
+    | 'red'
+    | 'rose'
+    | 'violet'
+    | 'slate'
+  /** 是否已添加 */
+  installed: boolean
+  /** 描述（卡片内单行截断展示） */
+  description: string
+}
+
 /** 「技能」列表项 */
 export interface Skill {
   /** 唯一标识 */

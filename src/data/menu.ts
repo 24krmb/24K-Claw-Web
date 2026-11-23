@@ -2,8 +2,7 @@ import type { MenuItem } from '../types'
 
 /**
  * 左侧边栏菜单数据（数据驱动渲染，结构见 Develop/Navigation Directory.md）
- * 图标为 Font Awesome 6 Free 的 CSS 类名
- */
+ * 图标为 Font Awesome 6 Free 的 CSS 类名*/
 export const menuItems: MenuItem[] = [
   { key: 'chat', label: '对话', icon: 'fa-solid fa-comments' },
   { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock' },
@@ -17,7 +16,7 @@ export const menuItems: MenuItem[] = [
       { key: 'skills', label: '技能', icon: 'fa-solid fa-wand-magic-sparkles', pageTitle: '为不同的Agent配置不同的技能' },
       { key: 'plugins', label: '插件', icon: 'fa-solid fa-plug' },
       { key: 'memory', label: '记忆', icon: 'fa-solid fa-brain' },
-      { key: 'mcp', label: 'MCP', icon: 'fa-solid fa-server' },
+      { key: 'mcp', label: 'MCP', icon: 'fa-solid fa-server', pageTitle: '账户级连接；对话时按需勾选' },
       { key: 'commands', label: '命令', icon: 'fa-solid fa-terminal' },
       { key: 'hooks', label: '钩子', icon: 'fa-solid fa-anchor' },
       { key: 'tools', label: '工具', icon: 'fa-solid fa-screwdriver-wrench' },
@@ -44,13 +43,10 @@ export const menuItems: MenuItem[] = [
     ],
   },
 ]
-
 /** 默认展开的一级菜单分组（默认全部展开） */
 export const defaultExpandedGroups = ['ability', 'control', 'management']
-
 /** 默认选中的菜单项 */
 export const defaultActiveMenuKey = 'agents'
-
 function findInList(list: MenuItem[], key: string): MenuItem | undefined {
   for (const item of list) {
     if (item.key === key) return item
@@ -59,12 +55,10 @@ function findInList(list: MenuItem[], key: string): MenuItem | undefined {
   }
   return undefined
 }
-
 /** 在菜单树中按 key 查找菜单项（含子菜单） */
 export function findMenuItem(key: string): MenuItem | undefined {
   return findInList(menuItems, key)
 }
-
 /** 沿菜单树查找 key 的层级路径（如 skills → ['ability', 'skills']） */
 function findPathInList(list: MenuItem[], key: string, parents: string[] = []): string[] | undefined {
   for (const item of list) {
@@ -76,7 +70,6 @@ function findPathInList(list: MenuItem[], key: string, parents: string[] = []): 
   }
   return undefined
 }
-
 /**
  * 菜单点击后的跳转路由：
  * 显式配置了 route 用 route（如「主 Agent」→ /agents/mine）；
