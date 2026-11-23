@@ -1,9 +1,4 @@
 import type { Subagent } from '../types'
-
-/**
- * 「子 Agent」菜单页的子代理数据（mock）
- * 分类体系：general 通用 / research 研究 / data 数据 / quant 量化 / news 资讯 / risk 风控（金融市场）
- */
 export const subagents: Subagent[] = [
   {
     id: 'general-purpose',
@@ -61,7 +56,7 @@ export const subagents: Subagent[] = [
   },
   {
     id: 'news-sentiment',
-    name: '新闻情绪分析师',
+    name: '新闻情绪分析',
     slug: 'news-sentiment',
     category: 'news',
     installed: false,
