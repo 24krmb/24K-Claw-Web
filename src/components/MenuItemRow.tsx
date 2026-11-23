@@ -39,7 +39,7 @@ export default function MenuItemRow({ item, isChild = false }: MenuItemRowProps)
     'transition-colors duration-150 outline-none',
     isChild ? 'py-2 pl-7 pr-5 text-sm' : hasChildren ? 'py-2.5 pl-5 pr-4 text-xs' : 'py-2.5 pl-5 pr-4 text-[15px]',
     selected
-      ? 'bg-sidebar-accent font-medium text-sidebar-primary'
+      ? 'font-medium text-sidebar-primary'
       : hasChildren
         ? 'bg-transparent text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
         : 'bg-transparent text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
