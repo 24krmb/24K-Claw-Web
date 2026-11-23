@@ -7,7 +7,7 @@ export const teams: Team[] = [
   {
     id: 'quant-team',
     name: '量化团队',
-    avatar: '/images/avatars/16.png',
+    avatar: '/images/avatars/td2.png',
     running: true,
     description:
       '覆盖量化策略研发全链路：策略代码实现与因子计算、回测引擎执行与统计建模验证',
@@ -16,34 +16,35 @@ export const teams: Team[] = [
   {
     id: 'strategy-team',
     name: '策略团队',
-    avatar: '/images/avatars/14.png',
+    avatar: '/images/avatars/td1.png',
     running: false,
     description:
       '汇总研究团队结论与量化数据制定具体买卖决策，并通过回测引擎验证策略可行性',
     members: ['/images/avatars/goal.png', '/images/avatars/4.png'],
   },
   {
-    id: 'research-team',
-    name: '研究团队',
-    avatar: '/images/avatars/11.png',
-    running: true,
-    description:
-      '主要负责对分析师团队提供的数据进行批判性评估，并以多空两个不同视角展开多轮辩论',
-    members: ['/images/avatars/9.png', '/images/avatars/10.png'],
-  },
-  {
     id: 'risk-team',
     name: '风险管理团队',
-    avatar: '/images/avatars/15.png',
-    running: false,
+    avatar: '/images/avatars/td3.png',
+    running: true,
     description:
       '监控组合风险暴露与回撤，执行对冲、减仓、止损指令，并通过情景压力测试验证防御方案',
     members: ['/images/avatars/7.png', '/images/avatars/9.png', '/images/avatars/13.png'],
   },
   {
+    id: 'research-team',
+    name: '研究团队',
+    avatar: '/images/avatars/td4.png',
+    running: false,
+    description:
+      '主要负责对分析师团队提供的数据进行批判性评估，并以多空两个不同视角展开多轮辩论',
+    members: ['/images/avatars/9.png', '/images/avatars/10.png'],
+  },
+
+  {
     id: 'analyst-team',
     name: '分析师团队',
-    avatar: '/images/avatars/12.png',
+    avatar: '/images/avatars/td5.png',
     running: false,
     description:
       '从基本面、情绪、新闻与技术四个维度并行分析标的，为研究团队提供多维输入数据',

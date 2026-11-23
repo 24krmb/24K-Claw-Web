@@ -12,7 +12,7 @@ const actions = [
 
 /**
  * 单张「团队」卡片（布局与 AssistantCard 对齐）：
- * 头像 + 名称 + 「团队」徽章 + 运行状态点 + 启停开关 + 描述 + 成员行 + 操作行 + 「对话」按钮
+ * 头像 + 名称 + 「团队」徽章 + 启停开关 + 描述 + 成员行 + 操作行 + 「对话」按钮
  */
 export default function TeamCard({ team }: { team: Team }) {
   const [running, setRunning] = useState(team.running)
@@ -20,7 +20,7 @@ export default function TeamCard({ team }: { team: Team }) {
   return (
     <article className="flex flex-col rounded-xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md">
       <div className="flex flex-1 flex-col p-6">
-        {/* 头像 + 名称 + 团队徽章 + 状态点 + 启停开关 */}
+        {/* 头像 + 名称 + 团队徽章 + 启停开关 */}
         <div className="flex items-start gap-4">
           <img
             src={team.avatar}
@@ -33,10 +33,6 @@ export default function TeamCard({ team }: { team: Team }) {
               <i className="fa-solid fa-user-group text-[10px]" />
               团队
             </span>
-            <span
-              aria-hidden="true"
-              className={`size-1.5 shrink-0 rounded-full ${running ? 'bg-emerald-500' : 'bg-muted-foreground/60'}`}
-            />
           </div>
           {/* 启停开关 */}
           <button

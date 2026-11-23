@@ -13,8 +13,9 @@ import { topTabs, defaultTabKey } from '../data/tabs'
 import { menuItems, findMenuItem } from '../data/menu'
 import { useAppStore } from '../store/useAppStore'
 
-/** 「主 Agent」菜单对应的 Agent 标签页 */
+/** 「主 Agent」菜单对应的 Agent 标签页；team 标签页对应侧边栏「团队」菜单 */
 const AGENT_MENU_KEY = 'agents'
+const TEAM_MENU_KEY = 'team'
 
 /**
  * 工作区页面：左侧边栏 + 顶部标签页 + 内容区
@@ -48,7 +49,7 @@ export default function WorkspacePage() {
 
   // 路由变化：由路由派生侧边栏选中态，并关闭移动端抽屉
   useEffect(() => {
-    if (isTabRoute) setActiveMenuKey(AGENT_MENU_KEY)
+    if (isTabRoute) setActiveMenuKey(tabKey === 'team' ? TEAM_MENU_KEY : AGENT_MENU_KEY)
     else if (menuValid) setActiveMenuKey(menuKey!)
     setMobileSidebarOpen(false)
   }, [isTabRoute, tabKey, menuKey, menuValid, setActiveMenuKey, setMobileSidebarOpen])

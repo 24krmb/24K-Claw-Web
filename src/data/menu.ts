@@ -8,6 +8,7 @@ export const menuItems: MenuItem[] = [
   { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock' },
   { key: 'agents', label: '主 Agent', icon: 'fa-solid fa-robot', route: '/agents/mine' },
   { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-diagram-project', pageTitle: '为不同的Agent配置子Agent' },
+  { key: 'team', label: '团队', icon: 'fa-solid fa-user-group', route: '/agents/team' },
   {
     key: 'ability',
     label: '能力',
