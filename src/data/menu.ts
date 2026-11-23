@@ -4,11 +4,12 @@ import type { MenuItem } from '../types'
  * 左侧边栏菜单数据（数据驱动渲染，结构见 Develop/Navigation Directory.md）
  * 图标为 Font Awesome 6 Free 的 CSS 类名*/
 export const menuItems: MenuItem[] = [
-  { key: 'chat', label: '对话', icon: 'fa-solid fa-comments' },
-  { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock' },
-  { key: 'agents', label: '主 Agent', icon: 'fa-solid fa-robot', route: '/agents/mine' },
-  { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-diagram-project', pageTitle: '为不同的Agent配置子Agent' },
+  /*{ key: 'chat', label: '对话', icon: 'fa-solid fa-comments' },*/
+  
+  { key: 'agents', label: '主 Agent', icon: 'fa-solid fa-graduation-cap', route: '/agents/mine' },
+  { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-robot', pageTitle: '为不同的Agent配置子Agent' },
   { key: 'team', label: '团队', icon: 'fa-solid fa-user-group', route: '/agents/team' },
+  { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock' },
   {
     key: 'ability',
     label: '能力',
@@ -19,7 +20,6 @@ export const menuItems: MenuItem[] = [
       { key: 'memory', label: '记忆', icon: 'fa-solid fa-brain' },
       { key: 'mcp', label: 'MCP', icon: 'fa-solid fa-server', pageTitle: '账户级连接；对话时按需勾选' },
       { key: 'commands', label: '命令', icon: 'fa-solid fa-terminal', pageTitle: 'Command 用来快速调用 24K-Claw 的内置能力'},
-      { key: 'hooks', label: '钩子', icon: 'fa-solid fa-anchor' },
       { key: 'tools', label: '工具', icon: 'fa-solid fa-screwdriver-wrench' },
     ],
   },
@@ -30,7 +30,6 @@ export const menuItems: MenuItem[] = [
     children: [
       { key: 'im', label: 'IM', icon: 'fa-solid fa-comment-dots' },
       { key: 'acp', label: 'ACP', icon: 'fa-solid fa-right-left' },
-      { key: 'remote', label: '远程控制', icon: 'fa-solid fa-desktop' },
     ],
   },
   {
@@ -40,7 +39,6 @@ export const menuItems: MenuItem[] = [
     children: [
       { key: 'models', label: '模型', icon: 'fa-solid fa-cubes' },
       { key: 'token', label: 'Token 统计', icon: 'fa-solid fa-coins' },
-      { key: 'storage', label: '存储', icon: 'fa-solid fa-database' },
     ],
   },
 ]
