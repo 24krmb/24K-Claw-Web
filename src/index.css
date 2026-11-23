@@ -117,6 +117,24 @@
     font-family:'PingFang SC','Noto Sans SC','Microsoft YaHei',system-ui,-apple-system,sans-serif}
 }
 
+/* ============================================
+   全局隐藏浏览器滚动条（滚动功能不受影响）
+   - Chrome / Safari / Edge：::-webkit-scrollbar 隐藏
+   - Firefox：scrollbar-width: none
+   - 旧版 IE / Edge：-ms-overflow-style: none
+   恢复滚动条：删除本段即可，下方 thumb/track 样式会重新生效
+   ============================================ */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* 滚动条美化（当前被上方全局隐藏覆盖，删除隐藏段后自动生效） */
 .hide-scrollbar {-ms-overflow-style: none;scrollbar-width: none}
 .hide-scrollbar::-webkit-scrollbar {display: none}
 ::-webkit-scrollbar-thumb {
