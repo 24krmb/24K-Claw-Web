@@ -10,10 +10,9 @@ export const menuItems: MenuItem[] = [
   { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-robot', pageTitle: '为不同的Agent配置子Agent' },
   { key: 'team', label: '团队', icon: 'fa-solid fa-user-group', route: '/agents/team' },
   { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock' },
+  { key: 'knowledge', label: '知识库', icon: 'fa-solid fa-book-open' , pageTitle: '建立知识库体系；可共享、可私有' },
   {
-    key: 'ability',
-    label: '能力',
-    icon: 'fa-solid fa-bolt',
+    key: 'ability',label: 'Harness',icon: 'fa-solid fa-bolt',
     children: [
       { key: 'skills', label: '技能', icon: 'fa-solid fa-wand-magic-sparkles', pageTitle: '为不同的Agent配置不同的技能' },
       { key: 'plugins', label: '插件', icon: 'fa-solid fa-plug' },
@@ -24,23 +23,20 @@ export const menuItems: MenuItem[] = [
     ],
   },
   {
-    key: 'control',
-    label: '控制',
-    icon: 'fa-solid fa-sliders',
+    key: 'control',label: 'Control',icon: 'fa-solid fa-sliders',
     children: [
       { key: 'im', label: 'IM', icon: 'fa-solid fa-comment-dots' },
       { key: 'acp', label: 'ACP', icon: 'fa-solid fa-right-left' },
     ],
   },
   {
-    key: 'management',
-    label: '管理',
-    icon: 'fa-solid fa-gear',
+    key: 'management',label: '管理',icon: 'fa-solid fa-gear',
     children: [
       { key: 'models', label: '模型', icon: 'fa-solid fa-cubes' },
       { key: 'token', label: 'Token 统计', icon: 'fa-solid fa-coins' },
+      { key: 'security', label: '安全防护', icon: 'fa-solid fa-shield-halved', pageTitle: '配置工具审批、命令防护、文件访问与敏感信息防护' },
     ],
-  },
+  }
 ]
 /** 默认展开的一级菜单分组（默认全部展开） */
 export const defaultExpandedGroups = ['ability', 'control', 'management']
