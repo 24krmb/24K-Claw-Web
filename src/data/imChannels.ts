@@ -3,10 +3,10 @@ export const imChannels: ImChannel[] = [
   { id: 'wechat', name: '微信', icon: 'fa-brands fa-weixin', tone: 'emerald', enabled: false, description: '个人微信通道，用户可通过微信私聊与你的助手实时互动。' },
   { id: 'qq', name: 'QQ', icon: 'fa-brands fa-qq', tone: 'blue', enabled: true, description: '接入QQ 机器人频道，支持私聊与群消息，可在QQ中对话。' },
   { id: 'discord', name: 'Discord', icon: 'fa-brands fa-discord', tone: 'indigo', enabled: false, description: '配置 Discord 机器人频道，支持服务器频道与私聊消息。' },
-  { id: 'whatsapp', name: 'WhatsApp', icon: 'fa-brands fa-whatsapp', tone: 'green', enabled: false, description: '配置 WhatsApp 通道，通过 WhatsApp Business API 与助手实时对话。' },
+  { id: 'whatsapp', name: 'WhatsApp', icon: 'fa-brands fa-whatsapp', tone: 'green', enabled: false, description: '通过 WhatsApp Business API 与助手实时对话。' },
   { id: 'wecom', name: '企业微信', icon: 'fa-brands fa-weixin', tone: 'blue', enabled: false, description: '配置企业微信机器人通道，支持应用消息、群聊与群机器人。' },
   { id: 'telegram', name: 'Telegram', icon: 'fa-brands fa-telegram', tone: 'sky', enabled: false, description: 'Telegram Bot 频道，支持私聊与群组消息经 Bot API 接入。' },
-  { id: 'teams', name: 'Microsoft Teams', icon: 'fa-brands fa-microsoft', tone: 'indigo', enabled: false, description: '配置 Microsoft Teams 通道，通过 Bot Framework 接入团队协作场景。' },
+  { id: 'teams', name: 'Microsoft Teams', icon: 'fa-brands fa-microsoft', tone: 'indigo', enabled: false, description: '通过 Bot Framework 接入团队协作场景。' },
   { id: 'feishu', name: '飞书', icon: 'fa-solid fa-feather', tone: 'blue', enabled: false, description: '飞书机器人通道，支持私聊与群聊，消息双向同步。' },
   { id: 'yuanbao', name: '腾讯元宝', icon: 'fa-solid fa-crown', tone: 'amber', enabled: false, official: true, description: '配置腾讯元宝通讯频道，将专家能力接入元宝会话场景。' },
   { id: 'dingtalk', name: '钉钉', icon: 'fa-solid fa-thumbtack', tone: 'cyan', enabled: false, description: '配置钉钉机器人通道，支持单聊与群聊，适合团队办公场景。' },
@@ -17,5 +17,5 @@ export const imChannels: ImChannel[] = [
   { id: 'slack', name: 'Slack', icon: 'fa-brands fa-slack', tone: 'indigo', enabled: false, official: true, description: 'Bolt SDK 工作区应用，接入 Slack 频道与私聊消息。' },
   { id: 'raft', name: 'Raft', icon: 'fa-solid fa-bridge', tone: 'teal', enabled: false, official: true, description: '用于人类与智能体协作的 Raft CLI 唤醒桥接器。' },
   { id: 'nostr', name: 'Nostr', icon: 'fa-solid fa-share-nodes', tone: 'violet', enabled: false, official: true, description: '通过 NIP-04 实现去中心化私信。' },
-  { id: 'nextcloud', name: 'Nextcloud Talk', icon: 'fa-solid fa-comments', tone: 'sky', enabled: false, official: true, description: '通过 Nextcloud Talk 使用自托管聊天。' },
+  { id: 'nextcloud', name: 'Nextcloud Talk', icon: 'fa-solid fa-comments', tone: 'sky', enabled: false, official: true, description: '通过 Nextcloud Talk 使用自托管聊天。' }
 ]
