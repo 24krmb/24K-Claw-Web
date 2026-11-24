@@ -148,7 +148,7 @@ export default function PluginsPage() {
 
           {/* 卡片 / 表格视图 */}
           {view === 'card' ? (
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
               {plugins.map((plugin) => (
                 <PluginCard
                   key={plugin.id}
