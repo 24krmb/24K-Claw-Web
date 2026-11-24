@@ -45,11 +45,7 @@ export default function TopTabs({ activeTab, title, onChange, menuTabs, activeMe
   const setMobileSidebarOpen = useAppStore((s) => s.setMobileSidebarOpen)
 
   return (
-    <header
-      className={`sticky top-0 z-10 flex items-center border-b bg-background ${
-        menuTabs ? 'min-h-16' : 'h-16'
-      }`}
-    >
+    <header className="sticky top-0 z-10 flex h-16 items-center border-b bg-background">
       {/* 移动端汉堡按钮 */}
       <button
         className="ml-4 rounded-md p-2 text-muted-foreground hover:bg-accent lg:hidden"
@@ -94,9 +90,10 @@ export default function TopTabs({ activeTab, title, onChange, menuTabs, activeMe
           })}
         </nav>
       ) : menuTabs && activeMenuTab !== undefined ? (
-        /* 菜单页自定义页签组：渲染进顶栏，窄屏换行不滚动（min-w-0 防止撑宽页面） */
+        /* 菜单页自定义页签组：渲染进顶栏，与标签页分支同构——h-full + items-stretch 让按钮
+           撑满顶栏高度，选中指示条（bottom-0）落在底边上；窄屏单行横向滚动不换行 */
         <nav
-          className="flex min-w-0 flex-wrap items-stretch lg:pl-1"
+          className="flex h-full min-w-0 items-stretch overflow-x-auto lg:pl-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           aria-label="页面分类"
         >
           {menuTabs.map((tab) => {
