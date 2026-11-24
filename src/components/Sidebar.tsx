@@ -39,19 +39,18 @@ export default function Sidebar() {
         </ul>
       </nav>
 
-      {/* 底部：当前用户 + 设置 */}
+      {/* 底部：头像 + 设置（游客文字移除） */}
       <div className="flex shrink-0 items-center gap-3 px-5 pb-5 pt-2">
         <img
           src="/images/avatars/0.jpg"
-          alt="游客 头像"
+          alt="用户头像"
           className="size-10 shrink-0 rounded-full object-cover"
         />
-        <span className="min-w-0 flex-1 truncate text-[15px] font-semibold text-foreground">游客</span>
         <button
           type="button"
           aria-label="设置"
           title="设置"
-          className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-lg border-none bg-transparent text-muted-foreground outline-none transition-colors duration-150 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+          className="ml-auto flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-lg border-none bg-transparent text-muted-foreground outline-none transition-colors duration-150 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
         >
           <i className="fa-solid fa-gear text-base" />
         </button>
