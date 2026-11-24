@@ -4,14 +4,7 @@
 
 ## 技术栈
 
-| 类别 | 选型 |
-| --- | --- |
-| 构建 | Vite 6 |
-| 框架 | React 18 + TypeScript（strict） |
-| 样式 | Tailwind CSS v4 |
-| 图标 | Font Awesome 6 Free（CSS 类方式） |
-| 路由 | React Router v7 |
-| 状态 | Zustand 5 |
+Vite 6 + React 18 + TypeScript(strict) + Tailwind CSS v4 + React Router v7 + Zustand 5 + Font Awesome 6 Free。构建端口 5173。
 
 > 未使用任何 UI 组件库，全部组件手写。
 
@@ -22,40 +15,48 @@ src/
 ├── main.tsx              # 入口：引入 Font Awesome 与全局样式，挂载路由
 ├── App.tsx               # 路由：标签页 /agents/:tabKey + 菜单 /:menuKey、/:groupKey/:menuKey
 ├── index.css             # Tailwind v4 入口 + 全局基础样式（@theme 主题令牌）
-├── types/index.ts        # MenuItem / TopTab / Assistant / Team / Subagent / Skill / Model / Task / Plugin 类型
+├── types/index.ts        # MenuItem / TopTab / Assistant / Team / Subagent / Skill / Model / Task / Plugin / Tool / McpServer / Command / IconTone 类型
 ├── data/
 │   ├── menu.ts           # 侧边栏菜单树 + 路由生成（getMenuRoute）
 │   ├── tabs.ts           # 顶部标签页数据（mine / team）
 │   ├── assistants.ts     # 助理列表（主 Agent）
 │   ├── teams.ts          # 团队列表
 │   ├── subagents.ts      # 子 Agent 列表（金融任务型：数据/量化/资讯/风控）
-│   └── skills.ts         # 技能列表（内置技能 / 技能包）
-│   └── models.ts         # 模型列表（Chat Models / STT·TTS / Embedding / System One / Search）
-│   └── tasks.ts          # 定时任务列表（自动化页）
-│   └── plugins.ts        # 插件列表（已安装插件）
-│   └── tools.ts          # 工具列表（全部 + 12 分类）
-├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉
+│   ├── skills.ts         # 技能列表（内置技能 / 技能包）
+│   ├── models.ts         # 模型列表（Chat Models / STT·TTS / Embedding / System One / Search）
+│   ├── tasks.ts          # 定时任务列表（自动化页）
+│   ├── plugins.ts        # 插件列表（已安装插件）
+│   ├── tools.ts          # 工具列表（全部 + 10 分类）
+│   ├── mcp.ts            # MCP 服务器列表
+│   └── commands.ts       # 命令列表（/xxx 快捷命令）
+├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉 / 工具页分类页签
 ├── components/
 │   ├── Sidebar.tsx       # 左侧边栏（Logo + 多级菜单）
 │   ├── MenuItemRow.tsx   # 单个菜单行（含子菜单展开/收起过渡）
-│   ├── TopTabs.tsx       # 顶部标签页导航 / 菜单页标题 + 明暗切换
+│   ├── TopTabs.tsx       # 顶部标签页导航 / 菜单页标题或自定义页签组 + 明暗切换
+│   ├── AbilityTabs.tsx   # 命令 / MCP 页共用互跳页签栏
 │   ├── AssistantCard.tsx # 助理卡片
+│   ├── AssistantPicker.tsx # 助理选择器（子 Agent / 技能页按助理筛选）
 │   ├── TeamCard.tsx      # 团队卡片
 │   ├── SubagentCard.tsx  # 子 Agent 卡片
-│   └── SkillCard.tsx     # 技能卡片
-│   └── ModelCard.tsx     # 模型卡片（LOGO 白底块 / 图标色块 + 启停）
-│   └── PluginCard.tsx    # 插件卡片（图标色块 + 元信息标签 + 开关/卸载）
-│   └── ToolCard.tsx      # 工具卡片（图标色块 + 名称 + 分类徽章 + 标识符）
+│   ├── SkillCard.tsx     # 技能卡片
+│   ├── ModelCard.tsx     # 模型卡片（LOGO 白底块 / 图标色块 + 启停）
+│   ├── PluginCard.tsx    # 插件卡片（图标色块 + 元信息标签 + 开关/卸载）
+│   ├── ToolCard.tsx      # 工具卡片（图标色块 + 名称 + 分类徽章 + 标识符）
+│   ├── McpCard.tsx       # MCP 服务器卡片（图标色块 + 添加/移除）
+│   └── CommandCard.tsx   # 命令卡片（图标色块 + 命令名 + 添加/移除）
 └── pages/
     ├── WorkspacePage.tsx # 工作区布局骨架 + 路由分支（所有页面从这里分发）
     ├── MyAssistantsPage.tsx # /agents/mine 助理卡片网格
     ├── TeamPage.tsx      # /agents/team 团队卡片网格
-    ├── SubagentsPage.tsx # /subagents 子 Agent 页（分类页签 + 筛选）
-    ├── SkillsPage.tsx    # /ability/skills 技能页（来源页签 + 筛选）
+    ├── SubagentsPage.tsx # /subagents 子 Agent 页（助理筛选 + 分类页签）
+    ├── SkillsPage.tsx    # /ability/skills 技能页（助理筛选 + 来源页签）
     ├── ModelsPage.tsx    # /management/models 模型页（分类页签 + 卡片网格）
     ├── TasksPage.tsx     # /tasks 自动化页（搜索条 + 表格/卡片双视图）
     ├── PluginsPage.tsx   # /ability/plugins 插件页（页签 + 开发指南 + 卡片/表格双视图）
-    ├── ToolsPage.tsx     # /ability/tools 工具页（全部 + 12 分类页签 + 卡片网格）
+    ├── ToolsPage.tsx     # /ability/tools 工具页（分类页签渲染在顶栏 + 卡片网格）
+    ├── McpPage.tsx       # /ability/mcp MCP 页（服务器卡片网格）
+    ├── CommandsPage.tsx  # /ability/commands 命令页（命令卡片网格）
     └── PlaceholderPage.tsx # 未实现菜单的占位页
 ```
 ## 快速开始
@@ -83,7 +84,13 @@ npm run preview
 | 助理（主 Agent） | `/agents/mine` | `src/pages/MyAssistantsPage.tsx` | `src/components/AssistantCard.tsx` | `src/data/assistants.ts` |
 | 团队 | `/agents/team` | `src/pages/TeamPage.tsx` | `src/components/TeamCard.tsx` | `src/data/teams.ts` |
 | 子 Agent | `/subagents` | `src/pages/SubagentsPage.tsx` | `src/components/SubagentCard.tsx` | `src/data/subagents.ts` |
+| 自动化 | `/tasks` | `src/pages/TasksPage.tsx` | —（表格/卡片内联） | `src/data/tasks.ts` |
 | 技能 | `/ability/skills` | `src/pages/SkillsPage.tsx` | `src/components/SkillCard.tsx` | `src/data/skills.ts` |
+| 插件 | `/ability/plugins` | `src/pages/PluginsPage.tsx` | `src/components/PluginCard.tsx` | `src/data/plugins.ts` |
+| 工具 | `/ability/tools` | `src/pages/ToolsPage.tsx` | `src/components/ToolCard.tsx` | `src/data/tools.ts` |
+| MCP | `/ability/mcp` | `src/pages/McpPage.tsx` | `src/components/McpCard.tsx` | `src/data/mcp.ts` |
+| 命令 | `/ability/commands` | `src/pages/CommandsPage.tsx` | `src/components/CommandCard.tsx` | `src/data/commands.ts` |
+| 模型 | `/management/models` | `src/pages/ModelsPage.tsx` | `src/components/ModelCard.tsx` | `src/data/models.ts` |
 | 占位页（未实现菜单） | 其余菜单/标签 | `src/pages/PlaceholderPage.tsx` | — | — |
 
 ### 路由规则（`src/App.tsx`）
@@ -105,7 +112,15 @@ npm run preview
 | `src/pages/WorkspacePage.tsx` | 布局骨架：侧边栏 + 顶栏 + 内容区路由分支 |
 | `src/components/Sidebar.tsx` | 左侧边栏（Logo + 多级菜单） |
 | `src/components/MenuItemRow.tsx` | 单个菜单行（含子菜单展开/收起过渡） |
-| `src/components/TopTabs.tsx` | 顶部栏：标签页路由渲染标签组，菜单页渲染页面标题，右侧明暗切换 |
+| `src/components/TopTabs.tsx` | 顶部栏：标签页路由渲染标签组，菜单页渲染页面标题或自定义页签组（`menuTabs`），右侧明暗切换 |
+
+### 页签组织方式
+
+菜单页内的页签有两种呈现机制：
+
+- **顶栏页签**（`TopTabs` 的 `menuTabs`）：页签渲染进顶栏，样式与标签页（/agents/mine）一致——图标 + 文字 + 选中态主色指示条。用于工具页的「全部 + 10 分类」（`toolTabList` 由 `ToolsPage.tsx` 导出，图标与 `tools.ts` 中各分类工具一致，`WorkspacePage.tsx` 负责传入），选中状态存于 `useAppStore.toolsCategory`
+- **页内页签栏**（`AbilityTabs`）：命令页与 MCP 页首行的互跳页签栏，当前页显示在左侧选中态，其余页签靠右，点击路由跳转
+- 其余页面（子 Agent / 技能 / 模型 / 插件等）的页签为页面自有的内联页签
 
 ## 布局要点
 
