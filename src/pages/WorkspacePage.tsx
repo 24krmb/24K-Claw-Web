@@ -13,6 +13,7 @@ import ToolsPage, { toolTabList } from './ToolsPage'
 import ModelsPage, { modelTabList } from './ModelsPage'
 import TasksPage from './TasksPage'
 import ImPage from './ImPage'
+import AcpPage from './AcpPage'
 import PlaceholderPage from './PlaceholderPage'
 import { topTabs, defaultTabKey } from '../data/tabs'
 import { menuItems, findMenuItem } from '../data/menu'
@@ -145,6 +146,8 @@ export default function WorkspacePage() {
             <TasksPage />
           ) : menuKey === 'im' ? (
             <ImPage />
+          ) : menuKey === 'acp' ? (
+            <AcpPage />
           ) : (
             <PlaceholderPage title={activeMenu!.label} />
           )}

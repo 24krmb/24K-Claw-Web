@@ -152,3 +152,14 @@ export interface ImChannel {
   description: string/** 一句话说明 */
   official?: boolean/** 是否为官方插件（卡片显示「官方插件」徽章） */
 }
+
+/** 「ACP Runner」列表项（外部编程专家连接器） */
+export interface AcpRunner {
+  id: string/** 唯一标识 */
+  name: string/** Runner 名称 */
+  icon: string/** Font Awesome 图标类名（卡片方形图标块） */
+  tone: IconTone/** 图标块色调 */
+  logo?: string/** 品牌 LOGO 图片路径（public 下绝对路径，有则优先于 icon 色块显示） */
+  enabled: boolean/** 是否已启用 */
+  description: string/** 一句话说明 */
+}

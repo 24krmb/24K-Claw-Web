@@ -26,7 +26,7 @@ export const menuItems: MenuItem[] = [
     key: 'control',label: 'Control',icon: 'fa-solid fa-sliders',
     children: [
       { key: 'im', label: 'IM', icon: 'fa-solid fa-comment-dots', pageTitle: '接入即时通讯通道，让 Agent 在聊天软件中随时待命' },
-      { key: 'acp', label: 'ACP', icon: 'fa-solid fa-right-left' },
+      { key: 'acp', label: 'ACP', icon: 'fa-solid fa-right-left', pageTitle: '配置编程CLI Runner，并按 Agent 开启协作' },
     ],
   },
   {
