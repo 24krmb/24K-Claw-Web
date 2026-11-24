@@ -6,6 +6,7 @@ import MyAssistantsPage from './MyAssistantsPage'
 import TeamPage from './TeamPage'
 import SubagentsPage from './SubagentsPage'
 import SkillsPage from './SkillsPage'
+import PluginsPage from './PluginsPage'
 import McpPage from './McpPage'
 import CommandsPage from './CommandsPage'
 import ModelsPage from './ModelsPage'
@@ -106,6 +107,8 @@ export default function WorkspacePage() {
             <SubagentsPage />
           ) : menuKey === 'skills' ? (
             <SkillsPage />
+          ) : menuKey === 'plugins' ? (
+            <PluginsPage />
           ) : menuKey === 'mcp' ? (
             <McpPage />
           ) : menuKey === 'commands' ? (

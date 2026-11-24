@@ -117,3 +117,15 @@ export interface Task {
   lastStatus: 'success' | 'failure'/** 上次执行状态 */
   newSession: boolean/** 是否开启新会话 */
 }
+
+/** 「插件」列表项 */
+export interface Plugin {
+  id: string/** 唯一标识 */
+  name: string/** 显示名称 */
+  icon: string/** Font Awesome 图标类名（卡片左上角彩色图标块） */
+  tone: IconTone/** 图标块色调 */
+  category: '影音' | '百科' | '资讯' | '生活' | '工具' | '运维' | '趣味' | '金融'/** 功能分类（卡片小标签） */
+  version: string/** 插件版本（如 v0.2.4） */
+  enabled: boolean/** 是否已加载（启用） */
+  description: string/** 描述 */
+}
