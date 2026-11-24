@@ -36,9 +36,7 @@ export const menuItems: MenuItem[] = [
       { key: 'token', label: 'Token 统计', icon: 'fa-solid fa-coins' },
       /** { key: 'security', label: '安全防护', icon: 'fa-solid fa-shield-halved', pageTitle: '配置工具审批、命令防护、文件访问与敏感信息防护' }, */
     ],
-  },
-  { key: 'docs', label: 'Docs', icon: 'fa-solid fa-book-open' , pageTitle: '帮助文档' },
-
+  }
 ]
 /** 默认展开的一级菜单分组（默认全部展开） */
 export const defaultExpandedGroups = ['ability', 'control', 'management']
