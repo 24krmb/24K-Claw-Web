@@ -7,10 +7,10 @@ import TeamPage from './TeamPage'
 import SubagentsPage from './SubagentsPage'
 import SkillsPage from './SkillsPage'
 import PluginsPage, { pluginTabList } from './PluginsPage'
-import McpPage from './McpPage'
-import CommandsPage from './CommandsPage'
+import McpPage, { mcpTabList } from './McpPage'
+import CommandsPage, { commandTabList } from './CommandsPage'
 import ToolsPage, { toolTabList } from './ToolsPage'
-import ModelsPage from './ModelsPage'
+import ModelsPage, { modelTabList } from './ModelsPage'
 import TasksPage from './TasksPage'
 import PlaceholderPage from './PlaceholderPage'
 import { topTabs, defaultTabKey } from '../data/tabs'
@@ -41,6 +41,8 @@ export default function WorkspacePage() {
   const setToolsCategory = useAppStore((s) => s.setToolsCategory)
   const pluginsCategory = useAppStore((s) => s.pluginsCategory)
   const setPluginsCategory = useAppStore((s) => s.setPluginsCategory)
+  const modelsCategory = useAppStore((s) => s.modelsCategory)
+  const setModelsCategory = useAppStore((s) => s.setModelsCategory)
 
   const isTabRoute = tabKey !== undefined
   const tabValid = isTabRoute && topTabs.some((t) => t.key === tabKey)
@@ -102,6 +104,15 @@ export default function WorkspacePage() {
         ) : menuKey === 'plugins' ? (
           /* 插件页：页签渲染进顶栏（样式与标签页一致） */
           <TopTabs menuTabs={pluginTabList} activeMenuTab={pluginsCategory} onMenuTabChange={setPluginsCategory} />
+        ) : menuKey === 'models' ? (
+          /* 模型页：分类页签渲染进顶栏（样式与标签页一致） */
+          <TopTabs menuTabs={modelTabList} activeMenuTab={modelsCategory} onMenuTabChange={setModelsCategory} />
+        ) : menuKey === 'commands' ? (
+          /* 命令页：页签渲染进顶栏（样式与标签页一致） */
+          <TopTabs menuTabs={commandTabList} activeMenuTab="commands" />
+        ) : menuKey === 'mcp' ? (
+          /* MCP 页：页签渲染进顶栏（样式与标签页一致） */
+          <TopTabs menuTabs={mcpTabList} activeMenuTab="mcp" />
         ) : (
           <TopTabs title={activeMenu!.hideTitle ? undefined : (activeMenu!.pageTitle ?? activeMenu!.label)} />
         )}

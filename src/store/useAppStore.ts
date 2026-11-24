@@ -12,6 +12,8 @@ interface AppState {
   toolsCategory: string
   /** 插件页顶栏选中的页签 key（'installed' / 'develop'，由顶栏页签与内容区共用） */
   pluginsCategory: string
+  /** 模型页顶栏选中的分类页签 key（'chat' / 'stt-tts' / 'embedding' / 'system' / 'search'） */
+  modelsCategory: string
 
   /** 选中菜单项 */
   setActiveMenuKey: (key: string) => void
@@ -23,6 +25,8 @@ interface AppState {
   setToolsCategory: (key: string) => void
   /** 切换插件页顶栏页签 */
   setPluginsCategory: (key: string) => void
+  /** 切换模型页顶栏页签 */
+  setModelsCategory: (key: string) => void
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -31,6 +35,7 @@ export const useAppStore = create<AppState>((set) => ({
   mobileSidebarOpen: false,
   toolsCategory: 'all',
   pluginsCategory: 'installed',
+  modelsCategory: 'chat',
 
   setActiveMenuKey: (key) => set({ activeMenuKey: key }),
 
@@ -46,4 +51,6 @@ export const useAppStore = create<AppState>((set) => ({
   setToolsCategory: (key) => set({ toolsCategory: key }),
 
   setPluginsCategory: (key) => set({ pluginsCategory: key }),
+
+  setModelsCategory: (key) => set({ modelsCategory: key }),
 }))

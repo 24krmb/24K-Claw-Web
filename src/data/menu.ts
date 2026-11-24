@@ -17,8 +17,8 @@ export const menuItems: MenuItem[] = [
       { key: 'skills', label: '技能', icon: 'fa-solid fa-wand-magic-sparkles', pageTitle: '为不同的Agent配置不同的技能' },
       { key: 'plugins', label: '插件', icon: 'fa-solid fa-plug', hideTitle: true },
       { key: 'memory', label: '记忆', icon: 'fa-solid fa-brain' },
-      { key: 'mcp', label: 'MCP', icon: 'fa-solid fa-server', pageTitle: '账户级连接；对话时按需勾选' },
-      { key: 'commands', label: '命令', icon: 'fa-solid fa-terminal', pageTitle: '用来快速调用 24K-Claw 的内置能力'},
+      { key: 'mcp', label: 'MCP', icon: 'fa-solid fa-server', hideTitle: true },
+      { key: 'commands', label: '命令', icon: 'fa-solid fa-terminal', hideTitle: true },
       { key: 'tools', label: '工具', icon: 'fa-solid fa-screwdriver-wrench', hideTitle: true },
     ],
   },
@@ -32,7 +32,7 @@ export const menuItems: MenuItem[] = [
   {
     key: 'management',label: 'Models',icon: 'fa-solid fa-gear',
     children: [
-      { key: 'models', label: '模型', icon: 'fa-solid fa-cubes',pageTitle: '配置对话、生成、语音、搜索和决策所用的模型'},
+      { key: 'models', label: '模型', icon: 'fa-solid fa-cubes', hideTitle: true },
       { key: 'token', label: 'Token 统计', icon: 'fa-solid fa-coins' },
       /** { key: 'security', label: '安全防护', icon: 'fa-solid fa-shield-halved', pageTitle: '配置工具审批、命令防护、文件访问与敏感信息防护' }, */
     ],

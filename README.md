@@ -34,7 +34,6 @@ src/
 │   ├── Sidebar.tsx       # 左侧边栏（Logo + 多级菜单）
 │   ├── MenuItemRow.tsx   # 单个菜单行（含子菜单展开/收起过渡）
 │   ├── TopTabs.tsx       # 顶部标签页导航 / 菜单页标题或自定义页签组 + 明暗切换
-│   ├── AbilityTabs.tsx   # 命令 / MCP 页共用互跳页签栏
 │   ├── AssistantCard.tsx # 助理卡片
 │   ├── AssistantPicker.tsx # 助理选择器（子 Agent / 技能页按助理筛选）
 │   ├── TeamCard.tsx      # 团队卡片
@@ -51,12 +50,12 @@ src/
     ├── TeamPage.tsx      # /agents/team 团队卡片网格
     ├── SubagentsPage.tsx # /subagents 子 Agent 页（助理筛选 + 分类页签）
     ├── SkillsPage.tsx    # /ability/skills 技能页（助理筛选 + 来源页签）
-    ├── ModelsPage.tsx    # /management/models 模型页（分类页签 + 卡片网格）
+    ├── ModelsPage.tsx    # /management/models 模型页（分类页签渲染在顶栏 + 卡片网格）
     ├── TasksPage.tsx     # /tasks 自动化页（搜索条 + 表格/卡片双视图）
     ├── PluginsPage.tsx   # /ability/plugins 插件页（页签渲染在顶栏 + 开发指南 + 卡片/表格双视图）
     ├── ToolsPage.tsx     # /ability/tools 工具页（分类页签渲染在顶栏 + 卡片网格）
-    ├── McpPage.tsx       # /ability/mcp MCP 页（服务器卡片网格）
-    ├── CommandsPage.tsx  # /ability/commands 命令页（命令卡片网格）
+    ├── McpPage.tsx       # /ability/mcp MCP 页（页签渲染在顶栏 + 服务器卡片网格）
+    ├── CommandsPage.tsx  # /ability/commands 命令页（页签渲染在顶栏 + 命令卡片网格）
     └── PlaceholderPage.tsx # 未实现菜单的占位页
 ```
 ## 快速开始
@@ -118,9 +117,8 @@ npm run preview
 
 菜单页内的页签有两种呈现机制：
 
-- **顶栏页签**（`TopTabs` 的 `menuTabs`）：页签渲染进顶栏，样式与标签页（/agents/mine）一致——图标 + 文字 + 选中态主色指示条。用于工具页的「全部 + 10 分类」（`toolTabList` 由 `ToolsPage.tsx` 导出，图标与 `tools.ts` 中各分类工具一致）与插件页的「已安装插件 / 插件开发」（`pluginTabList` 由 `PluginsPage.tsx` 导出），`WorkspacePage.tsx` 负责传入，选中状态分别存于 `useAppStore.toolsCategory` / `pluginsCategory`
-- **页内页签栏**（`AbilityTabs`）：命令页与 MCP 页首行的互跳页签栏，当前页显示在左侧选中态，其余页签靠右，点击路由跳转
-- 其余页面（子 Agent / 技能 / 模型等）的页签为页面自有的内联页签
+- **顶栏页签**（`TopTabs` 的 `menuTabs`）：页签渲染进顶栏，样式与标签页（/agents/mine）一致——图标 + 文字 + 选中态主色指示条。用于工具页的「全部 + 10 分类」（`toolTabList`）、插件页的「已安装插件 / 插件开发」（`pluginTabList`）、模型页的 5 个分类（`modelTabList`）、命令页与 MCP 页的单页签（`commandTabList` / `mcpTabList`），均由对应页面文件导出、`WorkspacePage.tsx` 负责传入，多页签页选中状态存于 `useAppStore`（`toolsCategory` / `pluginsCategory` / `modelsCategory`）
+- 其余页面（子 Agent / 技能等）的页签为页面自有的内联页签
 
 ## 布局要点
 
