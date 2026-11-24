@@ -5,6 +5,7 @@ export interface MenuItem {
   icon: string/** Font Awesome 图标类名，如 "fa-solid fa-gauge-high" */
   route?: string/** 自定义跳转路由；缺省为 /m/:key */
   pageTitle?: string/** 页面顶部标题；缺省用 label（菜单文字与页面标题不同时配置） */
+  hideTitle?: boolean/** 不显示页面顶部标题（页面自带首行内容时置 true） */
   children?: MenuItem[]/** 子菜单（仅一级嵌套） */
 }
 
@@ -136,5 +137,5 @@ export interface Tool {
   name: string/** 显示名称 */
   icon: string/** Font Awesome 图标类名（卡片左侧色块图标） */
   tone: IconTone/** 图标块色调 */
-  category: '交易' | '记忆' | '文件与终端' | '规划与子智能体' | '用户交互' | '网页与浏览器' | '媒体生成' | '定时任务' | '知识库' | '手机' | '多助理' | '其他'/** 工具分类 */
+  category: '交易' | '记忆' | '文件与终端' | '网页浏览' | '媒体' | '自动化' | '知识库' | '手机' | '助理' | '其他'/** 工具分类 */
 }

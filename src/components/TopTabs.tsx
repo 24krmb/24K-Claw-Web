@@ -9,6 +9,12 @@ interface TopTabsProps {
   title?: string
   /** 切换标签回调（由页面组件传入，内部做路由跳转） */
   onChange?: (key: string) => void
+  /** 菜单页自定义页签组（渲染进顶栏，样式与标签页一致；icon 可选） */
+  menuTabs?: { key: string; label: string; icon?: string }[]
+  /** 当前选中的菜单页签 key */
+  activeMenuTab?: string
+  /** 菜单页签切换回调 */
+  onMenuTabChange?: (key: string) => void
 }
 
 /** 明暗主题切换：切 <html>.dark 并持久化到 localStorage */
@@ -34,12 +40,16 @@ function ThemeToggle() {
   )
 }
 
-/** 顶部导航条：标签页路由显示标签组，菜单页显示页面标题；右侧明暗切换 */
-export default function TopTabs({ activeTab, title, onChange }: TopTabsProps) {
+/** 顶部导航条：标签页路由显示标签组，菜单页显示页面标题或自定义页签组；右侧明暗切换 */
+export default function TopTabs({ activeTab, title, onChange, menuTabs, activeMenuTab, onMenuTabChange }: TopTabsProps) {
   const setMobileSidebarOpen = useAppStore((s) => s.setMobileSidebarOpen)
 
   return (
-    <header className="sticky top-0 z-10 flex h-16 items-center border-b bg-background">
+    <header
+      className={`sticky top-0 z-10 flex items-center border-b bg-background ${
+        menuTabs ? 'min-h-16' : 'h-16'
+      }`}
+    >
       {/* 移动端汉堡按钮 */}
       <button
         className="ml-4 rounded-md p-2 text-muted-foreground hover:bg-accent lg:hidden"
@@ -74,6 +84,38 @@ export default function TopTabs({ activeTab, title, onChange }: TopTabsProps) {
                   </span>
                 )}
                 {/* 选中态底部指示条 */}
+                <span
+                  className={`absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-primary transition-opacity duration-150 ${
+                    active ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              </button>
+            )
+          })}
+        </nav>
+      ) : menuTabs && activeMenuTab !== undefined ? (
+        /* 菜单页自定义页签组：渲染进顶栏，窄屏换行不滚动（min-w-0 防止撑宽页面） */
+        <nav
+          className="flex min-w-0 flex-wrap items-stretch lg:pl-1"
+          aria-label="页面分类"
+        >
+          {menuTabs.map((tab) => {
+            const active = tab.key === activeMenuTab
+            return (
+              <button
+                key={tab.key}
+                type="button"
+                onClick={() => onMenuTabChange?.(tab.key)}
+                className={`relative flex shrink-0 cursor-pointer items-center gap-2 border-none px-4 text-sm font-medium transition-colors duration-150 outline-none lg:px-5 ${
+                  active
+                    ? 'text-primary'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {tab.icon && (
+                  <i className={`${tab.icon} text-sm ${active ? 'text-primary' : 'text-muted-foreground'}`} />
+                )}
+                <span>{tab.label}</span>
                 <span
                   className={`absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-primary transition-opacity duration-150 ${
                     active ? 'opacity-100' : 'opacity-0'

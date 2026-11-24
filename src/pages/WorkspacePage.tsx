@@ -9,7 +9,7 @@ import SkillsPage from './SkillsPage'
 import PluginsPage from './PluginsPage'
 import McpPage from './McpPage'
 import CommandsPage from './CommandsPage'
-import ToolsPage from './ToolsPage'
+import ToolsPage, { toolTabList } from './ToolsPage'
 import ModelsPage from './ModelsPage'
 import TasksPage from './TasksPage'
 import PlaceholderPage from './PlaceholderPage'
@@ -37,6 +37,8 @@ export default function WorkspacePage() {
   const mobileSidebarOpen = useAppStore((s) => s.mobileSidebarOpen)
   const setMobileSidebarOpen = useAppStore((s) => s.setMobileSidebarOpen)
   const setActiveMenuKey = useAppStore((s) => s.setActiveMenuKey)
+  const toolsCategory = useAppStore((s) => s.toolsCategory)
+  const setToolsCategory = useAppStore((s) => s.setToolsCategory)
 
   const isTabRoute = tabKey !== undefined
   const tabValid = isTabRoute && topTabs.some((t) => t.key === tabKey)
@@ -91,8 +93,11 @@ export default function WorkspacePage() {
       <div className="flex min-h-screen flex-1 flex-col lg:pl-[220px]">
         {isTabRoute ? (
           <TopTabs activeTab={activeTab} onChange={handleTabChange} />
+        ) : menuKey === 'tools' ? (
+          /* 工具页：分类页签渲染进顶栏（样式与标签页一致） */
+          <TopTabs menuTabs={toolTabList} activeMenuTab={toolsCategory} onMenuTabChange={setToolsCategory} />
         ) : (
-          <TopTabs title={activeMenu!.pageTitle ?? activeMenu!.label} />
+          <TopTabs title={activeMenu!.hideTitle ? undefined : (activeMenu!.pageTitle ?? activeMenu!.label)} />
         )}
 
         <main className="flex-1 p-6">

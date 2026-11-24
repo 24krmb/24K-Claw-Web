@@ -2,31 +2,31 @@ import type { Tool } from '../types'
 
 /**
  * 「工具」菜单页数据（来源 Develop/tools.md，共 57 条）
- * 分类图标与色调按分类统一：交易=emerald / 记忆=violet / 文件与终端=sky / 规划与子智能体=amber /
- * 用户交互=rose / 网页与浏览器=cyan / 媒体生成=orange / 定时任务=indigo / 知识库=teal /
- * 手机=blue / 多助理=lime / 其他=slate
+ * 分类图标与色调按分类统一：交易=emerald / 记忆=violet / 文件与终端=sky /
+ * 网页浏览=cyan / 媒体=orange / 自动化=indigo / 知识库=teal /
+ * 手机=blue / 助理=lime / 其他=slate
  */
 export const tools: Tool[] = [
 {id: 'read_account',name: '读取账户',icon: 'fa-solid fa-chart-line',tone: 'emerald',category: '交易'},
 {id: 'analyze_account',name: '分析账户',icon: 'fa-solid fa-chart-line',tone: 'emerald',category: '交易'},
 {id: 'account_order',name: '账户下单',icon: 'fa-solid fa-chart-line',tone: 'emerald',category: '交易'},
-{id: 'ask_user',name: '向用户询问',icon: 'fa-solid fa-comments',tone: 'rose',category: '用户交互'},
-{id: 'list_exec_plans',name: '列出执行计划',icon: 'fa-solid fa-list-check',tone: 'amber',category: '规划与子智能体'},
-{id: 'list_trade_plans',name: '列出交易计划',icon: 'fa-solid fa-list-check',tone: 'amber',category: '规划与子智能体'},
+{id: 'ask_user',name: '向用户询问',icon: 'fa-solid fa-comments',tone: 'lime',category: '助理'},
+{id: 'list_exec_plans',name: '列出执行计划',icon: 'fa-solid fa-list-check',tone: 'emerald',category: '交易'},
+{id: 'list_trade_plans',name: '列出交易计划',icon: 'fa-solid fa-list-check',tone: 'emerald',category: '交易'},
 {id: 'list_strategies',name: '列出策略列表',icon: 'fa-solid fa-chart-line',tone: 'emerald',category: '交易'},
 {id: 'list_orders',name: '列出下单记录',icon: 'fa-solid fa-chart-line',tone: 'emerald',category: '交易'},
 {id: 'search_knowledge',name: '检索知识库',icon: 'fa-solid fa-book-open',tone: 'teal',category: '知识库'},
 {id: 'build_knowledge',name: '创建知识库',icon: 'fa-solid fa-book-open',tone: 'teal',category: '知识库'},
-{id: 'SubAgent_Task',name: '子智能体任务',icon: 'fa-solid fa-list-check',tone: 'amber',category: '规划与子智能体'},
-{id: 'write_todos',name: '编写计划',icon: 'fa-solid fa-list-check',tone: 'amber',category: '规划与子智能体'},
+{id: 'SubAgent_Task',name: '子智能体任务',icon: 'fa-solid fa-list-check',tone: 'lime',category: '助理'},
+{id: 'write_todos',name: '编写计划',icon: 'fa-solid fa-list-check',tone: 'lime',category: '助理'},
 {id: 'execute_command',name: '执行指令',icon: 'fa-solid fa-folder-open',tone: 'sky',category: '文件与终端'},
 {id: 'search_memory',name: '检索记忆',icon: 'fa-solid fa-brain',tone: 'violet',category: '记忆'},
 {id: 'read_memory',name: '读取记忆',icon: 'fa-solid fa-brain',tone: 'violet',category: '记忆'},
-{id: 'searchfree_search',name: 'AI 联网搜索',icon: 'fa-solid fa-globe',tone: 'cyan',category: '网页与浏览器'},
-{id: 'kimi_search',name: 'Kimi 联网搜索',icon: 'fa-solid fa-globe',tone: 'cyan',category: '网页与浏览器'},
-{id: 'browser_use',name: '使用浏览器',icon: 'fa-solid fa-globe',tone: 'cyan',category: '网页与浏览器'},
-{id: 'agent_list',name: '列出助理',icon: 'fa-solid fa-user-group',tone: 'lime',category: '多助理'},
-{id: 'ask_agent',name: '咨询助理',icon: 'fa-solid fa-user-group',tone: 'lime',category: '多助理'},
+{id: 'searchfree_search',name: 'AI 联网搜索',icon: 'fa-solid fa-globe',tone: 'cyan',category: '网页浏览'},
+{id: 'kimi_search',name: 'Kimi 联网搜索',icon: 'fa-solid fa-globe',tone: 'cyan',category: '网页浏览'},
+{id: 'browser_use',name: '使用浏览器',icon: 'fa-solid fa-globe',tone: 'cyan',category: '网页浏览'},
+{id: 'agent_list',name: '列出助理',icon: 'fa-solid fa-user-group',tone: 'lime',category: '助理'},
+{id: 'ask_agent',name: '咨询助理',icon: 'fa-solid fa-user-group',tone: 'lime',category: '助理'},
 {id: 'mobile_screenshot',name: '手机截图',icon: 'fa-solid fa-mobile-screen',tone: 'blue',category: '手机'},
 {id: 'mobile_tap',name: '手机点击',icon: 'fa-solid fa-mobile-screen',tone: 'blue',category: '手机'},
 {id: 'mobile_swipe',name: '手机滑动',icon: 'fa-solid fa-mobile-screen',tone: 'blue',category: '手机'},
@@ -50,18 +50,18 @@ export const tools: Tool[] = [
 {id: 'compress_dir',name: '压缩目录',icon: 'fa-solid fa-folder-open',tone: 'sky',category: '文件与终端'},
 {id: 'decompress_dir',name: '解压目录',icon: 'fa-solid fa-folder-open',tone: 'sky',category: '文件与终端'},
 {id: 'move_dir',name: '移动目录',icon: 'fa-solid fa-folder-open',tone: 'sky',category: '文件与终端'},
-{id: 'generate_image',name: '生成图片',icon: 'fa-solid fa-photo-film',tone: 'orange',category: '媒体生成'},
-{id: 'generate_video',name: '生成视频',icon: 'fa-solid fa-photo-film',tone: 'orange',category: '媒体生成'},
-{id: 'list_timers',name: '列出定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '定时任务'},
-{id: 'view_timer',name: '查看定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '定时任务'},
-{id: 'create_timer',name: '创建定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '定时任务'},
-{id: 'update_timer',name: '更新定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '定时任务'},
-{id: 'delete_timer',name: '删除定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '定时任务'},
-{id: 'run_timer',name: '立即执行定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '定时任务'},
+{id: 'generate_image',name: '生成图片',icon: 'fa-solid fa-photo-film',tone: 'orange',category: '媒体'},
+{id: 'generate_video',name: '生成视频',icon: 'fa-solid fa-photo-film',tone: 'orange',category: '媒体'},
+{id: 'list_timers',name: '列出定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '自动化'},
+{id: 'view_timer',name: '查看定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '自动化'},
+{id: 'create_timer',name: '创建定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '自动化'},
+{id: 'update_timer',name: '更新定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '自动化'},
+{id: 'delete_timer',name: '删除定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '自动化'},
+{id: 'run_timer',name: '立即执行定时任务',icon: 'fa-solid fa-clock',tone: 'indigo',category: '自动化'},
 {id: 'current_time',name: '当前时间',icon: 'fa-solid fa-box-archive',tone: 'slate',category: '其他'},
 {id: 'current_date',name: '当前日期',icon: 'fa-solid fa-box-archive',tone: 'slate',category: '其他'},
 {id: 'current_location',name: '当前地理位置',icon: 'fa-solid fa-box-archive',tone: 'slate',category: '其他'},
 {id: 'read_env',name: '读取环境变量',icon: 'fa-solid fa-box-archive',tone: 'slate',category: '其他'},
 {id: 'write_env',name: '写入环境变量',icon: 'fa-solid fa-box-archive',tone: 'slate',category: '其他'},
-{id: 'ACP_Agent',name: 'ACP外部Agent',icon: 'fa-solid fa-user-group',tone: 'lime',category: '多助理'}
+{id: 'ACP_Agent',name: 'ACP外部Agent',icon: 'fa-solid fa-user-group',tone: 'lime',category: '助理'}
 ]

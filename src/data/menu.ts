@@ -15,11 +15,11 @@ export const menuItems: MenuItem[] = [
     key: 'ability',label: 'Harness',icon: 'fa-solid fa-bolt',
     children: [
       { key: 'skills', label: '技能', icon: 'fa-solid fa-wand-magic-sparkles', pageTitle: '为不同的Agent配置不同的技能' },
-      { key: 'plugins', label: '插件', icon: 'fa-solid fa-plug', pageTitle: '安装并管理服务插件；各助理的启用状态在「能力 → 插件」中配置' },
+      { key: 'plugins', label: '插件', icon: 'fa-solid fa-plug', pageTitle: '安装并管理服务插件' },
       { key: 'memory', label: '记忆', icon: 'fa-solid fa-brain' },
       { key: 'mcp', label: 'MCP', icon: 'fa-solid fa-server', pageTitle: '账户级连接；对话时按需勾选' },
-      { key: 'commands', label: '命令', icon: 'fa-solid fa-terminal', pageTitle: 'Command 用来快速调用 24K-Claw 的内置能力'},
-      { key: 'tools', label: '工具', icon: 'fa-solid fa-screwdriver-wrench', pageTitle: '覆盖交易、文件、终端、手机等场景的内置工具' },
+      { key: 'commands', label: '命令', icon: 'fa-solid fa-terminal', pageTitle: '用来快速调用 24K-Claw 的内置能力'},
+      { key: 'tools', label: '工具', icon: 'fa-solid fa-screwdriver-wrench', hideTitle: true },
     ],
   },
   {

@@ -1,6 +1,6 @@
 import type { Command } from '../types'
 /* 24KClaw Sites 命令列表
-Command 用来快速调用 24K-Claw 的内置能力
+用来快速调用 24K-Claw 的内置能力
 */
 export const commands: Command[] = [
     {id: 'market-quotes',name: '/market-quotes',icon: 'fa-solid fa-chart-line',tone: 'blue',installed: false,description: '实时行情：A股/港股/美股指数与个股报价、盘口与涨跌排行'},

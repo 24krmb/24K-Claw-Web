@@ -8,6 +8,8 @@ interface AppState {
   expandedGroups: string[]
   /** 移动端侧边栏抽屉是否打开 */
   mobileSidebarOpen: boolean
+  /** 工具页顶栏选中的分类页签 key（'all' 或分类名，由顶栏页签与卡片网格共用） */
+  toolsCategory: string
 
   /** 选中菜单项 */
   setActiveMenuKey: (key: string) => void
@@ -15,12 +17,15 @@ interface AppState {
   toggleGroup: (key: string) => void
   /** 打开/关闭移动端侧边栏抽屉 */
   setMobileSidebarOpen: (open: boolean) => void
+  /** 切换工具页分类页签 */
+  setToolsCategory: (key: string) => void
 }
 
 export const useAppStore = create<AppState>((set) => ({
   activeMenuKey: defaultActiveMenuKey,
   expandedGroups: defaultExpandedGroups,
   mobileSidebarOpen: false,
+  toolsCategory: 'all',
 
   setActiveMenuKey: (key) => set({ activeMenuKey: key }),
 
@@ -32,4 +37,6 @@ export const useAppStore = create<AppState>((set) => ({
     })),
 
   setMobileSidebarOpen: (open) => set({ mobileSidebarOpen: open }),
+
+  setToolsCategory: (key) => set({ toolsCategory: key }),
 }))

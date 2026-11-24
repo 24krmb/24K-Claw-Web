@@ -1,55 +1,50 @@
-import { useState } from 'react'
 import ToolCard from '../components/ToolCard'
 import { tools } from '../data/tools'
+import { useAppStore } from '../store/useAppStore'
 import type { Tool } from '../types'
 
-/** 工具分类页签配置（对应 Tool.category，按展示顺序：知识库随交易后、多助理随文件与终端前） */
-const toolCategories: Tool['category'][] = [
+/** 工具分类页签配置（对应 Tool.category，按展示顺序：知识库随交易后、助理随文件与终端前） */
+export const toolCategories: Tool['category'][] = [
   '交易',
   '知识库',
   '记忆',
-  '多助理',
-  '定时任务',
+  '助理',
+  '自动化',
   '文件与终端',
-  '规划与子智能体',
-  '用户交互',
-  '网页与浏览器',
-  '媒体生成',
+  '网页浏览',
+  '媒体',
   '手机',
   '其他',
 ]
 
-/** 「工具」菜单页：分类页签（全部 + 12 分类）+ 工具卡片网格 */
+/** 顶栏分类页签（全部 + 10 分类），供 WorkspacePage 传给 TopTabs 渲染；图标与 tools.ts 中该分类工具保持一致 */
+const categoryIcons: Record<Tool['category'], string> = {
+  '交易': 'fa-solid fa-chart-line',
+  '知识库': 'fa-solid fa-book-open',
+  '记忆': 'fa-solid fa-brain',
+  '助理': 'fa-solid fa-user-group',
+  '自动化': 'fa-solid fa-clock',
+  '文件与终端': 'fa-solid fa-folder-open',
+  '网页浏览': 'fa-solid fa-globe',
+  '媒体': 'fa-solid fa-photo-film',
+  '手机': 'fa-solid fa-mobile-screen',
+  '其他': 'fa-solid fa-box-archive',
+}
+
+export const toolTabList: { key: string; label: string; icon: string }[] = [
+  { key: 'all', label: '全部', icon: 'fa-solid fa-screwdriver-wrench' },
+  ...toolCategories.map((c) => ({ key: c, label: c, icon: categoryIcons[c] })),
+]
+
+/** 「工具」菜单页：工具卡片网格（分类页签渲染在顶栏，由 TopTabs 呈现） */
 export default function ToolsPage() {
-  const [activeTab, setActiveTab] = useState<'all' | Tool['category']>('all')
-  const tabs: ('all' | Tool['category'])[] = ['all', ...toolCategories]
+  const activeTab = useAppStore((s) => s.toolsCategory)
   const visible = activeTab === 'all' ? tools : tools.filter((t) => t.category === activeTab)
 
   return (
     <div>
-      {/* 分类页签：全部 + 12 分类（超出宽度自动换行） */}
-      <div className="flex flex-wrap items-center gap-x-8 gap-y-3 border-b pb-3">
-        {tabs.map((tab) => {
-          const active = tab === activeTab
-          return (
-            <button
-              key={tab}
-              type="button"
-              onClick={() => setActiveTab(tab)}
-              className={`-mb-3.5 flex cursor-pointer items-center border-b-2 bg-transparent pb-3 text-sm font-medium outline-none transition-colors duration-150 ${
-                active
-                  ? 'border-primary text-primary'
-                  : 'border-transparent text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              {tab === 'all' ? '全部' : tab}
-            </button>
-          )
-        })}
-      </div>
-
       {/* 工具卡片网格：桌面端一行 4 个，中屏 2 个，窄屏单列 */}
-      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
         {visible.map((tool) => (
           <ToolCard key={tool.id} tool={tool} />
         ))}
