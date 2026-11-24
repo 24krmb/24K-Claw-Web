@@ -10,6 +10,8 @@ interface AppState {
   mobileSidebarOpen: boolean
   /** 工具页顶栏选中的分类页签 key（'all' 或分类名，由顶栏页签与卡片网格共用） */
   toolsCategory: string
+  /** 插件页顶栏选中的页签 key（'installed' / 'develop'，由顶栏页签与内容区共用） */
+  pluginsCategory: string
 
   /** 选中菜单项 */
   setActiveMenuKey: (key: string) => void
@@ -19,6 +21,8 @@ interface AppState {
   setMobileSidebarOpen: (open: boolean) => void
   /** 切换工具页分类页签 */
   setToolsCategory: (key: string) => void
+  /** 切换插件页顶栏页签 */
+  setPluginsCategory: (key: string) => void
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -26,6 +30,7 @@ export const useAppStore = create<AppState>((set) => ({
   expandedGroups: defaultExpandedGroups,
   mobileSidebarOpen: false,
   toolsCategory: 'all',
+  pluginsCategory: 'installed',
 
   setActiveMenuKey: (key) => set({ activeMenuKey: key }),
 
@@ -39,4 +44,6 @@ export const useAppStore = create<AppState>((set) => ({
   setMobileSidebarOpen: (open) => set({ mobileSidebarOpen: open }),
 
   setToolsCategory: (key) => set({ toolsCategory: key }),
+
+  setPluginsCategory: (key) => set({ pluginsCategory: key }),
 }))

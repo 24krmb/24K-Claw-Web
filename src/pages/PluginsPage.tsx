@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import PluginCard from '../components/PluginCard'
 import { plugins } from '../data/plugins'
+import { useAppStore } from '../store/useAppStore'
 
 
 const devGuideSteps: { title: string; desc: string }[] = [
@@ -18,9 +19,15 @@ group: tools
 kind: tool
 entry: main.py`
 
-/** 「插件」菜单页：页签（已安装插件/插件开发）+ 统计/操作行 + 卡片/表格双视图 */
+/** 顶栏页签（已安装插件/插件开发），供 WorkspacePage 传给 TopTabs 渲染 */
+export const pluginTabList: { key: string; label: string; icon: string }[] = [
+  { key: 'installed', label: '已安装插件', icon: 'fa-solid fa-plug' },
+  { key: 'develop', label: '插件开发', icon: 'fa-solid fa-store' },
+]
+
+/** 「插件」菜单页：页签渲染在顶栏（由 TopTabs 呈现），统计/操作行 + 卡片/表格双视图 */
 export default function PluginsPage() {
-  const [activeTab, setActiveTab] = useState<'installed' | 'develop'>('installed')
+  const activeTab = useAppStore((s) => s.pluginsCategory)
   const [view, setView] = useState<'card' | 'table'>('card')
   const [guideOpen, setGuideOpen] = useState(true)
   const [enabledMap, setEnabledMap] = useState<Record<string, boolean>>(
@@ -31,36 +38,9 @@ export default function PluginsPage() {
 
   return (
     <div>
-      {/* 页签：已安装插件 / 插件开发 */}
-      <div className="flex items-center gap-8 border-b">
-        {(
-          [
-            { key: 'installed', label: '已安装插件', icon: 'fa-solid fa-plug' },
-            { key: 'develop', label: '插件开发', icon: 'fa-solid fa-store' },
-          ] as const
-        ).map((tab) => {
-          const active = tab.key === activeTab
-          return (
-            <button
-              key={tab.key}
-              type="button"
-              onClick={() => setActiveTab(tab.key)}
-              className={`-mb-px flex cursor-pointer items-center gap-2 border-b-2 bg-transparent pb-3 text-sm font-medium outline-none transition-colors duration-150 ${
-                active
-                  ? 'border-primary text-primary'
-                  : 'border-transparent text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              <i className={`${tab.icon} text-sm`} />
-              {tab.label}
-            </button>
-          )
-        })}
-      </div>
-
       {activeTab === 'develop' ? (
         /* 插件开发：开发指南折叠框 */
-        <div className="mt-6 rounded-xl border bg-card">
+        <div className="rounded-xl border bg-card">
           <button
             type="button"
             onClick={() => setGuideOpen((v) => !v)}
@@ -95,8 +75,8 @@ export default function PluginsPage() {
         </div>
       ) : (
         <>
-          {/* 操作行：视图切换（左） + 安装按钮（右） */}
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 pb-3">
+          {/* 操作行：视图切换（左） + 安装按钮（右）；页签已在顶栏，与顶栏间距即 main 内边距，与工具页一致 */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-3">
             {/* 视图切换：卡片 / 表格 */}
             <div className="flex items-center rounded-lg border p-0.5">
               <button

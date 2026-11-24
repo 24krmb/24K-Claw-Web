@@ -6,7 +6,7 @@ import MyAssistantsPage from './MyAssistantsPage'
 import TeamPage from './TeamPage'
 import SubagentsPage from './SubagentsPage'
 import SkillsPage from './SkillsPage'
-import PluginsPage from './PluginsPage'
+import PluginsPage, { pluginTabList } from './PluginsPage'
 import McpPage from './McpPage'
 import CommandsPage from './CommandsPage'
 import ToolsPage, { toolTabList } from './ToolsPage'
@@ -39,6 +39,8 @@ export default function WorkspacePage() {
   const setActiveMenuKey = useAppStore((s) => s.setActiveMenuKey)
   const toolsCategory = useAppStore((s) => s.toolsCategory)
   const setToolsCategory = useAppStore((s) => s.setToolsCategory)
+  const pluginsCategory = useAppStore((s) => s.pluginsCategory)
+  const setPluginsCategory = useAppStore((s) => s.setPluginsCategory)
 
   const isTabRoute = tabKey !== undefined
   const tabValid = isTabRoute && topTabs.some((t) => t.key === tabKey)
@@ -97,6 +99,9 @@ export default function WorkspacePage() {
         ) : menuKey === 'tools' ? (
           /* 工具页：分类页签渲染进顶栏（样式与标签页一致） */
           <TopTabs menuTabs={toolTabList} activeMenuTab={toolsCategory} onMenuTabChange={setToolsCategory} />
+        ) : menuKey === 'plugins' ? (
+          /* 插件页：页签渲染进顶栏（样式与标签页一致） */
+          <TopTabs menuTabs={pluginTabList} activeMenuTab={pluginsCategory} onMenuTabChange={setPluginsCategory} />
         ) : (
           <TopTabs title={activeMenu!.hideTitle ? undefined : (activeMenu!.pageTitle ?? activeMenu!.label)} />
         )}

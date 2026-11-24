@@ -29,7 +29,7 @@ src/
 │   ├── tools.ts          # 工具列表（全部 + 10 分类）
 │   ├── mcp.ts            # MCP 服务器列表
 │   └── commands.ts       # 命令列表（/xxx 快捷命令）
-├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉 / 工具页分类页签
+├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉 / 工具页·插件页顶栏页签
 ├── components/
 │   ├── Sidebar.tsx       # 左侧边栏（Logo + 多级菜单）
 │   ├── MenuItemRow.tsx   # 单个菜单行（含子菜单展开/收起过渡）
@@ -53,7 +53,7 @@ src/
     ├── SkillsPage.tsx    # /ability/skills 技能页（助理筛选 + 来源页签）
     ├── ModelsPage.tsx    # /management/models 模型页（分类页签 + 卡片网格）
     ├── TasksPage.tsx     # /tasks 自动化页（搜索条 + 表格/卡片双视图）
-    ├── PluginsPage.tsx   # /ability/plugins 插件页（页签 + 开发指南 + 卡片/表格双视图）
+    ├── PluginsPage.tsx   # /ability/plugins 插件页（页签渲染在顶栏 + 开发指南 + 卡片/表格双视图）
     ├── ToolsPage.tsx     # /ability/tools 工具页（分类页签渲染在顶栏 + 卡片网格）
     ├── McpPage.tsx       # /ability/mcp MCP 页（服务器卡片网格）
     ├── CommandsPage.tsx  # /ability/commands 命令页（命令卡片网格）
@@ -118,9 +118,9 @@ npm run preview
 
 菜单页内的页签有两种呈现机制：
 
-- **顶栏页签**（`TopTabs` 的 `menuTabs`）：页签渲染进顶栏，样式与标签页（/agents/mine）一致——图标 + 文字 + 选中态主色指示条。用于工具页的「全部 + 10 分类」（`toolTabList` 由 `ToolsPage.tsx` 导出，图标与 `tools.ts` 中各分类工具一致，`WorkspacePage.tsx` 负责传入），选中状态存于 `useAppStore.toolsCategory`
+- **顶栏页签**（`TopTabs` 的 `menuTabs`）：页签渲染进顶栏，样式与标签页（/agents/mine）一致——图标 + 文字 + 选中态主色指示条。用于工具页的「全部 + 10 分类」（`toolTabList` 由 `ToolsPage.tsx` 导出，图标与 `tools.ts` 中各分类工具一致）与插件页的「已安装插件 / 插件开发」（`pluginTabList` 由 `PluginsPage.tsx` 导出），`WorkspacePage.tsx` 负责传入，选中状态分别存于 `useAppStore.toolsCategory` / `pluginsCategory`
 - **页内页签栏**（`AbilityTabs`）：命令页与 MCP 页首行的互跳页签栏，当前页显示在左侧选中态，其余页签靠右，点击路由跳转
-- 其余页面（子 Agent / 技能 / 模型 / 插件等）的页签为页面自有的内联页签
+- 其余页面（子 Agent / 技能 / 模型等）的页签为页面自有的内联页签
 
 ## 布局要点
 
