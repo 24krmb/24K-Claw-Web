@@ -40,9 +40,9 @@ export default function Sidebar() {
       </nav>
 
       {/* 底部：头像 + 设置（游客文字移除） */}
-      <div className="flex shrink-0 items-center gap-3 px-5 pb-5 pt-2">
+      <div className="flex shrink-0 items-center gap-3 border-t px-5 pb-5 pt-2">
         <img
-          src="logo.svg"
+          src="/logo.svg"
           alt="用户头像"
           className="size-10 shrink-0 rounded-full object-cover"
         />

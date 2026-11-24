@@ -15,7 +15,7 @@ src/
 ├── main.tsx              # 入口：引入 Font Awesome 与全局样式，挂载路由
 ├── App.tsx               # 路由：标签页 /agents/:tabKey + 菜单 /:menuKey、/:groupKey/:menuKey
 ├── index.css             # Tailwind v4 入口 + 全局基础样式（@theme 主题令牌）
-├── types/index.ts        # MenuItem / TopTab / Assistant / Team / Subagent / Skill / Model / Task / Plugin / Tool / McpServer / Command / IconTone 类型
+├── types/index.ts        # MenuItem
 ├── data/
 │   ├── menu.ts           # 侧边栏菜单树 + 路由生成（getMenuRoute）
 │   ├── tabs.ts           # 顶部标签页数据（mine / team）
@@ -23,7 +23,7 @@ src/
 │   ├── teams.ts          # 团队列表
 │   ├── subagents.ts      # 子 Agent 列表（金融任务型：数据/量化/资讯/风控）
 │   ├── skills.ts         # 技能列表（内置技能 / 技能包）
-│   ├── models.ts         # 模型列表（Chat Models / STT·TTS / Embedding / System One / Search）
+│   ├── models.ts         # 模型列表
 │   ├── tasks.ts          # 定时任务列表（自动化页）
 │   ├── plugins.ts        # 插件列表（已安装插件）
 │   ├── tools.ts          # 工具列表（全部 + 10 分类）

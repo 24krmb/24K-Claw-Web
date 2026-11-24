@@ -130,6 +130,17 @@ export default function TopTabs({ activeTab, title, onChange, menuTabs, activeMe
 
       {/* 明暗主题切换 */}
       <ThemeToggle />
+      {/* GitHub 仓库入口：图标按钮，新窗口打开仓库地址 */}
+      <a
+        href="https://github.com/24krmb/24K-Claw-Web"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="打开 GitHub 仓库"
+        title="GitHub 仓库"
+        className="mr-4 flex cursor-pointer items-center justify-center rounded-md p-2 text-muted-foreground outline-none transition-colors duration-150 hover:bg-accent hover:text-accent-foreground"
+      >
+        <i className="fa-brands fa-github text-base" />
+      </a>
     </header>
   )
 }
