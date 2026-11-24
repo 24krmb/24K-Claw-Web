@@ -2,7 +2,7 @@ import type { Skill } from '../types'
 
 /**
  * 「技能」菜单页的技能数据（mock）
- * 来源分类：builtin 内置 / pack 技能包，共 20 条
+ * 来源分类：builtin 内置（24 条）/ pack 技能包（2 条），共 26 条
  */
 export const skills: Skill[] = [
 {id: 'limit-up-review',name: '打板复盘',icon: 'fa-solid fa-fire',tone: 'rose',category: 'builtin',enabled: true,description: '复盘涨停板梯队与连板高度，梳理题材主线与情绪周期位置。'},
