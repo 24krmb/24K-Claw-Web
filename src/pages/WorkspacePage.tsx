@@ -89,8 +89,9 @@ export default function WorkspacePage() {
         <Sidebar />
       </div>
 
-      {/* 主内容区：桌面端为侧边栏预留 220px */}
-      <div className="flex min-h-screen flex-1 flex-col lg:pl-[220px]">
+      {/* 主内容区：桌面端为侧边栏预留 220px；min-w-0 允许收缩到视口宽，
+          防止顶栏页签等内容固有宽度把页面撑出横向溢出 */}
+      <div className="flex min-h-screen min-w-0 flex-1 flex-col lg:pl-[220px]">
         {isTabRoute ? (
           <TopTabs activeTab={activeTab} onChange={handleTabChange} />
         ) : menuKey === 'tools' ? (
