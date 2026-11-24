@@ -106,7 +106,7 @@ export default function WorkspacePage() {
           <TopTabs title={activeMenu!.hideTitle ? undefined : (activeMenu!.pageTitle ?? activeMenu!.label)} />
         )}
 
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-4">
           {isTabRoute ? (
             activeTab === 'mine' ? (
               <MyAssistantsPage />
