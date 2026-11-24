@@ -9,6 +9,7 @@ const toneClasses: Record<Tool['tone'], string> = {
   cyan: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400',
   teal: 'bg-teal-500/10 text-teal-600 dark:text-teal-400',
   emerald: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+  green: 'bg-green-500/10 text-green-600 dark:text-green-400',
   lime: 'bg-lime-500/10 text-lime-600 dark:text-lime-400',
   amber: 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
   orange: 'bg-orange-500/10 text-orange-600 dark:text-orange-400',
@@ -16,6 +17,7 @@ const toneClasses: Record<Tool['tone'], string> = {
   rose: 'bg-rose-500/10 text-rose-600 dark:text-rose-400',
   violet: 'bg-violet-500/10 text-violet-600 dark:text-violet-400',
   slate: 'bg-slate-500/10 text-slate-600 dark:text-slate-400',
+  black: 'bg-black/10 text-neutral-900 dark:bg-white/10 dark:text-neutral-200',
 }
 
 /** 默认关闭的工具名称（手机类整类关闭，另含以下指定工具） */

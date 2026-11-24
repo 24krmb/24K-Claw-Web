@@ -28,10 +28,12 @@ src/
 │   ├── plugins.ts        # 插件列表（已安装插件）
 │   ├── tools.ts          # 工具列表（全部 + 10 分类）
 │   ├── mcp.ts            # MCP 服务器列表
+│   ├── imChannels.ts     # IM 通道列表（微信/QQ/企微/飞书/WhatsApp/Teams 等 18 个通道，含 Signal/Slack 等 5 个官方插件）
 │   └── commands.ts       # 命令列表（/xxx 快捷命令）
 ├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉 / 工具页·插件页顶栏页签
 ├── components/
-│   ├── Sidebar.tsx       # 左侧边栏（Logo + 多级菜单）
+│   ├── Sidebar.tsx       # 左侧边栏（Logo + 版本切换 + 多级菜单）
+│   ├── VersionSwitcher.tsx # LOGO 右侧版本切换（演示版；正式版新窗口打开 claw.24krmb.com）
 │   ├── MenuItemRow.tsx   # 单个菜单行（含子菜单展开/收起过渡）
 │   ├── TopTabs.tsx       # 顶部标签页导航 / 菜单页标题或自定义页签组 + 明暗切换
 │   ├── AssistantCard.tsx # 助理卡片
@@ -42,6 +44,7 @@ src/
 │   ├── ModelCard.tsx     # 模型卡片（LOGO 白底块 / 图标色块 + 启停）
 │   ├── PluginCard.tsx    # 插件卡片（图标色块 + 元信息标签 + 开关/卸载）
 │   ├── ToolCard.tsx      # 工具卡片（图标色块 + 名称 + 分类徽章 + 标识符）
+│   ├── ImChannelCard.tsx # IM 通道卡片（圆形品牌色图标 + 启停开关 + 连接状态徽章）
 │   ├── McpCard.tsx       # MCP 服务器卡片（图标色块 + 添加/移除）
 │   └── CommandCard.tsx   # 命令卡片（图标色块 + 命令名 + 添加/移除）
 └── pages/
@@ -52,6 +55,7 @@ src/
     ├── SkillsPage.tsx    # /ability/skills 技能页（助理筛选 + 来源页签）
     ├── ModelsPage.tsx    # /management/models 模型页（分类页签渲染在顶栏 + 卡片网格）
     ├── TasksPage.tsx     # /tasks 自动化页（搜索条 + 表格/卡片双视图）
+    ├── ImPage.tsx        # /control/im IM 页（通道统计行 + 通道卡片网格）
     ├── PluginsPage.tsx   # /ability/plugins 插件页（页签渲染在顶栏 + 开发指南 + 卡片/表格双视图）
     ├── ToolsPage.tsx     # /ability/tools 工具页（分类页签渲染在顶栏 + 卡片网格）
     ├── McpPage.tsx       # /ability/mcp MCP 页（页签渲染在顶栏 + 服务器卡片网格）

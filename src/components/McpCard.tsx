@@ -9,6 +9,7 @@ const toneClasses: Record<McpServer['tone'], string> = {
   cyan: 'bg-cyan-500',
   teal: 'bg-teal-500',
   emerald: 'bg-emerald-500',
+  green: 'bg-green-500',
   lime: 'bg-lime-500',
   amber: 'bg-amber-500',
   orange: 'bg-orange-500',
@@ -16,6 +17,7 @@ const toneClasses: Record<McpServer['tone'], string> = {
   rose: 'bg-rose-500',
   violet: 'bg-violet-500',
   slate: 'bg-slate-500',
+  black: 'bg-black',
 }
 
 /** MCP 卡片：品牌色图标块 + 名称/单行截断描述 + 右上角添加/移除按钮（样式对照 Develop/mcp.png） */

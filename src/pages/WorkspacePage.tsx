@@ -12,6 +12,7 @@ import CommandsPage, { commandTabList } from './CommandsPage'
 import ToolsPage, { toolTabList } from './ToolsPage'
 import ModelsPage, { modelTabList } from './ModelsPage'
 import TasksPage from './TasksPage'
+import ImPage from './ImPage'
 import PlaceholderPage from './PlaceholderPage'
 import { topTabs, defaultTabKey } from '../data/tabs'
 import { menuItems, findMenuItem } from '../data/menu'
@@ -142,6 +143,8 @@ export default function WorkspacePage() {
             <ModelsPage />
           ) : menuKey === 'tasks' ? (
             <TasksPage />
+          ) : menuKey === 'im' ? (
+            <ImPage />
           ) : (
             <PlaceholderPage title={activeMenu!.label} />
           )}

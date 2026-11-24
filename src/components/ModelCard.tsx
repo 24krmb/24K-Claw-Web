@@ -9,6 +9,7 @@ const toneClasses: Record<IconTone, string> = {
   cyan: 'bg-cyan-500',
   teal: 'bg-teal-500',
   emerald: 'bg-emerald-500',
+  green: 'bg-green-500',
   lime: 'bg-lime-500',
   amber: 'bg-amber-500',
   orange: 'bg-orange-500',
@@ -16,6 +17,7 @@ const toneClasses: Record<IconTone, string> = {
   rose: 'bg-rose-500',
   violet: 'bg-violet-500',
   slate: 'bg-slate-500',
+  black: 'bg-black',
 }
 
 /** 分类 → 徽章文字 */

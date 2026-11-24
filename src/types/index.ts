@@ -54,6 +54,7 @@ export type IconTone =
   | 'cyan'
   | 'teal'
   | 'emerald'
+  | 'green'
   | 'lime'
   | 'amber'
   | 'orange'
@@ -61,6 +62,7 @@ export type IconTone =
   | 'rose'
   | 'violet'
   | 'slate'
+  | 'black'
 
 /** 「MCP」列表项 */
 export interface McpServer {
@@ -138,4 +140,15 @@ export interface Tool {
   icon: string/** Font Awesome 图标类名（卡片左侧色块图标） */
   tone: IconTone/** 图标块色调 */
   category: '交易' | '记忆' | '文件与终端' | '网页浏览' | '媒体' | '自动化' | '知识库' | '手机' | '助理' | '其他'/** 工具分类 */
+}
+
+/** 「IM 通道」列表项 */
+export interface ImChannel {
+  id: string/** 唯一标识 */
+  name: string/** 通道名称 */
+  icon: string/** Font Awesome 图标类名（卡片圆形图标） */
+  tone: IconTone/** 品牌色调（图标块与启用态卡片底色） */
+  enabled: boolean/** 是否已启用 */
+  description: string/** 一句话说明 */
+  official?: boolean/** 是否为官方插件（卡片显示「官方插件」徽章） */
 }
