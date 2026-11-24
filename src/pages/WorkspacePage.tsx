@@ -9,6 +9,7 @@ import SkillsPage from './SkillsPage'
 import McpPage from './McpPage'
 import CommandsPage from './CommandsPage'
 import ModelsPage from './ModelsPage'
+import TasksPage from './TasksPage'
 import PlaceholderPage from './PlaceholderPage'
 import { topTabs, defaultTabKey } from '../data/tabs'
 import { menuItems, findMenuItem } from '../data/menu'
@@ -111,6 +112,8 @@ export default function WorkspacePage() {
             <CommandsPage />
           ) : menuKey === 'models' ? (
             <ModelsPage />
+          ) : menuKey === 'tasks' ? (
+            <TasksPage />
           ) : (
             <PlaceholderPage title={activeMenu!.label} />
           )}

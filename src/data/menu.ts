@@ -9,7 +9,7 @@ export const menuItems: MenuItem[] = [
   { key: 'agents', label: '主 Agent', icon: 'fa-solid fa-graduation-cap', route: '/agents/mine' },
   { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-robot', pageTitle: '为不同的Agent配置子Agent' },
   { key: 'team', label: '团队', icon: 'fa-solid fa-user-group', route: '/agents/team' },
-  { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock' },
+  { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock', pageTitle: '让 Agent 7X24 小时帮你定期执行计划任务' },
   { key: 'knowledge', label: '知识库', icon: 'fa-solid fa-book-open' , pageTitle: '建立知识库体系；可共享、可私有' },
   {
     key: 'ability',label: 'Harness',icon: 'fa-solid fa-bolt',
@@ -30,7 +30,7 @@ export const menuItems: MenuItem[] = [
     ],
   },
   {
-    key: 'management',label: '管理',icon: 'fa-solid fa-gear',
+    key: 'management',label: 'Admin',icon: 'fa-solid fa-gear',
     children: [
       { key: 'models', label: '模型', icon: 'fa-solid fa-cubes',pageTitle: '配置对话、生成、语音、搜索和决策所用的模型'},
       { key: 'token', label: 'Token 统计', icon: 'fa-solid fa-coins' },

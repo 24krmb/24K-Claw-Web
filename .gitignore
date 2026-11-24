@@ -4,6 +4,7 @@ dist-ssr
 *.local
 .DS_Store
 npm-debug.log*
+.env
 .workbuddy
 .trae
 .zcode

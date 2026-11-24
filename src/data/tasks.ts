@@ -1,0 +1,24 @@
+import type { Task } from '../types'
+/*「自动化」菜单页的定时任务数据(mock)*/
+export const tasks: Task[] = [
+{id: 'cT4K9WR',name: 'A股Transformer量化',enabled: true,schedule: '20 8 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '盘前运行 Transformer 量价模型对全市场 A 股进行截面预测，结合注意力权重归因输出当日多空信号、目标持仓与仓位建议。',lastRun: '2026/11/24 08:20:00',lastStatus: 'success',newSession: true},
+{id: 'cX6J3MD',name: '逆向选择信息不对称分析',enabled: false,schedule: '0 20 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '基于数据测算知情交易概率(PIN)与逆向选择成本，识别信息不对称异常标的并输出关注清单。',lastRun: '2026/11/21 20:00:00',lastStatus: 'success',newSession: true},
+{id: 'cY2K8RD',name: 'A股自动化量化建模',enabled: false,schedule: '0 22 * * 5',type: '智能体',typeNote: 'AI 处理请求',prompt: '以最新样本自动化重训量化模型，输出更新后的因子权重与回测验证。',lastRun: '2026/11/20 22:00:00',lastStatus: 'success',newSession: true},
+{id: 'cW8R5KN',name: 'VWAP算法/成交量加权策略',enabled: true,schedule: '*/30 9-11,13-14 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '按历史成交量分布将母单拆分为子单在交易时段执行，监控实时成交价对 VWAP 的偏离度与冲击成本，动态调整子单节奏并输出执行质量报告。',lastRun: '2026/11/24 10:30:00',lastStatus: 'success',newSession: true},
+{id: 'cBPX321',name: '盘前数据同步',enabled: true,schedule: '15 8 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '拉取隔夜美股、期货夜盘收盘与北向资金动向，校验行情源可用性与日线数据完整性，生成盘前数据就绪清单。',lastRun: '2026/11/24 08:15:00',lastStatus: 'success',newSession: true},
+{id: 'cRRVJ9X',name: '策略信号扫描',enabled: true,schedule: '*/5 9-15 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '盘中每 5 分钟扫描多因子策略信号池，监测动量异动、量价背离与涨停板梯队，输出触发买卖信号的标的及仓位建议。',lastRun: '2026/11/24 10:25:00',lastStatus: 'success',newSession: true},
+{id: 'cPX3HPM',name: '持仓风控巡检',enabled: true,schedule: '0 10,14 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '巡检实盘持仓风险敞口：单票集中度、行业暴露、账户回撤与杠杆水平，触及预警阈值时输出减仓与对冲处置建议。',lastRun: '2026/11/24 14:00:00',lastStatus: 'failure',newSession: true},
+{id: 'cY9B2LD',name: '商品价差套利扫描',enabled: true,schedule: '5 13 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '扫描黑色、有色、能化板块跨期价差与跨品种比值(螺纹/热卷、油粕比、M/SM 等)，偏离历史分位时输出套利机会与风险提示。',lastRun: '2026/11/23 13:05:00',lastStatus: 'failure',newSession: true},
+{id: 'cJ8R01K',name: '策略绩效周报',enabled: false,schedule: '0 18 * * 5',type: '智能体',typeNote: 'AI 处理请求',prompt: '统计本周各策略收益率、最大回撤、夏普比率与胜率，与沪深300基准对比归因，输出策略绩效周报。',lastRun: '2026/11/20 18:00:00',lastStatus: 'success',newSession: true},
+{id: 'cH9R4LD',name: '隔夜外盘监控',enabled: true,schedule: '*/15 21-23 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '夜盘时段每 15 分钟监控美股核心指数、商品期货与汇率异动，触发急涨急跌阈值时推送风险提示与关联品种影响分析。',lastRun: '2026/11/23 23:45:00',lastStatus: 'success',newSession: true},
+{id: 'cB5Y2XS',name: '回测参数寻优',enabled: false,schedule: '30 22 * * 5',type: '智能体',typeNote: 'AI 处理请求',prompt: '利用非交易时段对候选因子与参数组合批量回测，输出绩效排名、参数敏感性分析与过拟合检验报告。',lastRun: '2026/11/20 22:30:00',lastStatus: 'failure',newSession: true},
+{id: 'cN3J6QF',name: '月度策略归因',enabled: false,schedule: '0 9 1 * *',type: '智能体',typeNote: 'AI 处理请求',prompt: '统计上月各策略收益归因、因子暴露与策略容量变化，结合市场环境输出月度归因报告与参数调整建议。',lastRun: '2026/11/02 09:00:00',lastStatus: 'success',newSession: true},
+{id: 'cP8X4RT',name: '尾盘情绪速览',enabled: true,schedule: '45 14 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '尾盘统计涨停家数、连板高度、炸板率与成交额变化，判断情绪周期位置，提示尾盘风险与隔日开盘预期。',lastRun: '2026/11/21 14:45:00',lastStatus: 'success',newSession: true},
+{id: 'cW2N9KD',name: '期权波动率监控',enabled: false,schedule: '0 13 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '午后监控 ETF 期权隐含波动率曲面、偏度与期限结构异动，识别波动率交易机会，输出对冲成本参考。',lastRun: '2026/11/23 13:00:00',lastStatus: 'failure',newSession: true},
+{id: 'cM6V3BH',name: '可转债双低扫描',enabled: true,schedule: '5 10 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '开盘后扫描全市场可转债价格与转股溢价率，更新双低排名与轮动候选池，同步提示强赎条款风险。',lastRun: '2026/11/24 10:05:00',lastStatus: 'success',newSession: true},
+{id: 'cL4Q8ZF',name: '期指基差监控',enabled: false,schedule: '0 14 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '监控股指期货基差、跨期价差与持仓量变化，提示期现套利空间与多头对冲建仓时点。',lastRun: '2026/11/21 14:00:00',lastStatus: 'success',newSession: true},
+{id: 'cD7S2NP',name: '组合再平衡提醒',enabled: false,schedule: '10 9 * * 1',type: '智能体',typeNote: 'AI 处理请求',prompt: '每周一开盘前对比当前持仓与目标权重的偏离度，超过阈值时生成调仓清单并预估冲击成本。',lastRun: '2026/11/23 09:10:00',lastStatus: 'success',newSession: true},
+{id: 'cR3N7KP',name: '仓单库存周报',enabled: true,schedule: '0 17 * * 5',type: '智能体',typeNote: 'AI 处理请求',prompt: '汇总上期所、大商所、郑商所注册仓单与主要品种显性库存周度变化，结合基差验证供需边际，输出库存拐点提示。',lastRun: '2026/11/20 17:00:00',lastStatus: 'success',newSession: true},
+{id: 'cF6H4SX',name: '能化利润监控',enabled: false,schedule: '10 10 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '测算原油-成品油、甲醇-烯烃、煤-尿素等产业链盘面利润与历史分位，提示利润扩张或收缩方向的品种配置机会。',lastRun: '2026/11/21 10:10:00',lastStatus: 'success',newSession: true},
+{id: 'cG8M2VT',name: '贵金属比价监控',enabled: true,schedule: '0 11 * * 1-5',type: '智能体',typeNote: 'AI 处理请求',prompt: '监控沪金、沪银与 COMEX 内外盘比价、金银比及交易所库存变化，识别跨市场套利窗口与对冲建仓时点。',lastRun: '2026/11/23 11:00:00',lastStatus: 'success',newSession: true},
+]

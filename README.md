@@ -22,7 +22,7 @@ src/
 ├── main.tsx              # 入口：引入 Font Awesome 与全局样式，挂载路由
 ├── App.tsx               # 路由：标签页 /agents/:tabKey + 菜单 /:menuKey、/:groupKey/:menuKey
 ├── index.css             # Tailwind v4 入口 + 全局基础样式（@theme 主题令牌）
-├── types/index.ts        # MenuItem / TopTab / Assistant / Team / Subagent / Skill / Model 类型
+├── types/index.ts        # MenuItem / TopTab / Assistant / Team / Subagent / Skill / Model / Task 类型
 ├── data/
 │   ├── menu.ts           # 侧边栏菜单树 + 路由生成（getMenuRoute）
 │   ├── tabs.ts           # 顶部标签页数据（mine / team）
@@ -30,7 +30,8 @@ src/
 │   ├── teams.ts          # 团队列表
 │   ├── subagents.ts      # 子 Agent 列表（金融任务型：数据/量化/资讯/风控）
 │   └── skills.ts         # 技能列表（内置技能 / 技能包）
-│   └── models.ts         # 模型列表（Chat Models / STT·TTS / Embedding / System One）
+│   └── models.ts         # 模型列表（Chat Models / STT·TTS / Embedding / System One / Search）
+│   └── tasks.ts          # 定时任务列表（自动化页）
 ├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉
 ├── components/
 │   ├── Sidebar.tsx       # 左侧边栏（Logo + 多级菜单）
@@ -48,6 +49,7 @@ src/
     ├── SubagentsPage.tsx # /subagents 子 Agent 页（分类页签 + 筛选）
     ├── SkillsPage.tsx    # /ability/skills 技能页（来源页签 + 筛选）
     ├── ModelsPage.tsx    # /management/models 模型页（分类页签 + 卡片网格）
+    ├── TasksPage.tsx     # /tasks 自动化页（搜索条 + 表格/卡片双视图）
     └── PlaceholderPage.tsx # 未实现菜单的占位页
 ```
 ## 快速开始
@@ -115,6 +117,6 @@ npm run preview
 
 ## 关于我们
 
-**[24KRMB.COM](https://www.24krmb.com)**实战交流社区成立于 2012 年，社区实行实名认证与实盘认证制度。全网唯一 AI + A股/期货量化实战交流社区：股票、期货、期权的实战技术、实战案例、宏观分析、AI 量化投资实战交流。
+[24KRMB.COM](https://www.24krmb.com)实战交流社区成立于 2012 年，社区实行实名认证与实盘认证制度。全网唯一 AI + A股/期货量化实战交流社区：股票、期货、期权的实战技术、实战案例、宏观分析、AI 量化投资实战交流。
 
 🔗 网址：<https://www.24krmb.com>
