@@ -7,7 +7,7 @@ export const menuItems: MenuItem[] = [
   /*{ key: 'chat', label: '对话', icon: 'fa-solid fa-comments' },*/
   
   { key: 'agents', label: '主 Agent', icon: 'fa-solid fa-graduation-cap', route: '/agents/mine' },
-  { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-robot', pageTitle: '为不同的Agent配置子Agent' },
+  { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-robot', pageTitle: '为不同的 Agent 配置 Subagent' },
   { key: 'team', label: '团队', icon: 'fa-solid fa-user-group', route: '/agents/team' },
   { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock', pageTitle: '让 Agent 7X24 小时帮你定期执行计划任务' },
   { key: 'knowledge', label: '知识库', icon: 'fa-solid fa-book-open' , pageTitle: '建立知识库体系；可共享、可私有' },
@@ -19,7 +19,7 @@ export const menuItems: MenuItem[] = [
       { key: 'memory', label: '记忆', icon: 'fa-solid fa-brain' },
       { key: 'mcp', label: 'MCP', icon: 'fa-solid fa-server', pageTitle: '账户级连接；对话时按需勾选' },
       { key: 'commands', label: '命令', icon: 'fa-solid fa-terminal', pageTitle: 'Command 用来快速调用 24K-Claw 的内置能力'},
-      { key: 'tools', label: '工具', icon: 'fa-solid fa-screwdriver-wrench' },
+      { key: 'tools', label: '工具', icon: 'fa-solid fa-screwdriver-wrench', pageTitle: '覆盖交易、文件、终端、手机等场景的内置工具' },
     ],
   },
   {

@@ -9,6 +9,7 @@ import SkillsPage from './SkillsPage'
 import PluginsPage from './PluginsPage'
 import McpPage from './McpPage'
 import CommandsPage from './CommandsPage'
+import ToolsPage from './ToolsPage'
 import ModelsPage from './ModelsPage'
 import TasksPage from './TasksPage'
 import PlaceholderPage from './PlaceholderPage'
@@ -113,6 +114,8 @@ export default function WorkspacePage() {
             <McpPage />
           ) : menuKey === 'commands' ? (
             <CommandsPage />
+          ) : menuKey === 'tools' ? (
+            <ToolsPage />
           ) : menuKey === 'models' ? (
             <ModelsPage />
           ) : menuKey === 'tasks' ? (

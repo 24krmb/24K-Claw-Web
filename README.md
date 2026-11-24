@@ -33,6 +33,7 @@ src/
 │   └── models.ts         # 模型列表（Chat Models / STT·TTS / Embedding / System One / Search）
 │   └── tasks.ts          # 定时任务列表（自动化页）
 │   └── plugins.ts        # 插件列表（已安装插件）
+│   └── tools.ts          # 工具列表（全部 + 12 分类）
 ├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉
 ├── components/
 │   ├── Sidebar.tsx       # 左侧边栏（Logo + 多级菜单）
@@ -44,6 +45,7 @@ src/
 │   └── SkillCard.tsx     # 技能卡片
 │   └── ModelCard.tsx     # 模型卡片（LOGO 白底块 / 图标色块 + 启停）
 │   └── PluginCard.tsx    # 插件卡片（图标色块 + 元信息标签 + 开关/卸载）
+│   └── ToolCard.tsx      # 工具卡片（图标色块 + 名称 + 分类徽章 + 标识符）
 └── pages/
     ├── WorkspacePage.tsx # 工作区布局骨架 + 路由分支（所有页面从这里分发）
     ├── MyAssistantsPage.tsx # /agents/mine 助理卡片网格
@@ -53,6 +55,7 @@ src/
     ├── ModelsPage.tsx    # /management/models 模型页（分类页签 + 卡片网格）
     ├── TasksPage.tsx     # /tasks 自动化页（搜索条 + 表格/卡片双视图）
     ├── PluginsPage.tsx   # /ability/plugins 插件页（页签 + 开发指南 + 卡片/表格双视图）
+    ├── ToolsPage.tsx     # /ability/tools 工具页（全部 + 12 分类页签 + 卡片网格）
     └── PlaceholderPage.tsx # 未实现菜单的占位页
 ```
 ## 快速开始

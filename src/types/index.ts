@@ -129,3 +129,12 @@ export interface Plugin {
   enabled: boolean/** 是否已加载（启用） */
   description: string/** 描述 */
 }
+
+/** 「工具」列表项 */
+export interface Tool {
+  id: string/** 工具标识符（如 read_account，卡片内等宽字体展示） */
+  name: string/** 显示名称 */
+  icon: string/** Font Awesome 图标类名（卡片左侧色块图标） */
+  tone: IconTone/** 图标块色调 */
+  category: '交易' | '记忆' | '文件与终端' | '规划与子智能体' | '用户交互' | '网页与浏览器' | '媒体生成' | '定时任务' | '知识库' | '手机' | '多助理' | '其他'/** 工具分类 */
+}
