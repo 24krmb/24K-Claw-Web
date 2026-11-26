@@ -12,16 +12,13 @@ const actions = [
 
 /**
  * 单张「我的助理」卡片：
- * 金色顶条 + 头像/名称/运行状态 + 启停开关 + 描述 + 操作行 + 「对话」按钮
+ * 头像/名称/运行状态 + 启停开关 + 描述 + 操作行 + 「对话」按钮
  */
 export default function AssistantCard({ assistant }: { assistant: Assistant }) {
   const [running, setRunning] = useState(assistant.running)
 
   return (
     <article className="flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md">
-      {/* 顶部金色装饰条 */}
-      
-
       <div className="flex flex-1 flex-col p-6">
         {/* 头像 + 信息 + 启停开关 */}
         <div className="flex items-start gap-4">

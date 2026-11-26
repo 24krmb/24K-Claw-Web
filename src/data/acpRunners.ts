@@ -1,6 +1,6 @@
 import type { AcpRunner } from '../types'
 
-/** ACP Runner 列表（对应参考稿外部编程助理，默认全部禁用；前 5 个顺序与参考稿一致） */
+/** ACP Runner 列表（对应参考稿外部编程助理，默认仅 OpenCode 启用；前 5 个顺序与参考稿一致） */
 export const acpRunners: AcpRunner[] = [
   { id: 'opencode', name: 'OpenCode', icon: 'fa-solid fa-terminal', tone: 'black', logo: '/images/acp/opencode.webp', enabled: true, description: 'SST 开源的终端 AI 编程助理，原生支持 ACP 协议，以 opencode acp 启动后即可通过 stdio 与 24K-Claw 协作。' },
   { id: 'codex', name: 'Codex', icon: 'fa-solid fa-microchip', tone: 'black', logo: '/images/acp/codex.svg', enabled: false, description: 'OpenAI Codex CLI 编码智能体，通过 codex-acp 桥接器接入 ACP，可执行代码编写、重构与终端自动化任务。' },

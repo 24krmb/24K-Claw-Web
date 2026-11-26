@@ -9,7 +9,7 @@ export const skills: Skill[] = [
 {id: 'lhb-reader',name: '龙虎榜解读',icon: 'fa-solid fa-trophy',tone: 'amber',category: 'builtin',enabled: true,description: '解析龙虎榜席位数据，识别游资与机构动向，输出买卖席位力量对比。'},
 {id: 'northbound-track',name: '北向资金追踪',icon: 'fa-solid fa-right-left',tone: 'emerald',category: 'builtin',enabled: true,description: '跟踪北向资金流入流出与个股持仓变化，输出资金动向与偏好报告。'},
 {id: 'position-calc',name: '仓位计算器',icon: 'fa-solid fa-calculator',tone: 'slate',category: 'builtin',enabled: true,description: '按风险预算与止损位计算开仓手数、总仓位上限与分批加仓计划。'},
-{id: 'candle-pattern',name: 'K 线形态标注',icon: 'fa-solid fa-chart-column',tone: 'sky',category: 'builtin',enabled: true,description: '识别行常见技术形态（头肩顶、双底、旗形等）并标注关键点位。'},
+{id: 'candle-pattern',name: 'K 线形态标注',icon: 'fa-solid fa-chart-column',tone: 'sky',category: 'builtin',enabled: true,description: '识别 K 线常见技术形态（头肩顶、双底、旗形等）并标注关键点位。'},
 {id: 'notes',name: '备忘录',icon: 'fa-regular fa-note-sticky',tone: 'violet',category: 'builtin',enabled: true,description: '在 macOS 上创建、搜索和编辑 Apple 备忘录。'},
 {id: 'docker-manager',name: 'Docker 管理',icon: 'fa-brands fa-docker',tone: 'sky',category: 'builtin',enabled: false,description: '管理容器、镜像、卷、网络与 Compose 栈。'},
 {id: 'memory-manager',name: '记忆管理',icon: 'fa-solid fa-lightbulb',tone: 'rose',category: 'builtin',enabled: true,description: '通过 memory 保存与召回记忆，区分强记忆和工作区配置。'},
