@@ -59,7 +59,7 @@ export default function PluginCard({ plugin, enabled, onToggle }: PluginCardProp
           aria-checked={enabled}
           aria-label={`${plugin.name} 启停开关`}
           onClick={() => onToggle(plugin.id)}
-          className={`relative inline-flex h-[18px] w-8 shrink-0 cursor-pointer items-center rounded-full px-0.5 outline-none transition-colors duration-150 ${
+          className={`relative inline-flex h-[18px] w-8 shrink-0 cursor-pointer items-center rounded-full px-0.5 outline-none transition-colors duration-150 after:absolute after:-inset-1.5 after:content-[''] ${
             enabled ? 'bg-emerald-500' : 'bg-muted-foreground/30'
           }`}
         >

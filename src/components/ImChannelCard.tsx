@@ -87,7 +87,7 @@ export default function ImChannelCard({ channel, enabled, onToggle }: ImChannelC
           aria-checked={enabled}
           aria-label={`${channel.name} 通道启停开关`}
           onClick={() => onToggle(channel.id)}
-          className={`relative inline-flex h-[18px] w-8 shrink-0 cursor-pointer items-center rounded-full px-0.5 outline-none transition-colors duration-150 ${
+          className={`relative inline-flex h-[18px] w-8 shrink-0 cursor-pointer items-center rounded-full px-0.5 outline-none transition-colors duration-150 after:absolute after:-inset-1.5 after:content-[''] ${
             enabled ? toggleOnClasses[channel.tone] : 'bg-muted-foreground/30'
           }`}
         >

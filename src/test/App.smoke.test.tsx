@@ -37,4 +37,16 @@ describe('App 冒烟测试', () => {
     renderAt('/not-exist-menu')
     expect(await screen.findByRole('heading', { level: 1, name: '助理' })).toBeInTheDocument()
   })
+
+  it('分组深链接重定向到第一个子项（/ability → /ability/skills）', async () => {
+    renderAt('/ability')
+    expect(
+      await screen.findByRole('heading', { level: 1, name: '为不同的Agent配置不同的技能' }),
+    ).toBeInTheDocument()
+  })
+
+  it('裸一级路由重定向到配置路由（/team → /agents/team）', async () => {
+    renderAt('/team')
+    expect(await screen.findByRole('heading', { level: 1, name: '团队' })).toBeInTheDocument()
+  })
 })

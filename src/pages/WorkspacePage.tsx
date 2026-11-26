@@ -18,7 +18,7 @@ const ImPage = lazy(() => import('./ImPage'))
 const AcpPage = lazy(() => import('./AcpPage'))
 const PlaceholderPage = lazy(() => import('./PlaceholderPage'))
 import { topTabs, defaultTabKey } from '../data/tabs'
-import { menuItems, findMenuItem } from '../data/menu'
+import { menuItems, findMenuItem, getMenuRoute } from '../data/menu'
 import { useAppStore } from '../store/useAppStore'
 
 /** 「主 Agent」菜单对应的 Agent 标签页；team 标签页对应侧边栏「团队」菜单 */
@@ -139,6 +139,19 @@ export default function WorkspacePage() {
 
   const handleTabChange = (key: string) => {
     navigate(`/agents/${key}`)
+  }
+
+  /* ===== 深链接重定向 =====
+     裸的一级路由（/agents、/team）跳到其配置的 route；分组路由（/ability、/control、/management）跳到第一个子项，
+     避免书签/外部链接命中时落到占位页 */
+  if (!isTabRoute && activeMenu) {
+    if (activeMenu.route && menuKey === activeMenu.key) {
+      return <Navigate to={activeMenu.route} replace />
+    }
+    const firstChild = activeMenu.children?.[0]
+    if (firstChild) {
+      return <Navigate to={getMenuRoute(firstChild.key)} replace />
+    }
   }
 
   return (
