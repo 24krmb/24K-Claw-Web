@@ -10,8 +10,8 @@
   --card-foreground: oklch(0.141 0.005 285.823); /* 卡片内文字颜色 */
   --popover: oklch(1 0 0); /* 弹出层（Popover / 下拉）背景色 */
   --popover-foreground: oklch(0.141 0.005 285.823); /* 弹出层内文字颜色 */
-  --primary: oklch(58.5% 0.233 277.117); /* 主色 / 品牌色（蓝紫色，用于主按钮、链接、选中态） */
-  --primary-foreground: oklch(0.97 0.014 254.604); /* 主色之上的文字颜色（浅色，保证对比度） */
+  --primary: #4f46e5; /* 主色 / 品牌色（靛蓝，用于主按钮、链接、选中态；白字对比度约 6.3:1，达 AA） */
+  --primary-foreground: #ffffff; /* 主色之上的文字颜色（白色） */
   --secondary: oklch(0.967 0.001 286.375); /* 次级背景色（浅灰，用于次级按钮、次要区块底色） */
   --secondary-foreground: oklch(0.21 0.006 285.885); /* 次级背景上的文字颜色 */
   --muted: oklch(0.967 0.001 286.375); /* 弱化背景色（用于禁用区块、占位区域底色） */
@@ -21,15 +21,15 @@
   --destructive: oklch(0.577 0.245 27.325); /* 危险色（错误、删除、破坏性操作按钮） */
   --border: rgb(214,227,255); /* 全局边框颜色 */
   --input: rgb(214,227,255); /* 输入框边框颜色 */
-  --ring: oklch(0.708 0 0); /* 焦点环颜色（键盘聚焦时的 outline 高亮） */
+  --ring: #4f46e5; /* 焦点环颜色（键盘聚焦时的 outline 高亮） */
   --sidebar: #DBE7FF; /* 侧边栏背景色（极浅的灰白） */
   --sidebar-foreground: oklch(0.141 0.005 285.823); /* 侧边栏文字颜色 */
-  --sidebar-primary:oklch(58.5% 0.233 277.117); /* 侧边栏主色（选中项、主按钮用的蓝色） */
-  --sidebar-primary-foreground: oklch(0.97 0.014 254.604); /* 侧边栏主色之上的文字颜色 */
+  --sidebar-primary: #4f46e5; /* 侧边栏主色（选中项、主按钮用的蓝色） */
+  --sidebar-primary-foreground: #ffffff; /* 侧边栏主色之上的文字颜色 */
   --sidebar-accent: #C0D2FF; /* 侧边栏强调背景色（菜单项 hover / 激活底色） */
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885); /* 侧边栏强调背景上的文字颜色 */
   --sidebar-border: rgb(214,227,255); /* 侧边栏边框颜色 */
-  --sidebar-ring: oklch(0.708 0 0); /* 侧边栏焦点环颜色 */
+  --sidebar-ring: #4f46e5; /* 侧边栏焦点环颜色 */
   --box-shadow: 0 4px 12px 0 rgba(102, 102, 255, .24); /* 通用盒阴影（柔和的紫色投影，用于卡片、浮层） */
   --shadow-color: rgb(102, 102, 255); /* 阴影基色（浅色：品牌紫 #66f），shadow 各档用 color-mix 按百分比叠加透明度 */
 }
@@ -42,8 +42,8 @@
   --card-foreground: oklch(0.985 0 0); /* 卡片内文字颜色 */
   --popover: #232323; /* 弹出层（Popover / 下拉）背景色 */
   --popover-foreground: oklch(0.985 0 0); /* 弹出层内文字颜色 */
-  --primary: #F4D1B4; /* 主色 / 品牌色（蓝紫色，与浅色模式一致） */
-  --primary-foreground: oklch(0.97 0.014 254.604); /* 主色之上的文字颜色 */
+  --primary: #F4D1B4; /* 主色 / 品牌色（暖橙，暗色模式品牌色） */
+  --primary-foreground: #2b1c10; /* 主色之上的文字颜色（深棕，对比度约 11.5:1，达 AA/AAA） */
   --secondary: oklch(0.274 0.006 286.033); /* 次级背景色（深灰，用于次级按钮、次要区块底色） */
   --secondary-foreground: oklch(0.985 0 0); /* 次级背景上的文字颜色 */
   --muted: oklch(0.274 0.006 286.033); /* 弱化背景色（禁用区块、占位区域底色） */
@@ -53,15 +53,15 @@
   --destructive: oklch(0.704 0.191 22.216); /* 危险色（暗色下更亮，保证对比度） */
   --border: oklch(1 0 0 / 10%); /* 全局边框颜色（半透明白，营造柔和描边） */
   --input: oklch(1 0 0 / 15%); /* 输入框边框颜色（半透明白，比边框略亮） */
-  --ring: oklch(0.556 0 0); /* 焦点环颜色 */
+  --ring: #F4D1B4; /* 焦点环颜色（品牌暖橙，暗底上清晰可见） */
   --sidebar: #232323; /* 侧边栏背景色（深灰） */
   --sidebar-foreground: oklch(0.985 0 0); /* 侧边栏文字颜色 */
-  --sidebar-primary: #F4D1B4; /* 侧边栏主色（选中项、主按钮用的亮蓝） */
-  --sidebar-primary-foreground: oklch(0.97 0.014 254.604); /* 侧边栏主色之上的文字颜色 */
+  --sidebar-primary: #F4D1B4; /* 侧边栏主色（选中项、主按钮用的暖橙） */
+  --sidebar-primary-foreground: #2b1c10; /* 侧边栏主色之上的文字颜色 */
   --sidebar-accent: oklch(0.274 0.006 286.033); /* 侧边栏强调背景色（菜单项 hover / 激活底色） */
   --sidebar-accent-foreground: oklch(0.985 0 0); /* 侧边栏强调背景上的文字颜色 */
   --sidebar-border: oklch(1 0 0 / 10%); /* 侧边栏边框颜色（半透明白） */
-  --sidebar-ring: oklch(0.439 0 0); /* 侧边栏焦点环颜色 */
+  --sidebar-ring: #F4D1B4; /* 侧边栏焦点环颜色 */
   --shadow-color: rgb(244, 209, 180,.3);
 }
 
@@ -115,6 +115,18 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family:'PingFang SC','Noto Sans SC','Microsoft YaHei',system-ui,-apple-system,sans-serif}
+}
+
+/* ============================================
+   键盘焦点可见性（P1-3）
+   - 仅键盘导航（focus-visible）时显示焦点环，鼠标点击不显示
+   - 放在非分层区域：级联优先级高于 Tailwind 工具层的 outline-none，
+     无需逐个清理全站 48 处 outline-none
+   - 颜色走 --ring（浅色靛蓝 / 暗色暖橙，两套主题下均清晰可见）
+   ============================================ */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 
 /* ============================================

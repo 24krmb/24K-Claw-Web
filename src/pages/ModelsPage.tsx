@@ -18,7 +18,7 @@ export default function ModelsPage() {
   return (
     <div>
       {/* 模型卡片网格 */}
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-6">
         {visibleModels.map((model) => (
           <ModelCard key={model.id} model={model} />
         ))}

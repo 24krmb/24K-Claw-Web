@@ -14,7 +14,7 @@ export default function TeamPage() {
 
   return (
     <div>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-6">
         {teams.map((team) => (
           <TeamCard key={team.id} team={team} />
         ))}

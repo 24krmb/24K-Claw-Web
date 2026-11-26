@@ -22,7 +22,7 @@ export default function AcpPage() {
           <p className="min-w-0 text-sm text-muted-foreground">以下 Runner 配置对该账号下所选中的 Agent 生效。</p>
           <button
             type="button"
-            className="shrink-0 cursor-pointer rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm outline-none transition-colors duration-150 hover:bg-primary/90"
+            className="shrink-0 cursor-pointer rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm outline-none transition-colors duration-150 hover:bg-primary/90"
           >
             添加 Runner
           </button>

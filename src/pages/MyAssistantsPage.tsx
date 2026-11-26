@@ -14,7 +14,7 @@ export default function MyAssistantsPage() {
 
   return (
     <div>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-6">
         {myAssistants.map((assistant) => (
           <AssistantCard key={assistant.id} assistant={assistant} />
         ))}

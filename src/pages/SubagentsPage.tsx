@@ -34,7 +34,7 @@ export default function SubagentsPage() {
       <AssistantPicker />
 
       {/* 分类筛选行 */}
-      <div className="mt-6 flex items-center gap-8 border-b">
+      <div className="mt-6 flex items-center gap-8 overflow-x-auto whitespace-nowrap border-b">
         {categoryTabs.map((tab) => {
           const active = tab.key === activeCategory
           const count = tab.showCount
@@ -68,7 +68,7 @@ export default function SubagentsPage() {
           <p className="text-sm">该分类下暂无子 Agent</p>
         </div>
       ) : (
-        <div className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
+        <div className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-6">
           {visibleSubagents.map((subagent) => (
             <SubagentCard key={subagent.id} subagent={subagent} />
           ))}

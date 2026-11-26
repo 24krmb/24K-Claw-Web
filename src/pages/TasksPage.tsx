@@ -157,7 +157,7 @@ function TaskTable({ enabledMap, onToggle }: { enabledMap: Record<string, boolea
 /** 卡片视图 */
 function TaskCards({ enabledMap, onToggle }: { enabledMap: Record<string, boolean>; onToggle: (id: string) => void }) {
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-6">
       {tasks.map((task) => {
         const enabled = enabledMap[task.id]
         const status = statusBadge[task.lastStatus]
