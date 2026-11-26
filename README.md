@@ -4,7 +4,7 @@
 
 ## 技术栈
 
-Vite 6 + React 18 + TypeScript(strict) + Tailwind CSS + React Router + Zustand + Font Awesome。
+Vite 6 + React 18 + TypeScript(strict) + Tailwind CSS + React Router + Zustand + Font Awesome（按需子集化，woff2 仅 17KB）。
 
 > 未使用任何 UI 组件库，全部组件手写。
 
@@ -12,7 +12,7 @@ Vite 6 + React 18 + TypeScript(strict) + Tailwind CSS + React Router + Zustand +
 
 ```
 src/
-├── main.tsx              # 入口：引入 Font Awesome 6 与全局样式，挂载路由
+├── main.tsx              # 入口：引入 Font Awesome 子集样式与全局样式，挂载路由
 ├── App.tsx               # 路由：标签页 /agents/:tabKey + 菜单 /:menuKey、/:groupKey/:menuKey
 ├── index.css             # Tailwind v4 入口 + 全局基础样式（@theme 主题令牌）
 ├── types/index.ts        # MenuItem
@@ -141,7 +141,7 @@ npm run preview
 
 ## 二次开发提示
 
-- 新增菜单：在 `src/data/menu.ts` 中追加一项（含 Font Awesome 类名），路由自动按层级生成
+- 新增菜单：在 `src/data/menu.ts` 中追加一项（含 Font Awesome 类名），路由自动按层级生成；若用到了新图标，运行 `npm run fonts:subset` 重新生成字体子集与样式
 - 新增页面：新建 `pages/XxxPage.tsx` → `WorkspacePage.tsx` 加分支 → 页面数据放 `data/`
 - 顶部标题：菜单项配 `pageTitle`；卡片网格按需复用上面两种规格之一（自适应网格用 `minmax(min(100%,320px),1fr)`）
 
