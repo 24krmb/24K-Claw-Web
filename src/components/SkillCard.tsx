@@ -3,12 +3,12 @@ import type { Skill } from '../types'
 
 /** 图标块色调 → 背景色类（白图标） */
 const toneClasses: Record<Skill['tone'], string> = {
-  violet: 'bg-violet-500',
-  sky: 'bg-sky-500',
-  emerald: 'bg-emerald-500',
-  rose: 'bg-rose-500',
-  amber: 'bg-amber-500',
-  slate: 'bg-slate-500',
+  violet: 'bg-violet-600',
+  sky: 'bg-sky-600',
+  emerald: 'bg-emerald-600',
+  rose: 'bg-rose-600',
+  amber: 'bg-amber-600',
+  slate: 'bg-slate-600',
 }
 
 /** 来源分类 → 徽章文字 */

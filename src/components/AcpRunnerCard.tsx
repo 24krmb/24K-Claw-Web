@@ -2,20 +2,20 @@ import type { IconTone, AcpRunner } from '../types'
 
 /** 图标块底色（各品牌色调），仅无 LOGO 图片的 Runner 使用 */
 const iconToneClasses: Record<IconTone, string> = {
-  blue: 'bg-blue-500',
-  indigo: 'bg-indigo-500',
-  sky: 'bg-sky-500',
-  cyan: 'bg-cyan-500',
-  teal: 'bg-teal-500',
-  emerald: 'bg-emerald-500',
-  green: 'bg-green-500',
-  lime: 'bg-lime-500',
-  amber: 'bg-amber-500',
-  orange: 'bg-orange-500',
-  red: 'bg-red-500',
-  rose: 'bg-rose-500',
-  violet: 'bg-violet-500',
-  slate: 'bg-slate-500',
+  blue: 'bg-blue-600',
+  indigo: 'bg-indigo-600',
+  sky: 'bg-sky-600',
+  cyan: 'bg-cyan-600',
+  teal: 'bg-teal-600',
+  emerald: 'bg-emerald-600',
+  green: 'bg-green-600',
+  lime: 'bg-lime-600',
+  amber: 'bg-amber-600',
+  orange: 'bg-orange-600',
+  red: 'bg-red-600',
+  rose: 'bg-rose-600',
+  violet: 'bg-violet-600',
+  slate: 'bg-slate-600',
   black: 'bg-black',
 }
 
@@ -37,7 +37,7 @@ export default function AcpRunnerCard({ runner, enabled, onToggle }: AcpRunnerCa
           <img
             src={runner.logo}
             alt={`${runner.name} LOGO`}
-            className="size-10 shrink-0 rounded-full object-cover"
+            className="size-10 shrink-0 rounded-full bg-muted object-contain p-1"
           />
         ) : (
           <div

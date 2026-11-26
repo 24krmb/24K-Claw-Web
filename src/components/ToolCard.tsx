@@ -65,7 +65,7 @@ export default function ToolCard({ tool }: { tool: Tool }) {
       >
         <span
           className={`inline-block size-4 rounded-full bg-white shadow transition-transform duration-150 ${
-            enabled ? 'translate-x-full' : 'translate-x-0'
+            enabled ? 'translate-x-5' : 'translate-x-0'
           }`}
         />
       </button>

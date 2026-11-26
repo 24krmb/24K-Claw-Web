@@ -130,23 +130,21 @@
 }
 
 /* ============================================
-   全局隐藏浏览器滚动条（滚动功能不受影响）
-   - Chrome / Safari / Edge：::-webkit-scrollbar 隐藏
-   - Firefox：scrollbar-width: none
-   - 旧版 IE / Edge：-ms-overflow-style: none
-   恢复滚动条：删除本段即可，下方 thumb/track 样式会重新生效
+   全局细滚动条（保留可发现性，视觉轻量）
+   - Firefox：scrollbar-width: thin
+   - WebKit：6px 宽，thumb 样式见下方美化段
+   需要完全隐藏的局部区域使用 .hide-scrollbar 工具类
    ============================================ */
 * {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 128, 128, 0.4) transparent;
 }
 ::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
+  width: 6px;
+  height: 6px;
 }
 
-/* 滚动条美化（当前被上方全局隐藏覆盖，删除隐藏段后自动生效） */
+/* 滚动条美化（thumb 6px 细滚动条样式） */
 .hide-scrollbar {-ms-overflow-style: none;scrollbar-width: none}
 .hide-scrollbar::-webkit-scrollbar {display: none}
 ::-webkit-scrollbar-thumb {
