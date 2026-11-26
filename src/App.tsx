@@ -1,8 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import WorkspacePage from './pages/WorkspacePage'
 import { defaultTabKey } from './data/tabs'
-
-/** 路由入口：/ 重定向到默认标签页；标签页 /agents/:tabKey；菜单页按层级 /:menuKey、/:groupKey/:menuKey */
 export default function App() {
   return (
     <Routes>

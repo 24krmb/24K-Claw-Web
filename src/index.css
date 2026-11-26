@@ -116,25 +116,11 @@
     @apply bg-background text-foreground antialiased;
     font-family:'PingFang SC','Noto Sans SC','Microsoft YaHei',system-ui,-apple-system,sans-serif}
 }
-
-/* ============================================
-   键盘焦点可见性（P1-3）
-   - 仅键盘导航（focus-visible）时显示焦点环，鼠标点击不显示
-   - 放在非分层区域：级联优先级高于 Tailwind 工具层的 outline-none，
-     无需逐个清理全站 48 处 outline-none
-   - 颜色走 --ring（浅色靛蓝 / 暗色暖橙，两套主题下均清晰可见）
-   ============================================ */
 :focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
-/* ============================================
-   全局细滚动条（保留可发现性，视觉轻量）
-   - Firefox：scrollbar-width: thin
-   - WebKit：6px 宽，thumb 样式见下方美化段
-   需要完全隐藏的局部区域使用 .hide-scrollbar 工具类
-   ============================================ */
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(128, 128, 128, 0.4) transparent;
@@ -144,7 +130,6 @@
   height: 6px;
 }
 
-/* 滚动条美化（thumb 6px 细滚动条样式） */
 .hide-scrollbar {-ms-overflow-style: none;scrollbar-width: none}
 .hide-scrollbar::-webkit-scrollbar {display: none}
 ::-webkit-scrollbar-thumb {

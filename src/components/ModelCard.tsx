@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import type { Model, IconTone } from '../types'
-
-/** 图标块色调 → 背景色类（白图标，无 LOGO 时使用） */
 const toneClasses: Record<IconTone, string> = {
   blue: 'bg-blue-600',
   indigo: 'bg-indigo-600',
@@ -19,17 +17,13 @@ const toneClasses: Record<IconTone, string> = {
   slate: 'bg-slate-600',
   black: 'bg-black',
 }
-
-/** 分类 → 徽章文字 */
 const categoryLabels: Record<Model['category'], string> = {
-  chat: '对话模型',
+  chat: '对话',
   'stt-tts': '语音',
   embedding: '向量',
   system: '系统',
   search: '搜索',
 }
-
-/** 模型卡片：LOGO（白底块）/图标色块 + 名称/徽章 + 右上角启停按钮 */
 export default function ModelCard({ model }: { model: Model }) {
   const [enabled, setEnabled] = useState(model.enabled)
 
