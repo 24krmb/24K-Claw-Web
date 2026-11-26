@@ -24,21 +24,34 @@ User-agent: meta-externalagent
 Allow: /
 
 # ---- 禁止抓取的爬虫 ----
+# 唯一例外：/llms.txt 与 /llms-full.txt（AI 内容索引，robots 协议按最长路径匹配优先于 Disallow: /）
 # 字节跳动
 User-agent: Bytespider
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /
 # 华为
 User-agent: PetalBot
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /
 # 神马搜索
 User-agent: YisouSpider
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /
 # SEO 工具类（Semrush / Ahrefs / Majestic）
 User-agent: SemrushBot
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /
 User-agent: AhrefsBot
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /
 User-agent: DotBot
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /
 
 Sitemap: https://claw.24krmb.com/sitemap.xml
