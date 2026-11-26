@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
-/** 正式版站点地址（新窗口打开） */
+/** 社区主站地址（实战交流，新窗口打开） */
 const officialUrl = 'https://www.24krmb.com'
 
 /**
  * 侧边栏 LOGO 右侧的版本切换：
- * 当前站点为演示版；下拉中的「正式版」以新窗口打开正式站点
+ * 当前站点为演示版；下拉中的「实战交流」以新窗口打开社区主站
  */
 export default function VersionSwitcher() {
   const [open, setOpen] = useState(false)
@@ -64,7 +64,7 @@ export default function VersionSwitcher() {
             <i className="fa-solid fa-check text-[10px]" />
           </button>
 
-          {/* 正式版：新窗口打开正式站点 */}
+          {/* 实战交流：新窗口打开社区主站 */}
           <a
             href={officialUrl}
             target="_blank"
@@ -73,7 +73,7 @@ export default function VersionSwitcher() {
             onClick={() => setOpen(false)}
             className="flex w-full cursor-pointer items-center justify-between gap-2 rounded-md px-2 py-1.5 text-left text-xs text-popover-foreground outline-none transition-colors duration-150 hover:bg-accent hover:text-accent-foreground"
           >
-            正式版
+            实战交流
             <i className="fa-solid fa-arrow-up-right-from-square text-[10px]" />
           </a>
         </div>

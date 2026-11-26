@@ -34,7 +34,7 @@ src/
 ├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉 / 工具页·插件页顶栏页签
 ├── components/
 │   ├── Sidebar.tsx       # 左侧边栏
-│   ├── VersionSwitcher.tsx # LOGO 右侧版本切换（演示版；正式版新窗口打开 claw.24krmb.com）
+│   ├── VersionSwitcher.tsx # LOGO 右侧版本切换（演示版；下拉「实战交流」新窗口打开社区主站 www.24krmb.com）
 │   ├── MenuItemRow.tsx   # 单个菜单行（含子菜单展开/收起过渡）
 │   ├── TopTabs.tsx       # 顶部标签页导航 / 菜单页标题或自定义页签组 + 明暗切换
 │   ├── AssistantCard.tsx # 助理卡片
