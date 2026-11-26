@@ -1,8 +1,9 @@
 import ModelCard from '../components/ModelCard'
 import { models } from '../data/models'
 import { useAppStore } from '../store/useAppStore'
-type ModelFilter = 'chat' | 'stt-tts' | 'embedding' | 'system' | 'search'
+type ModelFilter = 'all' | 'chat' | 'stt-tts' | 'embedding' | 'system' | 'search'
 export const modelTabList: { key: ModelFilter; label: string; icon: string }[] = [
+  { key: 'all', label: '全部', icon: 'fa-solid fa-layer-group' },
   { key: 'chat', label: '对话', icon: 'fa-solid fa-comments' },
   { key: 'stt-tts', label: '语音', icon: 'fa-solid fa-volume-high' },
   { key: 'embedding', label: '向量', icon: 'fa-solid fa-vector-square' },
@@ -11,7 +12,7 @@ export const modelTabList: { key: ModelFilter; label: string; icon: string }[] =
 ]
 export default function ModelsPage() {
   const activeFilter = useAppStore((s) => s.modelsCategory) as ModelFilter
-  const visibleModels = models.filter((m) => m.category === activeFilter)
+  const visibleModels = models.filter((m) => activeFilter === 'all' || m.category === activeFilter)
   return (
     <div>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-6">

@@ -20,7 +20,7 @@ export const useAppStore = create<AppState>((set) => ({
   mobileSidebarOpen: false,
   toolsCategory: 'all',
   pluginsCategory: 'installed',
-  modelsCategory: 'chat',
+  modelsCategory: 'all',
   setActiveMenuKey: (key) => set({ activeMenuKey: key }),
   toggleGroup: (key) =>
     set((state) => ({
