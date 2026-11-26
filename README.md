@@ -38,7 +38,7 @@ src/
 │   ├── MenuItemRow.tsx   # 单个菜单行（含子菜单展开/收起过渡）
 │   ├── TopTabs.tsx       # 顶部标签页导航 / 菜单页标题或自定义页签组 + 明暗切换
 │   ├── AssistantCard.tsx # 助理卡片
-│   ├── AssistantPicker.tsx # 助理选择器（子 Agent / 技能页按助理筛选）
+│   ├── AssistantPicker.tsx # 助理选择条（子 Agent / 技能 / ACP 页顶部；当前仅展示选中态，筛选联动待接入）
 │   ├── TeamCard.tsx      # 团队卡片
 │   ├── SubagentCard.tsx  # 子 Agent 卡片
 │   ├── SkillCard.tsx     # 技能卡片
@@ -53,8 +53,8 @@ src/
     ├── WorkspacePage.tsx # 工作区布局骨架 + 路由分支（所有页面从这里分发）
     ├── MyAssistantsPage.tsx # /agents/mine 助理卡片网格
     ├── TeamPage.tsx      # /agents/team 团队卡片网格
-    ├── SubagentsPage.tsx # /subagents 子 Agent 页（助理筛选 + 分类页签）
-    ├── SkillsPage.tsx    # /ability/skills 技能页（助理筛选 + 来源页签）
+    ├── SubagentsPage.tsx # /subagents 子 Agent 页（助理选择条 + 分类页签）
+    ├── SkillsPage.tsx    # /ability/skills 技能页（助理选择条 + 来源页签）
     ├── ModelsPage.tsx    # /management/models 模型页（分类页签渲染在顶栏 + 卡片网格）
     ├── TasksPage.tsx     # /tasks 自动化页（搜索条 + 表格/卡片双视图）
     ├── ImPage.tsx        # /control/im IM 页（通道统计行 + 通道卡片网格）
@@ -97,7 +97,9 @@ npm run preview
 | MCP | `/ability/mcp` | `src/pages/McpPage.tsx` | `src/components/McpCard.tsx` | `src/data/mcp.ts` |
 | 命令 | `/ability/commands` | `src/pages/CommandsPage.tsx` | `src/components/CommandCard.tsx` | `src/data/commands.ts` |
 | 模型 | `/management/models` | `src/pages/ModelsPage.tsx` | `src/components/ModelCard.tsx` | `src/data/models.ts` |
-| 占位页（未实现菜单） | 其余菜单/标签 | `src/pages/PlaceholderPage.tsx` | — | — |
+| IM 通道 | `/control/im` | `src/pages/ImPage.tsx` | `src/components/ImChannelCard.tsx` | `src/data/imChannels.ts` |
+| ACP Runner | `/control/acp` | `src/pages/AcpPage.tsx` | `src/components/AcpRunnerCard.tsx` | `src/data/acpRunners.ts` |
+| 占位页 | 记忆 /ability/memory、Token 统计 /management/token | `src/pages/PlaceholderPage.tsx` | — | — |
 
 ### 路由规则（`src/App.tsx`）
 
@@ -129,17 +131,19 @@ npm run preview
 
 ## 布局要点
 
-- 侧边栏固定 220px（`w-[220px]`），桌面端固定、窄屏（<1024px）变为抽屉 + 遮罩
-- 卡片网格：`grid-cols-[repeat(auto-fill,minmax(320px,1fr))]`，窗口缩放自动换列（各页面一致）
-- 子菜单展开/收起使用 `grid-rows-[1fr]/[0fr]` 高度过渡，无需测量高度
-- 菜单页标题与标签页左缘对齐内容区（24px，`ml-6` / `lg:pl-1`）
+- 侧边栏：桌面端（≥1024px）固定 220px（`lg:w-[220px]`），窄屏为 240px 抽屉（`w-[240px]`）+ 遮罩；抽屉关闭时挂 `inert`，打开时有 Escape 关闭与焦点陷阱
+- 卡片网格两种规格：
+  - 自适应网格 `grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))]`：助理 / 团队 / 子 Agent / 技能 / 自动化 / 模型页（`min(100%,320px)` 保证 320px 视口不溢出）
+  - 响应式列数 `grid-cols-1 md:grid-cols-2 xl:grid-cols-4`（MCP / 命令页为 `xl:grid-cols-3`）：工具 / 插件 / IM / ACP / MCP / 命令页
+- 子菜单展开/收起使用 `grid-rows-[1fr]/[0fr]` 高度过渡，无需测量高度；收起时挂 `inert`，分组按钮带 `aria-expanded`
+- 顶栏标题 `ml-6`（24px）与内容区 `p-4`（16px）目前相差 8px，未完全对齐（如需对齐可将标题改 `ml-4` 或内容区改 `p-6`）
 - 品牌色随明暗主题切换（浅色靛蓝 / 深色暖橙），阴影用 `--shadow-color` 语义变量
 
 ## 二次开发提示
 
 - 新增菜单：在 `src/data/menu.ts` 中追加一项（含 Font Awesome 类名），路由自动按层级生成
 - 新增页面：新建 `pages/XxxPage.tsx` → `WorkspacePage.tsx` 加分支 → 页面数据放 `data/`
-- 顶部标题：菜单项配 `pageTitle`；卡片网格直接复用 `minmax(320px,1fr)` 保持各页列数一致
+- 顶部标题：菜单项配 `pageTitle`；卡片网格按需复用上面两种规格之一（自适应网格用 `minmax(min(100%,320px),1fr)`）
 
 ## 关于我们
 

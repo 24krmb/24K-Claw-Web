@@ -1,7 +1,7 @@
 import type { MenuItem } from '../types'
 
 /**
- * 左侧边栏菜单数据（数据驱动渲染，结构见 Develop/Navigation Directory.md）
+ * 左侧边栏菜单数据（数据驱动渲染）
  * 图标为 Font Awesome 6 Free 的 CSS 类名*/
 export const menuItems: MenuItem[] = [
   /*{ key: 'chat', label: '对话', icon: 'fa-solid fa-comments' },*/
@@ -68,7 +68,7 @@ function findPathInList(list: MenuItem[], key: string, parents: string[] = []): 
 /**
  * 菜单点击后的跳转路由：
  * 显式配置了 route 用 route（如「主 Agent」→ /agents/mine）；
- * 否则按菜单层级生成路径——一级项 /subagents、二级项 /ability/skills（结构见 Develop/Navigation Directory.md）
+ * 否则按菜单层级生成路径——一级项 /subagents、二级项 /ability/skills
  */
 export function getMenuRoute(key: string): string {
   const item = findMenuItem(key)
