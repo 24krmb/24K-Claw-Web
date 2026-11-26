@@ -1,20 +1,22 @@
-import { useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import TopTabs from '../components/TopTabs'
-import MyAssistantsPage from './MyAssistantsPage'
-import TeamPage from './TeamPage'
-import SubagentsPage from './SubagentsPage'
-import SkillsPage from './SkillsPage'
+// 带 tabList 命名导出的页面保持静态导入（页签数据渲染顶栏时需要同步可用）
 import PluginsPage, { pluginTabList } from './PluginsPage'
 import McpPage, { mcpTabList } from './McpPage'
 import CommandsPage, { commandTabList } from './CommandsPage'
 import ToolsPage, { toolTabList } from './ToolsPage'
 import ModelsPage, { modelTabList } from './ModelsPage'
-import TasksPage from './TasksPage'
-import ImPage from './ImPage'
-import AcpPage from './AcpPage'
-import PlaceholderPage from './PlaceholderPage'
+// 其余页面按路由懒加载，拆分首屏 bundle
+const MyAssistantsPage = lazy(() => import('./MyAssistantsPage'))
+const TeamPage = lazy(() => import('./TeamPage'))
+const SubagentsPage = lazy(() => import('./SubagentsPage'))
+const SkillsPage = lazy(() => import('./SkillsPage'))
+const TasksPage = lazy(() => import('./TasksPage'))
+const ImPage = lazy(() => import('./ImPage'))
+const AcpPage = lazy(() => import('./AcpPage'))
+const PlaceholderPage = lazy(() => import('./PlaceholderPage'))
 import { topTabs, defaultTabKey } from '../data/tabs'
 import { menuItems, findMenuItem } from '../data/menu'
 import { useAppStore } from '../store/useAppStore'
@@ -190,7 +192,16 @@ export default function WorkspacePage() {
         )}
 
         <main className="flex-1 p-4">
-          {isTabRoute ? (
+          {/* 懒加载页面分包加载期间的占位 */}
+          <Suspense
+            fallback={
+              <div className="flex h-64 items-center justify-center text-sm text-muted-foreground">
+                <i className="fa-solid fa-circle-notch fa-spin mr-2" aria-hidden="true" />
+                加载中…
+              </div>
+            }
+          >
+            {isTabRoute ? (
             activeTab === 'mine' ? (
               <MyAssistantsPage />
             ) : activeTab === 'team' ? (
@@ -221,6 +232,7 @@ export default function WorkspacePage() {
           ) : (
             <PlaceholderPage title={activeMenu!.label} />
           )}
+          </Suspense>
         </main>
       </div>
     </div>

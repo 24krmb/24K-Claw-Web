@@ -4,13 +4,10 @@ import type { Subagent } from '../types'
  * 子 Agent 卡片（对照设计稿）：标题 + 已安装标记 + 描述（3 行截断）+ slug 与编辑/删除操作行
  */
 export default function SubagentCard({ subagent }: { subagent: Subagent }) {
-  const handleEdit = () => {
-    console.log(`[24K-Claw] 编辑子 Agent：${subagent.name}（${subagent.slug}）`)
-  }
+  // 编辑/删除为占位交互，等待后端接入后实现
+  const handleEdit = () => {}
 
-  const handleDelete = () => {
-    console.log(`[24K-Claw] 删除子 Agent：${subagent.name}（${subagent.slug}）`)
-  }
+  const handleDelete = () => {}
 
   return (
     <article className="flex flex-col rounded-xl border bg-card p-5 shadow-sm">
