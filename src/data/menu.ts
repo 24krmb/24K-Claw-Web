@@ -10,7 +10,7 @@ export const menuItems: MenuItem[] = [
   { key: 'subagents', label: '子 Agent', icon: 'fa-solid fa-robot', pageTitle: '为不同的 Agent 配置 Subagent' },
   { key: 'team', label: '团队', icon: 'fa-solid fa-user-group', route: '/agents/team' },
   { key: 'tasks', label: '自动化', icon: 'fa-solid fa-clock', pageTitle: '让 Agent 7X24 小时帮你定期执行计划任务' },
-  { key: 'knowledge', label: '知识库', icon: 'fa-solid fa-book-open' , pageTitle: '建立知识库体系；可共享、可私有' },
+  /*{ key: 'knowledge', label: '知识库', icon: 'fa-solid fa-book-open' , pageTitle: '建立知识库体系；可共享、可私有' },*/
   {
     key: 'ability',label: 'Harness',icon: 'fa-solid fa-bolt',
     children: [

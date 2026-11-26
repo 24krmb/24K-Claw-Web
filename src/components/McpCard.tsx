@@ -47,7 +47,7 @@ export default function McpCard({ server }: { server: McpServer }) {
             <i className={`text-sm ${installed ? 'fa-solid fa-check' : 'fa-solid fa-plus'}`} />
           </button>
         </div>
-        <p className="mt-1.5 truncate text-sm text-muted-foreground">{server.description}</p>
+        <p className="truncate text-sm text-muted-foreground">{server.description}</p>
       </div>
     </div>
   )
