@@ -1,4 +1,28 @@
+# 24K-Claw Web（https://claw.24krmb.com）
+# 策略：全站开放收录（含 AI 爬虫），SPA 单页站点，路由见 sitemap 与站内导航
+# 注意：为某个 UA 单独写规则组时，该组会脱离 "*" 组的规则，因此每组都显式写全 Allow
+
 User-agent: *
+Allow: /
+
+# ---- AI / GEO 爬虫：显式放行（内容可被 AI 检索与引用）----
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+User-agent: Bytespider
 Allow: /
 
 Sitemap: https://claw.24krmb.com/sitemap.xml
