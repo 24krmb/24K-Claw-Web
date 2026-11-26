@@ -3,12 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== 基础 SEO ===== -->
+    <title>24K-Claw - 专业级实盘类Claw - A股/期货 实盘Agent</title>
+    <meta name="description" content="全网最专业、最全面的 AI Agent 金融技能库：主 Agent、子 Agent、技能、插件、工具、MCP、模型与 7x24 自动化任务的统一管理中枢。A股/期货实盘 Agent，24KRMB.COM 出品。" />
+    <meta name="keywords" content="专业级实盘类Claw,实盘Agent,A股/期货Agent,AI Agent 金融,量化Agent" />
+    <meta name="author" content="王成" />
+    <meta name="copyright" content="24KRMB.COM" />
+    <meta name="generator" content="24K-Claw" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://claw.24krmb.com/" />
+
+    <!-- 移动端/主题色（跟随明暗模式） -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7faff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
+
+    <!-- ===== Open Graph（微信/QQ/微博/Telegram 等社交分享卡片） ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="24K-Claw" />
+    <meta property="og:title" content="24K-Claw - 专业级实盘类Claw - A股/期货 实盘Agent" />
+    <meta property="og:description" content="全网最专业、最全面的 AI Agent 金融技能库：主 Agent、子 Agent、技能、插件、工具、MCP、模型与 7x24 自动化任务的统一管理中枢。A股/期货实盘 Agent，24KRMB.COM 出品。" />
+    <meta property="og:url" content="https://claw.24krmb.com/" />
+    <meta property="og:image" content="https://claw.24krmb.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="24KCLAW" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- ===== Twitter/X 卡片 ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="24K-Claw - 专业级实盘类Claw - A股/期货 实盘Agent" />
+    <meta name="twitter:description" content="全网最专业、最全面的 AI Agent 金融技能库：主 Agent、子 Agent、技能、插件、工具、MCP、模型与 7x24 自动化任务的统一管理中枢。A股/期货实盘 Agent，24KRMB.COM 出品。" />
+    <meta name="twitter:image" content="https://claw.24krmb.com/og-image.png" />
+
+    <!-- ===== GEO（生成式引擎优化）：JSON-LD 结构化数据，供 Google/AI 搜索与 LLM 引用 ===== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://claw.24krmb.com/#organization",
+            "name": "24KRMB.COM",
+            "url": "https://www.24krmb.com",
+            "logo": "https://claw.24krmb.com/logo.svg",
+            "description": "成立于 2012 年的 AI + A股/期货量化实战交流社区，实行实名认证与实盘认证制度。",
+            "sameAs": ["https://github.com/24krmb"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://claw.24krmb.com/#website",
+            "url": "https://claw.24krmb.com/",
+            "name": "24K-Claw",
+            "alternateName": "24KCLAW Agent Web",
+            "inLanguage": "zh-CN",
+            "publisher": { "@id": "https://claw.24krmb.com/#organization" }
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://claw.24krmb.com/#webapp",
+            "name": "24K-Claw",
+            "url": "https://claw.24krmb.com/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "inLanguage": "zh-CN",
+            "description": "24KCLAW Agent 的 Web 前端：统一管理主 Agent、子 Agent、技能、插件、工具、MCP 服务器、模型与 7x24 小时定时自动化任务的助理中心，面向 A股/期货实盘量化场景。",
+            "publisher": { "@id": "https://claw.24krmb.com/#organization" }
+          }
+        ]
+      }
+    </script>
+
     <!-- 网站图标：SVG 优先（现代浏览器），PNG 兜底（Safari 等不支持 SVG favicon 的场景） -->
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <title>24K-Claw - 专业级实盘类Claw - A股/期货 实盘Agent</title>
+
     <script>
       // 主题防闪烁：CSS 加载前根据 localStorage（缺省跟随系统）挂 .dark 类
       (function () {
