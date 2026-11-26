@@ -45,7 +45,7 @@ export default function ToolCard({ tool }: { tool: Tool }) {
   return (
     <div className="flex items-center gap-4 rounded-2xl border bg-card shadow-sm p-5">
       <div
-        className={`flex size-14 shrink-0 items-center justify-center rounded-2xl text-2xl ${toneClasses[tool.tone]}`}
+        className={`flex size-11 shrink-0 items-center justify-center rounded-xl text-lg ${toneClasses[tool.tone]}`}
       >
         <i className={tool.icon} />
       </div>
