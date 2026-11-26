@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 /** 正式版站点地址（新窗口打开） */
-const officialUrl = 'https://www.24krmb.com'
+const officialUrl = 'https://claw.24krmb.com'
 
 /**
  * 侧边栏 LOGO 右侧的版本切换：

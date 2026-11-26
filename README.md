@@ -152,7 +152,7 @@ npm run preview
 ```nginx
 server {
     listen 80;
-    server_name www.24krmb.com;
+    server_name claw.24krmb.com;
     root /var/www/24k-claw-web/dist;
     index index.html;
 

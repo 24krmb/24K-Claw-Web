@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.24krmb.com/sitemap.xml
+Sitemap: https://claw.24krmb.com/sitemap.xml
