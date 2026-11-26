@@ -56,6 +56,7 @@ export default function MenuItemRow({ item, isChild = false }: MenuItemRowProps)
         onClick={handleClick}
         aria-expanded={hasChildren ? expanded : undefined}
         aria-controls={submenuId}
+        aria-current={selected ? 'page' : undefined}
       >
         {/* 分组标题不显示图标，纯文字 + 右侧箭头；叶子项保留图标 */}
         {!hasChildren && (

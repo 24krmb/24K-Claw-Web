@@ -132,6 +132,19 @@ export default function WorkspacePage() {
     setMobileSidebarOpen(false)
   }, [isTabRoute, tabKey, menuKey, menuValid, setActiveMenuKey, setMobileSidebarOpen])
 
+  /* ===== 路由切换焦点管理 =====
+     路由变化后把焦点移入主内容区（tabIndex=-1 的容器），屏幕阅读器与键盘用户直接从新页面开始浏览；
+     首次渲染不抢焦点。焦点态仅键盘可见（全局 :focus-visible），鼠标点击不受影响 */
+  const mainContentRef = useRef<HTMLDivElement>(null)
+  const isFirstRouteRender = useRef(true)
+  useEffect(() => {
+    if (isFirstRouteRender.current) {
+      isFirstRouteRender.current = false
+      return
+    }
+    mainContentRef.current?.focus()
+  }, [tabKey, menuKey, groupKey])
+
   // 非法 key：重定向回默认标签页
   if ((isTabRoute && !tabValid) || (!isTabRoute && !menuValid)) {
     return <Navigate to={`/agents/${defaultTabKey}`} replace />
@@ -156,6 +169,14 @@ export default function WorkspacePage() {
 
   return (
     <div className="flex min-h-screen bg-background">
+      {/* 跳到主内容：键盘用户跳过侧边栏与顶栏（聚焦时才可见） */}
+      <a
+        href="#main-content"
+        className="sr-only z-50 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:outline-none"
+      >
+        跳到主内容
+      </a>
+
       {/* 遮罩（仅移动端抽屉打开时） */}
       <div
         className={`fixed inset-0 z-30 bg-black/40 transition-opacity duration-200 lg:hidden ${
@@ -181,8 +202,14 @@ export default function WorkspacePage() {
       </div>
 
       {/* 主内容区：桌面端为侧边栏预留 220px；min-w-0 允许收缩到视口宽，
-          防止顶栏页签等内容固有宽度把页面撑出横向溢出 */}
-      <div className="flex min-h-screen min-w-0 flex-1 flex-col lg:pl-[220px]">
+          防止顶栏页签等内容固有宽度把页面撑出横向溢出。
+          tabIndex=-1 + ref 供「跳到主内容」链接与路由切换后的焦点管理使用 */}
+      <div
+        id="main-content"
+        ref={mainContentRef}
+        tabIndex={-1}
+        className="flex min-h-screen min-w-0 flex-1 flex-col outline-none lg:pl-[220px]"
+      >
         {isTabRoute ? (
           <TopTabs activeTab={activeTab} onChange={handleTabChange} srOnlyTitle={activeTabMeta.label} />
         ) : menuKey === 'tools' ? (

@@ -109,6 +109,7 @@ export default function TopTabs({ activeTab, title, srOnlyTitle, onChange, menuT
                 key={tab.key}
                 type="button"
                 onClick={() => onMenuTabChange?.(tab.key)}
+                aria-current={active ? 'page' : undefined}
                 className={`relative flex shrink-0 cursor-pointer items-center gap-2 border-none px-4 text-sm font-medium transition-colors duration-150 outline-none lg:px-5 ${
                   active
                     ? 'text-primary'
