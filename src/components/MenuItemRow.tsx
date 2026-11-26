@@ -22,6 +22,8 @@ export default function MenuItemRow({ item, isChild = false }: MenuItemRowProps)
   const hasChildren = !!item.children?.length
   const expanded = expandedGroups.includes(item.key)
   const selected = activeMenuKey === item.key
+  /** 子菜单容器 id（供分组按钮 aria-controls 引用） */
+  const submenuId = hasChildren ? `submenu-${item.key}` : undefined
 
   const handleClick = () => {
     if (hasChildren) {
@@ -47,8 +49,14 @@ export default function MenuItemRow({ item, isChild = false }: MenuItemRowProps)
 
   return (
     <li>
-      {/* 菜单行（用 button 保证键盘可达） */}
-      <button type="button" className={rowClass} onClick={handleClick}>
+      {/* 菜单行（用 button 保证键盘可达；分组按钮暴露 aria-expanded / aria-controls） */}
+      <button
+        type="button"
+        className={rowClass}
+        onClick={handleClick}
+        aria-expanded={hasChildren ? expanded : undefined}
+        aria-controls={submenuId}
+      >
         {/* 分组标题不显示图标，纯文字 + 右侧箭头；叶子项保留图标 */}
         {!hasChildren && (
           <i
@@ -67,14 +75,23 @@ export default function MenuItemRow({ item, isChild = false }: MenuItemRowProps)
         )}
       </button>
 
-      {/* 子菜单：grid-rows 平滑展开/收起 */}
+      {/* 子菜单：grid-rows 平滑展开/收起；收起时挂 inert（键盘 Tab 不可进入隐藏区域，
+          屏幕阅读器也从可达性树中移除），展开时移除 */}
       {hasChildren && (
         <div
+          id={submenuId}
           className={`grid transition-[grid-template-rows] duration-200 ease-out ${
             expanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
           }`}
         >
-          <div className="overflow-hidden">
+          <div
+            className="overflow-hidden"
+            ref={(el) => {
+              if (!el) return
+              if (expanded) el.removeAttribute('inert')
+              else el.setAttribute('inert', '')
+            }}
+          >
             <ul className="flex flex-col gap-0.5 py-0.5">
               {item.children!.map((child) => (
                 <MenuItemRow key={child.key} item={child} isChild />

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import TopTabs from '../components/TopTabs'
@@ -59,6 +59,70 @@ export default function WorkspacePage() {
   const activeTabMeta = topTabs.find((t) => t.key === activeTab)!
   const activeMenu = menuValid ? findMenuItem(menuKey!) : undefined
 
+  /* ===== 移动端抽屉可达性 =====
+     isDesktop：≥1024px（lg 断点）时侧边栏常驻，抽屉逻辑全部跳过且不挂 inert */
+  const sidebarRef = useRef<HTMLDivElement>(null)
+  const [isDesktop, setIsDesktop] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches,
+  )
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const onChange = (e: MediaQueryListEvent) => setIsDesktop(e.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
+  // 抽屉打开时（移动端）：锁定背景滚动、焦点移入抽屉、Escape 关闭、Tab 焦点陷阱；
+  // 关闭（或切到桌面端）时：还原滚动并归还焦点到打开前的元素（汉堡按钮）
+  useEffect(() => {
+    if (isDesktop || !mobileSidebarOpen) return
+    const container = sidebarRef.current
+    if (!container) return
+    const previouslyFocused = document.activeElement as HTMLElement | null
+
+    document.body.style.overflow = 'hidden'
+
+    // 可聚焦元素：跳过 inert / 隐藏（收起子菜单）内容
+    const getFocusables = () =>
+      Array.from(
+        container.querySelectorAll<HTMLElement>(
+          'button:not([inert]), a[href]:not([inert]), input:not([inert]), select:not([inert]), textarea:not([inert]), [tabindex]:not([tabindex="-1"]):not([inert])',
+        ),
+      ).filter((el) => el.offsetParent !== null)
+
+    getFocusables()[0]?.focus()
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        setMobileSidebarOpen(false)
+        return
+      }
+      if (e.key !== 'Tab') return
+      // 焦点陷阱：Tab/Shift+Tab 在抽屉内循环
+      const items = getFocusables()
+      if (!items.length) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      const active = document.activeElement as HTMLElement | null
+      const inside = active && container.contains(active)
+      if (e.shiftKey && (active === first || !inside)) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && (active === last || !inside)) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = ''
+      previouslyFocused?.focus?.()
+    }
+  }, [isDesktop, mobileSidebarOpen, setMobileSidebarOpen])
+
   // 路由变化：由路由派生侧边栏选中态，并关闭移动端抽屉
   useEffect(() => {
     if (isTabRoute) setActiveMenuKey(tabKey === 'team' ? TEAM_MENU_KEY : AGENT_MENU_KEY)
@@ -86,8 +150,14 @@ export default function WorkspacePage() {
         onClick={() => setMobileSidebarOpen(false)}
       />
 
-      {/* 侧边栏：桌面端固定，移动端抽屉 */}
+      {/* 侧边栏：桌面端固定，移动端抽屉。
+          移动端抽屉关闭时挂 inert（整个侧边栏移出 Tab 顺序与可达性树）；桌面端常驻不挂 */}
       <div
+        ref={(el) => {
+          if (!el) return
+          if (isDesktop || mobileSidebarOpen) el.removeAttribute('inert')
+          else el.setAttribute('inert', '')
+        }}
         className={`fixed inset-y-0 left-0 z-40 transition-transform duration-200 lg:translate-x-0 ${
           mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
