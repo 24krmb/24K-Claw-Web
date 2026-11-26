@@ -169,22 +169,22 @@ export default function WorkspacePage() {
           防止顶栏页签等内容固有宽度把页面撑出横向溢出 */}
       <div className="flex min-h-screen min-w-0 flex-1 flex-col lg:pl-[220px]">
         {isTabRoute ? (
-          <TopTabs activeTab={activeTab} onChange={handleTabChange} />
+          <TopTabs activeTab={activeTab} onChange={handleTabChange} srOnlyTitle={activeTabMeta.label} />
         ) : menuKey === 'tools' ? (
           /* 工具页：分类页签渲染进顶栏（样式与标签页一致） */
-          <TopTabs menuTabs={toolTabList} activeMenuTab={toolsCategory} onMenuTabChange={setToolsCategory} />
+          <TopTabs menuTabs={toolTabList} activeMenuTab={toolsCategory} onMenuTabChange={setToolsCategory} srOnlyTitle="工具" />
         ) : menuKey === 'plugins' ? (
           /* 插件页：页签渲染进顶栏（样式与标签页一致） */
-          <TopTabs menuTabs={pluginTabList} activeMenuTab={pluginsCategory} onMenuTabChange={setPluginsCategory} />
+          <TopTabs menuTabs={pluginTabList} activeMenuTab={pluginsCategory} onMenuTabChange={setPluginsCategory} srOnlyTitle="插件" />
         ) : menuKey === 'models' ? (
           /* 模型页：分类页签渲染进顶栏（样式与标签页一致） */
-          <TopTabs menuTabs={modelTabList} activeMenuTab={modelsCategory} onMenuTabChange={setModelsCategory} />
+          <TopTabs menuTabs={modelTabList} activeMenuTab={modelsCategory} onMenuTabChange={setModelsCategory} srOnlyTitle="模型" />
         ) : menuKey === 'commands' ? (
           /* 命令页：页签渲染进顶栏（样式与标签页一致） */
-          <TopTabs menuTabs={commandTabList} activeMenuTab="commands" />
+          <TopTabs menuTabs={commandTabList} activeMenuTab="commands" srOnlyTitle="命令" />
         ) : menuKey === 'mcp' ? (
           /* MCP 页：页签渲染进顶栏（样式与标签页一致） */
-          <TopTabs menuTabs={mcpTabList} activeMenuTab="mcp" />
+          <TopTabs menuTabs={mcpTabList} activeMenuTab="mcp" srOnlyTitle="MCP" />
         ) : (
           <TopTabs title={activeMenu!.hideTitle ? undefined : (activeMenu!.pageTitle ?? activeMenu!.label)} />
         )}

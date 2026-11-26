@@ -145,6 +145,32 @@ npm run preview
 - 新增页面：新建 `pages/XxxPage.tsx` → `WorkspacePage.tsx` 加分支 → 页面数据放 `data/`
 - 顶部标题：菜单项配 `pageTitle`；卡片网格按需复用上面两种规格之一（自适应网格用 `minmax(min(100%,320px),1fr)`）
 
+## 部署（Nginx）
+
+项目使用 `BrowserRouter`，Nginx 需要把未知路径回退到 `index.html`，否则深链接（如 `/agents/mine`）刷新会 404：
+
+```nginx
+server {
+    listen 80;
+    server_name www.24krmb.com;
+    root /var/www/24k-claw-web/dist;
+    index index.html;
+
+    # SPA 回退：静态文件不存在时回退到 index.html
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 带 hash 的静态资源可长缓存
+    location /assets/ {
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+}
+```
+
+HTTPS 证书按现有站点方式配置即可。
+
 ## 关于我们
 
 [24KRMB.COM](https://www.24krmb.com)实战交流社区成立于 2012 年，社区实行实名认证与实盘认证制度。全网唯一 AI + A股/期货量化实战交流社区：股票、期货、期权的实战技术、实战案例、宏观分析、AI 量化投资实战交流。

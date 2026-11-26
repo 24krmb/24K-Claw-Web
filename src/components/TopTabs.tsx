@@ -7,6 +7,9 @@ interface TopTabsProps {
   activeTab?: string
   /** 菜单页头部显示的页面标题 */
   title?: string
+  /** 视觉隐藏的 h1 标题：无可见标题的页面（标签页路由 / hideTitle 菜单页）传入，
+      保证每页都有 h1、标题层级从 h1 开始（卡片名称用的 h3 不再悬空） */
+  srOnlyTitle?: string
   /** 切换标签回调（由页面组件传入，内部做路由跳转） */
   onChange?: (key: string) => void
   /** 菜单页自定义页签组（渲染进顶栏，样式与标签页一致；icon 可选） */
@@ -41,11 +44,14 @@ function ThemeToggle() {
 }
 
 /** 顶部导航条：标签页路由显示标签组，菜单页显示页面标题或自定义页签组；右侧明暗切换 */
-export default function TopTabs({ activeTab, title, onChange, menuTabs, activeMenuTab, onMenuTabChange }: TopTabsProps) {
+export default function TopTabs({ activeTab, title, srOnlyTitle, onChange, menuTabs, activeMenuTab, onMenuTabChange }: TopTabsProps) {
   const setMobileSidebarOpen = useAppStore((s) => s.setMobileSidebarOpen)
 
   return (
     <header className="sticky top-0 z-10 flex h-16 items-center border-b bg-background">
+      {/* 无可见标题时的视觉隐藏 h1（标签页路由 / hideTitle 菜单页） */}
+      {!title && srOnlyTitle && <h1 className="sr-only">{srOnlyTitle}</h1>}
+
       {/* 移动端汉堡按钮 */}
       <button
         className="ml-4 rounded-md p-2 text-muted-foreground hover:bg-accent lg:hidden"
