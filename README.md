@@ -1,10 +1,10 @@
 # 24K-Claw-Web
 
-24KCLAW Agent 的 Web 前端：左侧多级菜单 + 顶部标签页 + 卡片网格。
+24K-CLAW 的 Web 前端：左侧多级菜单 + 顶部标签页 + 卡片网格。可直接复用于专属自己(团队) 的 Agent Web 。
 
 ## 技术栈
 
-Vite 6 + React 18 + TypeScript(strict) + Tailwind CSS v4 + React Router v7 + Zustand 5 + Font Awesome 6 Free。构建端口 5173。
+Vite 6 + React 18 + TypeScript(strict) + Tailwind CSS + React Router + Zustand + Font Awesome。
 
 > 未使用任何 UI 组件库，全部组件手写。
 
@@ -12,28 +12,28 @@ Vite 6 + React 18 + TypeScript(strict) + Tailwind CSS v4 + React Router v7 + Zus
 
 ```
 src/
-├── main.tsx              # 入口：引入 Font Awesome 与全局样式，挂载路由
+├── main.tsx              # 入口：引入 Font Awesome 6 与全局样式，挂载路由
 ├── App.tsx               # 路由：标签页 /agents/:tabKey + 菜单 /:menuKey、/:groupKey/:menuKey
 ├── index.css             # Tailwind v4 入口 + 全局基础样式（@theme 主题令牌）
 ├── types/index.ts        # MenuItem
 ├── data/
 │   ├── menu.ts           # 侧边栏菜单树 + 路由生成（getMenuRoute）
 │   ├── tabs.ts           # 顶部标签页数据（mine / team）
-│   ├── assistants.ts     # 助理列表（主 Agent）
+│   ├── assistants.ts     # 主 Agent 列表
+│   ├── subagents.ts      # 子 Agent 列表
 │   ├── teams.ts          # 团队列表
-│   ├── subagents.ts      # 子 Agent 列表（金融任务型：数据/量化/资讯/风控）
-│   ├── skills.ts         # 技能列表（内置技能 / 技能包）
+│   ├── skills.ts         # 技能列表
 │   ├── models.ts         # 模型列表
 │   ├── tasks.ts          # 定时任务列表（自动化页）
 │   ├── plugins.ts        # 插件列表（已安装插件）
 │   ├── tools.ts          # 工具列表（全部 + 10 分类）
 │   ├── mcp.ts            # MCP 服务器列表
-│   ├── imChannels.ts     # IM 通道列表（微信/QQ/企微/飞书/WhatsApp/Teams 等 18 个通道，含 Signal/Slack 等 5 个官方插件）
-│   ├── acpRunners.ts     # ACP Runner 列表（OpenCode/Codex/Kimi Code/Cursor CLI 等 8 个外部编程助理）
-│   └── commands.ts       # 命令列表（/xxx 快捷命令）
+│   ├── imChannels.ts     # IM 通道列表
+│   ├── acpRunners.ts     # ACP Runner 列表
+│   └── commands.ts       # 快捷命令列表
 ├── store/useAppStore.ts  # Zustand：选中菜单 / 展开分组 / 移动端抽屉 / 工具页·插件页顶栏页签
 ├── components/
-│   ├── Sidebar.tsx       # 左侧边栏（Logo + 版本切换 + 多级菜单）
+│   ├── Sidebar.tsx       # 左侧边栏
 │   ├── VersionSwitcher.tsx # LOGO 右侧版本切换（演示版；正式版新窗口打开 claw.24krmb.com）
 │   ├── MenuItemRow.tsx   # 单个菜单行（含子菜单展开/收起过渡）
 │   ├── TopTabs.tsx       # 顶部标签页导航 / 菜单页标题或自定义页签组 + 明暗切换
