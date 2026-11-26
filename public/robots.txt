@@ -1,5 +1,4 @@
 # 24K-Claw Web（https://claw.24krmb.com）
-# 策略：全站开放收录（含 AI 爬虫；Bytespider/PetalBot/YisouSpider 及 SEO 工具爬虫除外），SPA 单页站点，路由见 sitemap 与站内导航
 # 注意：为某个 UA 单独写规则组时，该组会脱离 "*" 组的规则，因此每组都显式写全 Allow
 
 User-agent: *
@@ -25,30 +24,32 @@ Allow: /
 
 # ---- 禁止抓取的爬虫 ----
 # 唯一例外：/llms.txt 与 /llms-full.txt（AI 内容索引，robots 协议按最长路径匹配优先于 Disallow: /）
-# 字节跳动
+
 User-agent: Bytespider
 Allow: /llms.txt
 Allow: /llms-full.txt
 Disallow: /
-# 华为
+
 User-agent: PetalBot
 Allow: /llms.txt
 Allow: /llms-full.txt
 Disallow: /
-# 神马搜索
+
 User-agent: YisouSpider
 Allow: /llms.txt
 Allow: /llms-full.txt
 Disallow: /
-# SEO 工具类（Semrush / Ahrefs / Majestic）
+
 User-agent: SemrushBot
 Allow: /llms.txt
 Allow: /llms-full.txt
 Disallow: /
+
 User-agent: AhrefsBot
 Allow: /llms.txt
 Allow: /llms-full.txt
 Disallow: /
+
 User-agent: DotBot
 Allow: /llms.txt
 Allow: /llms-full.txt
