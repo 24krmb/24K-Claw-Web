@@ -2,7 +2,7 @@
   "name": "24k-claw-web",
   "private": true,
   "version": "1.0.0",
-  "description": "24K-Claw-Web —— 24KCLAW Agent 助理中心 Web 前端：左侧多级菜单 + 顶部标签页 + Agent 卡片网格",
+  "description": "24K-Claw-Web —— 24KCLAW Agent Web 前端：左侧多级菜单 + 顶部标签页 + Agent 卡片网格",
   "type": "module",
   "scripts": {
     "dev": "vite",
