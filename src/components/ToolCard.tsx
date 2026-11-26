@@ -50,7 +50,7 @@ export default function ToolCard({ tool }: { tool: Tool }) {
         <i className={tool.icon} />
       </div>
       <div className="min-w-0 flex-1">
-        <h3 className="text-[15px] font-semibold text-foreground">{tool.name}</h3>
+        <h3 className="text-sm font-semibold text-foreground">{tool.name}</h3>
         <p className="mt-1 truncate font-mono text-sm text-muted-foreground">{tool.id}</p>
       </div>
       <button
