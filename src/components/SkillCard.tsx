@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import type { Skill } from '../types'
+import { STATUS, TONE_ICON_BG } from '../lib/tones'
 
-/** 图标块色调 → 背景色类（白图标） */
-const toneClasses: Record<Skill['tone'], string> = {
-  violet: 'bg-violet-600',
-  sky: 'bg-sky-600',
-  emerald: 'bg-emerald-600',
-  rose: 'bg-rose-600',
-  amber: 'bg-amber-600',
-  slate: 'bg-slate-600',
+/** 图标块色调 → 背景色类（白图标），技能仅使用其中 6 色调 */
+const toneClasses: Partial<Record<Skill['tone'], string>> = {
+  violet: TONE_ICON_BG.violet,
+  sky: TONE_ICON_BG.sky,
+  emerald: TONE_ICON_BG.emerald,
+  rose: TONE_ICON_BG.rose,
+  amber: TONE_ICON_BG.amber,
+  slate: TONE_ICON_BG.slate,
 }
 
 /** 来源分类 → 徽章文字 */
@@ -32,18 +33,18 @@ export default function SkillCard({ skill }: { skill: Skill }) {
         <div className="min-w-0 flex-1">
           <h3 className="text-sm font-medium text-foreground">{skill.name}</h3>
           <div className="mt-1.5 flex items-center gap-2">
-            <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground">
+            <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-content-tertiary">
               {skill.category === 'pack' && skill.skillCount
                 ? `${skill.skillCount} 个技能`
                 : categoryLabels[skill.category]}
             </span>
             {enabled ? (
-              <span className="flex items-center gap-1 rounded-md bg-primary/10 px-2 py-0.5 text-xs text-primary">
+              <span className={`flex items-center gap-1 rounded-md px-2 py-0.5 text-xs ${STATUS.brand}`}>
                 <i className="fa-solid fa-check text-[10px]" />
                 已启用
               </span>
             ) : (
-              <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground">
+              <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-content-tertiary">
                 已停用
               </span>
             )}
@@ -58,7 +59,7 @@ export default function SkillCard({ skill }: { skill: Skill }) {
         </button>
       </div>
 
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{skill.description}</p>
+      <p className="mt-3 text-sm leading-relaxed text-content-secondary">{skill.description}</p>
     </div>
   )
 }

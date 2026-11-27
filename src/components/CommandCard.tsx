@@ -1,29 +1,13 @@
 import { useState } from 'react'
 import type { Command } from '../types'
-const toneClasses: Record<Command['tone'], string> = {
-  blue: 'bg-blue-600',
-  indigo: 'bg-indigo-600',
-  sky: 'bg-sky-600',
-  cyan: 'bg-cyan-600',
-  teal: 'bg-teal-600',
-  emerald: 'bg-emerald-600',
-  green: 'bg-green-600',
-  lime: 'bg-lime-600',
-  amber: 'bg-amber-600',
-  orange: 'bg-orange-600',
-  red: 'bg-red-600',
-  rose: 'bg-rose-600',
-  violet: 'bg-violet-600',
-  slate: 'bg-slate-600',
-  black: 'bg-black',
-}
+import { TONE_ICON_BG } from '../lib/tones'
 
 export default function CommandCard({ command }: { command: Command }) {
   const [installed, setInstalled] = useState(command.installed)
   return (
     <div className="flex items-start gap-4 rounded-xl border bg-card shadow-sm p-5">
       <div
-        className={`flex size-12 shrink-0 items-center justify-center rounded-xl text-xl text-white ${toneClasses[command.tone]}`}
+        className={`flex size-12 shrink-0 items-center justify-center rounded-xl text-xl text-white ${TONE_ICON_BG[command.tone]}`}
       >
         <i className={command.icon} />
       </div>
@@ -36,14 +20,14 @@ export default function CommandCard({ command }: { command: Command }) {
             aria-label={installed ? '移除' : '添加'}
             className={`flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-lg outline-none transition-colors duration-150 ${
               installed
-                ? 'bg-primary/10 text-primary hover:bg-primary/20'
-                : 'bg-muted text-muted-foreground hover:bg-accent'
+                ? 'bg-primary/10 text-primary-text hover:bg-primary/20'
+                : 'bg-muted text-content-tertiary hover:bg-accent'
             }`}
           >
             <i className={`text-sm ${installed ? 'fa-solid fa-check' : 'fa-solid fa-plus'}`} />
           </button>
         </div>
-        <p className="mt-1.5 truncate text-sm text-muted-foreground">{command.description}</p>
+        <p className="mt-1.5 truncate text-sm text-content-secondary">{command.description}</p>
       </div>
     </div>
   )

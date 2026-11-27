@@ -1,23 +1,8 @@
 import type { IconTone, AcpRunner } from '../types'
+import { STATUS, TONE_ICON_BG } from '../lib/tones'
 
 /** 图标块底色（各品牌色调），仅无 LOGO 图片的 Runner 使用 */
-const iconToneClasses: Record<IconTone, string> = {
-  blue: 'bg-blue-600',
-  indigo: 'bg-indigo-600',
-  sky: 'bg-sky-600',
-  cyan: 'bg-cyan-600',
-  teal: 'bg-teal-600',
-  emerald: 'bg-emerald-600',
-  green: 'bg-green-600',
-  lime: 'bg-lime-600',
-  amber: 'bg-amber-600',
-  orange: 'bg-orange-600',
-  red: 'bg-red-600',
-  rose: 'bg-rose-600',
-  violet: 'bg-violet-600',
-  slate: 'bg-slate-600',
-  black: 'bg-black',
-}
+const iconToneClasses: Record<IconTone, string> = TONE_ICON_BG
 
 interface AcpRunnerCardProps {
   runner: AcpRunner
@@ -54,7 +39,7 @@ export default function AcpRunnerCard({ runner, enabled, onToggle }: AcpRunnerCa
           aria-label={`${runner.name} Runner 启停开关`}
           onClick={() => onToggle(runner.id)}
           className={`relative inline-flex h-[18px] w-8 shrink-0 cursor-pointer items-center rounded-full px-0.5 outline-none transition-colors duration-150 after:absolute after:-inset-1.5 after:content-[''] ${
-            enabled ? 'bg-emerald-600' : 'bg-muted-foreground/30'
+            enabled ? 'bg-success' : 'bg-muted-foreground/30'
           }`}
         >
           <span
@@ -66,17 +51,17 @@ export default function AcpRunnerCard({ runner, enabled, onToggle }: AcpRunnerCa
       </div>
 
       {/* 描述 */}
-      <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{runner.description}</p>
+      <p className="mt-3 text-xs leading-relaxed text-content-secondary">{runner.description}</p>
 
       {/* 连接状态徽章 */}
       <div className="mt-3 flex flex-wrap items-center gap-2">
         {enabled ? (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs text-emerald-600 dark:text-emerald-400">
+          <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ${STATUS.success}`}>
             <i className="fa-solid fa-circle-check text-[11px]" />
             已启用
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
+          <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ${STATUS.neutral}`}>
             <i className="fa-solid fa-power-off text-[11px]" />
             已禁用
           </span>

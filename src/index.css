@@ -3,66 +3,121 @@
 /* 暗色模式：.dark 类挂在 <html> 上时生效（class 策略，配合顶栏切换按钮） */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ============================================================
+   设计规范来源：DESIGN.md（Linear 风格）
+   规则要点：
+   1. 暗色为原生介质：页面 #08090a → 面板 #0f1011 → 抬升面 #191a1b
+      层级靠「表面亮度递进」表达，不再依赖投影。
+   2. 边框一律半透明白（5% / 8%），暗底上不使用实色描边。
+   3. 文字分四级：primary / secondary / tertiary / quaternary。
+   4. 品牌靛蓝 #5e6ad2（填充）+ #7170ff（交互强调）跨明暗同源。
+   ============================================================ */
+
 :root {
-  --background: #f7faff; /* 页面基础背景色（浅色模式：纯白） */
-  --foreground: #183153; /* 页面基础前景色 / 正文文字颜色（近黑的冷灰） */
-  --card: oklch(1 0 0); /* 卡片背景色（与页面背景一致的白） */
-  --card-foreground: oklch(0.141 0.005 285.823); /* 卡片内文字颜色 */
-  --popover: oklch(1 0 0); /* 弹出层（Popover / 下拉）背景色 */
-  --popover-foreground: oklch(0.141 0.005 285.823); /* 弹出层内文字颜色 */
-  --primary: #4f46e5; /* 主色 / 品牌色（靛蓝，用于主按钮、链接、选中态；白字对比度约 6.3:1，达 AA） */
-  --primary-foreground: #ffffff; /* 主色之上的文字颜色（白色） */
-  --secondary: oklch(0.967 0.001 286.375); /* 次级背景色（浅灰，用于次级按钮、次要区块底色） */
-  --secondary-foreground: oklch(0.21 0.006 285.885); /* 次级背景上的文字颜色 */
-  --muted: oklch(0.967 0.001 286.375); /* 弱化背景色（用于禁用区块、占位区域底色） */
-  --muted-foreground: #33517E; /* 弱化文字颜色（次要说明文字、占位符） */
-  --accent: oklch(0.967 0.001 286.375); /* 强调背景色（hover 高亮、菜单项悬停底色） */
-  --accent-foreground: oklch(0.21 0.006 285.885); /* 强调背景上的文字颜色 */
-  --destructive: oklch(0.577 0.245 27.325); /* 危险色（错误、删除、破坏性操作按钮） */
-  --border: rgb(214,227,255); /* 全局边框颜色 */
-  --input: rgb(214,227,255); /* 输入框边框颜色 */
-  --ring: #4f46e5; /* 焦点环颜色（键盘聚焦时的 outline 高亮） */
-  --sidebar: #DBE7FF; /* 侧边栏背景色（极浅的灰白） */
-  --sidebar-foreground: oklch(0.141 0.005 285.823); /* 侧边栏文字颜色 */
-  --sidebar-primary: #4f46e5; /* 侧边栏主色（选中项、主按钮用的蓝色） */
-  --sidebar-primary-foreground: #ffffff; /* 侧边栏主色之上的文字颜色 */
-  --sidebar-accent: #C0D2FF; /* 侧边栏强调背景色（菜单项 hover / 激活底色） */
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885); /* 侧边栏强调背景上的文字颜色 */
-  --sidebar-border: rgb(214,227,255); /* 侧边栏边框颜色 */
-  --sidebar-ring: #4f46e5; /* 侧边栏焦点环颜色 */
-  --box-shadow: 0 4px 12px 0 rgba(102, 102, 255, .24); /* 通用盒阴影（柔和的紫色投影，用于卡片、浮层） */
-  --shadow-color: rgb(102, 102, 255); /* 阴影基色（浅色：品牌紫 #66f），shadow 各档用 color-mix 按百分比叠加透明度 */
+  /* —— 表面（浅色：白底 + 浅灰分层） —— */
+  --background: #f7f8f8; /* 页面画布 */
+  --foreground: #141516; /* 表面文字基色 */
+  --card: #ffffff; /* 卡片 / 抬升面 */
+  --card-foreground: #141516;
+  --popover: #ffffff; /* 浮层（下拉 / 弹层） */
+  --popover-foreground: #141516;
+  --secondary: #f3f4f5; /* 次级面 */
+  --secondary-foreground: #141516;
+  --muted: #f3f4f5; /* 弱化面（占位 / 禁用区块） */
+  --muted-foreground: #62666d; /* 三级文字（次要说明、占位符） */
+  --accent: #f3f4f5; /* 强调面（hover 高亮） */
+  --accent-foreground: #141516;
+  --sidebar: #f3f4f5; /* 侧边栏面板 */
+  --sidebar-foreground: #141516;
+  --sidebar-accent: #e6e6e6; /* 侧边栏 hover / 激活底色 */
+  --sidebar-accent-foreground: #141516;
+
+  /* —— 文字四级色阶 —— */
+  --content-primary: #141516; /* 标题与正文 */
+  --content-secondary: #4b5158; /* 说明文字、卡片描述 */
+  --content-tertiary: #62666d; /* 元信息、时间戳 */
+  --content-quaternary: #949aa1; /* 极弱信息、占位符 */
+
+  /* —— 品牌与状态 —— */
+  --primary: #5e6ad2; /* 主色填充（按钮、徽章底） */
+  --primary-foreground: #ffffff;
+  --primary-text: #5e6ad2; /* 主色文字（激活态、链接） */
+  --primary-hover: #828fff; /* 主色 hover */
+  --ring: #5e6ad2; /* 焦点环 */
+  --destructive: #d64545; /* 危险 */
+  --destructive-foreground: #ffffff;
+  --success: #1a7f37; /* 成功 / 运行中（文字与填充同值，白字对比 ≥4.5:1） */
+  --success-foreground: #ffffff;
+  --warning: #d97706; /* 警告 */
+  --warning-foreground: #ffffff;
+
+  /* —— 描边 —— */
+  --border: #e6e6e6;
+  --input: #d0d6e0;
+  --sidebar-border: #e6e6e6;
+  --sidebar-primary: #5e6ad2;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-ring: #5e6ad2;
+
+  /* —— 投影：浅色用品牌靛蓝着色的柔和投影（各档透明度不同） —— */
+  --elev-sm: 0 1px 3px 0 rgb(94 106 210 / 0.08), 0 1px 2px -1px rgb(94 106 210 / 0.08);
+  --elev-md: 0 4px 6px -1px rgb(94 106 210 / 0.10), 0 2px 4px -2px rgb(94 106 210 / 0.10);
+  --elev-lg: 0 10px 15px -3px rgb(94 106 210 / 0.14), 0 4px 6px -4px rgb(94 106 210 / 0.14);
+  --elev-xl: 0 20px 25px -5px rgb(94 106 210 / 0.16), 0 8px 10px -6px rgb(94 106 210 / 0.16);
 }
 
 /* 暗色模式（.dark 类挂在 html 上时生效） */
 .dark {
-  --background: #181818; /* 页面基础背景色（深冷灰黑） */
-  --foreground: oklch(0.985 0 0); /* 页面基础前景色 / 正文文字颜色（近白的冷灰） */
-  --card: #232323; /* 卡片背景色（比页面背景稍亮一档的深灰） */
-  --card-foreground: oklch(0.985 0 0); /* 卡片内文字颜色 */
-  --popover: #232323; /* 弹出层（Popover / 下拉）背景色 */
-  --popover-foreground: oklch(0.985 0 0); /* 弹出层内文字颜色 */
-  --primary: #F4D1B4; /* 主色 / 品牌色（暖橙，暗色模式品牌色） */
-  --primary-foreground: #2b1c10; /* 主色之上的文字颜色（深棕，对比度约 11.5:1，达 AA/AAA） */
-  --secondary: oklch(0.274 0.006 286.033); /* 次级背景色（深灰，用于次级按钮、次要区块底色） */
-  --secondary-foreground: oklch(0.985 0 0); /* 次级背景上的文字颜色 */
-  --muted: oklch(0.274 0.006 286.033); /* 弱化背景色（禁用区块、占位区域底色） */
-  --muted-foreground: oklch(0.705 0.015 286.067); /* 弱化文字颜色（次要说明文字、占位符） */
-  --accent: oklch(0.274 0.006 286.033); /* 强调背景色（hover 高亮、菜单项悬停底色） */
-  --accent-foreground: oklch(0.985 0 0); /* 强调背景上的文字颜色 */
-  --destructive: oklch(0.704 0.191 22.216); /* 危险色（暗色下更亮，保证对比度） */
-  --border: oklch(1 0 0 / 10%); /* 全局边框颜色（半透明白，营造柔和描边） */
-  --input: oklch(1 0 0 / 15%); /* 输入框边框颜色（半透明白，比边框略亮） */
-  --ring: #F4D1B4; /* 焦点环颜色（品牌暖橙，暗底上清晰可见） */
-  --sidebar: #232323; /* 侧边栏背景色（深灰） */
-  --sidebar-foreground: oklch(0.985 0 0); /* 侧边栏文字颜色 */
-  --sidebar-primary: #F4D1B4; /* 侧边栏主色（选中项、主按钮用的暖橙） */
-  --sidebar-primary-foreground: #2b1c10; /* 侧边栏主色之上的文字颜色 */
-  --sidebar-accent: oklch(0.274 0.006 286.033); /* 侧边栏强调背景色（菜单项 hover / 激活底色） */
-  --sidebar-accent-foreground: oklch(0.985 0 0); /* 侧边栏强调背景上的文字颜色 */
-  --sidebar-border: oklch(1 0 0 / 10%); /* 侧边栏边框颜色（半透明白） */
-  --sidebar-ring: #F4D1B4; /* 侧边栏焦点环颜色 */
-  --shadow-color: rgb(244, 209, 180,.3);
+  /* —— 表面：亮度递进代替投影 —— */
+  --background: #08090a; /* 画布：近乎纯黑 */
+  --foreground: #f7f8f8; /* 主文字：非纯白，避免刺眼 */
+  --card: #191a1b; /* 抬升面 */
+  --card-foreground: #f7f8f8;
+  --popover: #191a1b;
+  --popover-foreground: #f7f8f8;
+  --secondary: #1f2022;
+  --secondary-foreground: #f7f8f8;
+  --muted: #1f2022;
+  --muted-foreground: #8a8f98; /* 三级文字 */
+  --accent: #28282c; /* 最亮一档表面：hover 态 */
+  --accent-foreground: #f7f8f8;
+  --sidebar: #0f1011; /* 面板：比画布高一档 */
+  --sidebar-foreground: #f7f8f8;
+  --sidebar-accent: #28282c;
+  --sidebar-accent-foreground: #f7f8f8;
+
+  /* —— 文字四级色阶 —— */
+  --content-primary: #f7f8f8;
+  --content-secondary: #d0d6e0;
+  --content-tertiary: #8a8f98;
+  --content-quaternary: #62666d;
+
+  /* —— 品牌与状态 —— */
+  --primary: #5e6ad2; /* 填充仍是品牌靛蓝 */
+  --primary-foreground: #ffffff;
+  --primary-text: #828fff; /* 暗底上的品牌文字用亮一档，保证对比 */
+  --primary-hover: #828fff;
+  --ring: #7170ff;
+  --destructive: #e5484d;
+  --destructive-foreground: #0b0c0e;
+  --success: #10b981;
+  --success-foreground: #06110c;
+  --warning: #f0a020;
+  --warning-foreground: #16100a;
+
+  /* —— 描边：半透明白，不用实色 —— */
+  --border: rgb(255 255 255 / 0.08);
+  --input: rgb(255 255 255 / 0.08);
+  --sidebar-border: rgb(255 255 255 / 0.08);
+  --sidebar-primary: #7170ff;
+  --sidebar-primary-foreground: #0b0c0e;
+  --sidebar-ring: #7170ff;
+
+  /* —— 投影：暗底上改为「边框即阴影」（ring 技巧），不再做颜色投影 —— */
+  --elev-sm: 0 0 0 1px rgb(0 0 0 / 0.35);
+  --elev-md: 0 0 0 1px rgb(0 0 0 / 0.35);
+  --elev-lg: 0 0 0 1px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.4);
+  --elev-xl: 0 0 0 1px rgb(0 0 0 / 0.45), 0 16px 40px rgb(0 0 0 / 0.5);
 }
 
 /* ============================================
@@ -78,6 +133,8 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-text: var(--primary-text);
+  --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -85,6 +142,11 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -96,14 +158,20 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  /* 通用柔和投影（globals.css 的 --box-shadow） */
-  --shadow-soft: var(--box-shadow);
-  /* 覆盖默认阴影：颜色走 --shadow-color（浅色=品牌紫 #66f / 暗色=品牌橙 50% 透明），color-mix 百分比 = 各档透明度 */
-  --shadow: 0 1px 3px 0 color-mix(in srgb, var(--shadow-color) 10%, transparent), 0 1px 2px -1px color-mix(in srgb, var(--shadow-color) 10%, transparent);
-  --shadow-sm: 0 1px 3px 0 color-mix(in srgb, var(--shadow-color) 10%, transparent), 0 1px 2px -1px color-mix(in srgb, var(--shadow-color) 10%, transparent);
-  --shadow-md: 0 4px 6px -1px color-mix(in srgb, var(--shadow-color) 10%, transparent), 0 2px 4px -2px color-mix(in srgb, var(--shadow-color) 10%, transparent);
-  --shadow-lg: 0 10px 15px -3px color-mix(in srgb, var(--shadow-color) 18%, transparent), 0 4px 6px -4px color-mix(in srgb, var(--shadow-color) 18%, transparent);
-  --shadow-xl: 0 20px 25px -5px color-mix(in srgb, var(--shadow-color) 22%, transparent), 0 8px 10px -6px color-mix(in srgb, var(--shadow-color) 22%, transparent);
+
+  /* 文字四级色阶 */
+  --color-content-primary: var(--content-primary);
+  --color-content-secondary: var(--content-secondary);
+  --color-content-tertiary: var(--content-tertiary);
+  --color-content-quaternary: var(--content-quaternary);
+
+  /* 投影：按明暗模式各有一套（浅色=品牌紫投影，暗色=边框即阴影） */
+  --shadow-soft: var(--elev-md);
+  --shadow: var(--elev-sm);
+  --shadow-sm: var(--elev-sm);
+  --shadow-md: var(--elev-md);
+  --shadow-lg: var(--elev-lg);
+  --shadow-xl: var(--elev-xl);
 }
 
 @layer base {
@@ -114,7 +182,8 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family:'PingFang SC','Noto Sans SC','Microsoft YaHei',system-ui,-apple-system,sans-serif}
+    font-family: 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+  }
 }
 :focus-visible {
   outline: 2px solid var(--ring);
@@ -130,8 +199,13 @@
   height: 6px;
 }
 
-.hide-scrollbar {-ms-overflow-style: none;scrollbar-width: none}
-.hide-scrollbar::-webkit-scrollbar {display: none}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 ::-webkit-scrollbar-thumb {
   @apply rounded-full bg-muted-foreground/30;
 }

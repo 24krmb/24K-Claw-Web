@@ -1,22 +1,6 @@
 import { useState } from 'react'
-import type { Model, IconTone } from '../types'
-const toneClasses: Record<IconTone, string> = {
-  blue: 'bg-blue-600',
-  indigo: 'bg-indigo-600',
-  sky: 'bg-sky-600',
-  cyan: 'bg-cyan-600',
-  teal: 'bg-teal-600',
-  emerald: 'bg-emerald-600',
-  green: 'bg-green-600',
-  lime: 'bg-lime-600',
-  amber: 'bg-amber-600',
-  orange: 'bg-orange-600',
-  red: 'bg-red-600',
-  rose: 'bg-rose-600',
-  violet: 'bg-violet-600',
-  slate: 'bg-slate-600',
-  black: 'bg-black',
-}
+import type { Model } from '../types'
+import { STATUS, TONE_ICON_BG } from '../lib/tones'
 const categoryLabels: Record<Model['category'], string> = {
   chat: '对话',
   'stt-tts': '语音',
@@ -36,7 +20,7 @@ export default function ModelCard({ model }: { model: Model }) {
           </div>
         ) : (
           <div
-            className={`flex size-11 shrink-0 items-center justify-center rounded-xl text-lg text-white ${toneClasses[model.tone ?? 'slate']}`}
+            className={`flex size-11 shrink-0 items-center justify-center rounded-xl text-lg text-white ${TONE_ICON_BG[model.tone ?? 'slate']}`}
           >
             <i className={model.icon ?? 'fa-solid fa-cube'} />
           </div>
@@ -44,16 +28,16 @@ export default function ModelCard({ model }: { model: Model }) {
         <div className="min-w-0 flex-1">
           <h3 className="text-sm font-medium text-foreground">{model.name}</h3>
           <div className="mt-1.5 flex items-center gap-2">
-            <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground">
+            <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-content-tertiary">
               {categoryLabels[model.category]}
             </span>
             {enabled ? (
-              <span className="flex items-center gap-1 rounded-md bg-primary/10 px-2 py-0.5 text-xs text-primary">
+              <span className={`flex items-center gap-1 rounded-md px-2 py-0.5 text-xs ${STATUS.brand}`}>
                 <i className="fa-solid fa-check text-[10px]" />
                 已启用
               </span>
             ) : (
-              <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground">
+              <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-content-tertiary">
                 已停用
               </span>
             )}
