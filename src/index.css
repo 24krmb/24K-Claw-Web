@@ -46,7 +46,7 @@
   --ring: #27bd51; /* 焦点环 */
   --destructive: #d64545; /* 危险 */
   --destructive-foreground: #ffffff;
-  --success: #1a7f37; /* 成功 / 运行中（文字与填充同值，白字对比 ≥4.5:1） */
+  --success: #1a6fc4; /* 成功 / 运行中（蓝色系，与绿色品牌色区分语义；白字对比 ≥4.5:1） */
   --success-foreground: #ffffff;
   --warning: #d97706; /* 警告 */
   --warning-foreground: #ffffff;
@@ -100,7 +100,7 @@
   --ring: #27bd51;
   --destructive: #e5484d;
   --destructive-foreground: #0b0c0e;
-  --success: #10b981;
+  --success: #4da3ff; /* 成功 / 运行中（暗底亮蓝） */
   --success-foreground: #06110c;
   --warning: #f0a020;
   --warning-foreground: #16100a;

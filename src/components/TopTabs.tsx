@@ -81,7 +81,7 @@ export default function TopTabs({ activeTab, title, srOnlyTitle, onChange, menuT
                 <span>{tab.label}</span>
                 {/* 可选徽标（如 BETA） */}
                 {tab.badge && (
-                  <span className="rounded-full bg-primary px-2 py-0.5 text-[11px] font-bold leading-4 text-primary-foreground">
+                  <span className="rounded-full bg-primary px-2 py-0.5 text-[11px] font-medium leading-4 text-primary-foreground">
                     {tab.badge}
                   </span>
                 )}

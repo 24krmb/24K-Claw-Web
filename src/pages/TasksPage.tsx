@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { tasks } from '../data/tasks'
+import { STATUS } from '../lib/tones'
 import type { Task } from '../types'
 
 /** 上次状态徽章样式 */
 const statusBadge: Record<Task['lastStatus'], { text: string; className: string }> = {
-  success: { text: '成功', className: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' },
+  success: { text: '成功', className: STATUS.success },
   failure: { text: '失败', className: 'bg-red-500/10 text-red-600 dark:text-red-400' },
 }
 
@@ -99,7 +100,7 @@ function TaskTable({ enabledMap, onToggle }: { enabledMap: Record<string, boolea
                   <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                     <span
                       aria-hidden="true"
-                      className={`size-1.5 rounded-full ${enabled ? 'bg-emerald-500' : 'bg-muted-foreground/60'}`}
+                      className={`size-1.5 rounded-full ${enabled ? 'bg-success' : 'bg-muted-foreground/60'}`}
                     />
                     {enabled ? '已启用' : '已停用'}
                   </span>

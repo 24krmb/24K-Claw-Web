@@ -15,7 +15,7 @@ export default function SubagentCard({ subagent }: { subagent: Subagent }) {
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-sm font-medium text-foreground">{subagent.name}</h3>
         {subagent.installed && (
-          <i className="fa-solid fa-circle-check text-xl text-emerald-500" aria-label="已安装" />
+          <i className="fa-solid fa-circle-check text-xl text-success" aria-label="已安装" />
         )}
       </div>
 

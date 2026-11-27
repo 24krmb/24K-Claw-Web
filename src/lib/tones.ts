@@ -90,7 +90,7 @@ export const TONE_SWITCH: Record<IconTone, string> = {
   black: 'bg-black',
 }
 
-/** 状态语义样式（与 CSS token --success / --destructive 呼应） */
+/** 状态语义样式（与 CSS token --success / --destructive 呼应；success 为蓝色系，避免与绿色品牌色混淆） */
 export const STATUS = {
   /** 运行中 / 已启用 / 成功 */
   success: 'bg-success/10 text-success',

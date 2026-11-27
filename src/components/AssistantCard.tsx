@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Assistant } from '../types'
+import { STATUS } from '../lib/tones'
 
 /** 操作行图标按钮配置 */
 const actions = [
@@ -31,10 +32,10 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
             <h3 className="text-sm font-medium text-foreground">{assistant.name}</h3>
             <span
               className={`flex w-fit items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${
-                running ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400' : 'bg-muted text-muted-foreground'
+                running ? STATUS.success : STATUS.neutral
               }`}
             >
-              <span className={`size-1.5 rounded-full ${running ? 'bg-emerald-500' : 'bg-muted-foreground/60'}`} />
+              <span className={`size-1.5 rounded-full ${running ? 'bg-success' : 'bg-muted-foreground/60'}`} />
               {running ? '运行中' : '已停止'}
             </span>
           </div>
@@ -46,7 +47,7 @@ export default function AssistantCard({ assistant }: { assistant: Assistant }) {
             aria-label={`${running ? '停止' : '启动'} ${assistant.name}`}
             onClick={() => setRunning(!running)}
             className={`mt-1 inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-none p-0.5 outline-none transition-colors duration-200 ${
-              running ? 'bg-emerald-500' : 'bg-muted-foreground/40'
+              running ? 'bg-success' : 'bg-muted-foreground/40'
             }`}
           >
             <span

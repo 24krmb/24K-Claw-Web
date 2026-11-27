@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import PluginCard from '../components/PluginCard'
 import { plugins } from '../data/plugins'
+import { STATUS } from '../lib/tones'
 import { useAppStore } from '../store/useAppStore'
 
 
@@ -177,7 +178,7 @@ function PluginTable({ enabledMap, onToggle }: { enabledMap: Record<string, bool
                 <td className="px-4 py-3 font-mono text-xs text-foreground">{plugin.version}</td>
                 <td className="px-4 py-3">
                   {enabled ? (
-                    <span className="rounded bg-emerald-500/10 px-2 py-0.5 text-xs text-emerald-600 dark:text-emerald-400">已加载</span>
+                    <span className={`rounded px-2 py-0.5 text-xs ${STATUS.success}`}>已加载</span>
                   ) : (
                     <span className="text-xs text-muted-foreground">已停用</span>
                   )}

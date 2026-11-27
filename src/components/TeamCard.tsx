@@ -42,7 +42,7 @@ export default function TeamCard({ team }: { team: Team }) {
             aria-label={`${running ? '停止' : '启动'} ${team.name}`}
             onClick={() => setRunning(!running)}
             className={`mt-1 inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-none p-0.5 outline-none transition-colors duration-200 ${
-              running ? 'bg-emerald-500' : 'bg-muted-foreground/40'
+              running ? 'bg-success' : 'bg-muted-foreground/40'
             }`}
           >
             <span
