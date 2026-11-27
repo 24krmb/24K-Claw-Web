@@ -29,7 +29,7 @@
   --accent-foreground: #141516;
   --sidebar: #f3f4f5; /* 侧边栏面板 */
   --sidebar-foreground: #141516;
-  --sidebar-accent: #e6e6e6; /* 侧边栏 hover / 激活底色 */
+  --sidebar-accent: oklab(0.70053 -0.162228 0.103131 / 0.1); /* 侧边栏 hover / 激活底色 */
   --sidebar-accent-foreground: #141516;
 
   /* —— 文字四级色阶 —— */
@@ -39,11 +39,11 @@
   --content-quaternary: #949aa1; /* 极弱信息、占位符 */
 
   /* —— 品牌与状态 —— */
-  --primary: #5e6ad2; /* 主色填充（按钮、徽章底） */
+  --primary: #27bd51; /* 主色填充（按钮、徽章底） rgb(39,189,81) */
   --primary-foreground: #ffffff;
-  --primary-text: #5e6ad2; /* 主色文字（激活态、链接） */
-  --primary-hover: #828fff; /* 主色 hover */
-  --ring: #5e6ad2; /* 焦点环 */
+  --primary-text: #1f9a42; /* 主色文字（激活态、链接） */
+  --primary-hover: #22aa48; /* 主色 hover */
+  --ring: #27bd51; /* 焦点环 */
   --destructive: #d64545; /* 危险 */
   --destructive-foreground: #ffffff;
   --success: #1a7f37; /* 成功 / 运行中（文字与填充同值，白字对比 ≥4.5:1） */
@@ -55,15 +55,15 @@
   --border: #e6e6e6;
   --input: #d0d6e0;
   --sidebar-border: #e6e6e6;
-  --sidebar-primary: #5e6ad2;
+  --sidebar-primary: #27bd51;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-ring: #5e6ad2;
+  --sidebar-ring: #27bd51;
 
-  /* —— 投影：浅色用品牌靛蓝着色的柔和投影（各档透明度不同） —— */
-  --elev-sm: 0 1px 3px 0 rgb(94 106 210 / 0.08), 0 1px 2px -1px rgb(94 106 210 / 0.08);
-  --elev-md: 0 4px 6px -1px rgb(94 106 210 / 0.10), 0 2px 4px -2px rgb(94 106 210 / 0.10);
-  --elev-lg: 0 10px 15px -3px rgb(94 106 210 / 0.14), 0 4px 6px -4px rgb(94 106 210 / 0.14);
-  --elev-xl: 0 20px 25px -5px rgb(94 106 210 / 0.16), 0 8px 10px -6px rgb(94 106 210 / 0.16);
+  /* —— 投影：浅色用品牌绿着色的柔和投影（各档透明度不同） —— */
+  --elev-sm: 0 1px 3px 0 rgb(39 189 81 / 0.08), 0 1px 2px -1px rgb(39 189 81 / 0.08);
+  --elev-md: 0 4px 6px -1px rgb(39 189 81 / 0.10), 0 2px 4px -2px rgb(39 189 81 / 0.10);
+  --elev-lg: 0 10px 15px -3px rgb(39 189 81 / 0.14), 0 4px 6px -4px rgb(39 189 81 / 0.14);
+  --elev-xl: 0 20px 25px -5px rgb(39 189 81 / 0.16), 0 8px 10px -6px rgb(39 189 81 / 0.16);
 }
 
 /* 暗色模式（.dark 类挂在 html 上时生效） */
@@ -83,7 +83,7 @@
   --accent-foreground: #f7f8f8;
   --sidebar: #0f1011; /* 面板：比画布高一档 */
   --sidebar-foreground: #f7f8f8;
-  --sidebar-accent: #28282c;
+  --sidebar-accent: oklab(0.70053 -0.162228 0.103131 / 0.1);
   --sidebar-accent-foreground: #f7f8f8;
 
   /* —— 文字四级色阶 —— */
@@ -93,11 +93,11 @@
   --content-quaternary: #62666d;
 
   /* —— 品牌与状态 —— */
-  --primary: #5e6ad2; /* 填充仍是品牌靛蓝 */
+  --primary: #27bd51; /* 填充与浅色同源的品牌绿 */
   --primary-foreground: #ffffff;
-  --primary-text: #828fff; /* 暗底上的品牌文字用亮一档，保证对比 */
-  --primary-hover: #828fff;
-  --ring: #7170ff;
+  --primary-text: #4ee082; /* 暗底上的品牌文字用亮一档，保证对比 */
+  --primary-hover: #4ee082;
+  --ring: #27bd51;
   --destructive: #e5484d;
   --destructive-foreground: #0b0c0e;
   --success: #10b981;
@@ -109,9 +109,9 @@
   --border: rgb(255 255 255 / 0.08);
   --input: rgb(255 255 255 / 0.08);
   --sidebar-border: rgb(255 255 255 / 0.08);
-  --sidebar-primary: #7170ff;
+  --sidebar-primary: #27bd51;
   --sidebar-primary-foreground: #0b0c0e;
-  --sidebar-ring: #7170ff;
+  --sidebar-ring: #27bd51;
 
   /* —— 投影：暗底上改为「边框即阴影」（ring 技巧），不再做颜色投影 —— */
   --elev-sm: 0 0 0 1px rgb(0 0 0 / 0.35);
