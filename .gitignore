@@ -1,12 +1,43 @@
+# Dependencies
 node_modules
+
+# Build output
 dist
 dist-ssr
-*.local
-.DS_Store
-npm-debug.log*
+
+# Local env / secrets
 .env
-.workbuddy
+.env.*
+!.env.example
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# Test coverage
+coverage
+
+# Editor / tool dirs
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
 .trae
 .zcode
 .opencode
+.qoder
+.workbuddy
+
+# TS incremental build cache
+*.tsbuildinfo
+
+# Deploy caches
+.vercel
+
+# Project-specific
 Develop
