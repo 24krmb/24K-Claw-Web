@@ -13,7 +13,7 @@ interface ImChannelCardProps {
 export default function ImChannelCard({ channel, enabled, onToggle }: ImChannelCardProps) {
   return (
     <div
-      className={`flex flex-col rounded-xl border p-5 shadow-sm transition-colors duration-150 ${
+      className={`flex flex-col rounded-xl border p-5 shadow-sm transition-shadow duration-200 hover:shadow-md ${
         enabled ? TONE_CARD_TINT[channel.tone] : 'bg-card'
       }`}
     >

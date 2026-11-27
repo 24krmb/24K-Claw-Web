@@ -23,7 +23,7 @@ export default function SkillCard({ skill }: { skill: Skill }) {
   const [enabled, setEnabled] = useState(skill.enabled)
 
   return (
-    <div className="flex flex-col rounded-xl border bg-card shadow-sm p-5">
+    <div className="flex flex-col rounded-xl border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md p-5">
       <div className="flex items-start gap-4">
         <div
           className={`flex size-11 shrink-0 items-center justify-center rounded-xl text-lg text-white ${toneClasses[skill.tone]}`}

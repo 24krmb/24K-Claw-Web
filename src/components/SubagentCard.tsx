@@ -10,7 +10,7 @@ export default function SubagentCard({ subagent }: { subagent: Subagent }) {
   const handleDelete = () => {}
 
   return (
-    <article className="flex flex-col rounded-xl border bg-card p-5 shadow-sm">
+    <article className="flex flex-col rounded-xl border bg-card p-5 shadow-sm transition-shadow duration-200 hover:shadow-md">
       {/* 标题 + 已安装标记 */}
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-sm font-medium text-foreground">{subagent.name}</h3>

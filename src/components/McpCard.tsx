@@ -7,7 +7,7 @@ export default function McpCard({ server }: { server: McpServer }) {
   const [installed, setInstalled] = useState(server.installed)
 
   return (
-    <div className="flex items-start gap-4 rounded-xl border bg-card shadow-sm p-5">
+    <div className="flex items-start gap-4 rounded-xl border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md p-5">
       <div
         className={`flex size-12 shrink-0 items-center justify-center rounded-xl text-xl text-white ${TONE_ICON_BG[server.tone]}`}
       >

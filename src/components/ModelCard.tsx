@@ -12,7 +12,7 @@ export default function ModelCard({ model }: { model: Model }) {
   const [enabled, setEnabled] = useState(model.enabled)
 
   return (
-    <div className="flex flex-col rounded-xl border bg-card shadow-sm p-5">
+    <div className="flex flex-col rounded-xl border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md p-5">
       <div className="flex items-start gap-4">
         {model.logo ? (
           <div className="flex size-11 shrink-0 items-center justify-center rounded-xl">

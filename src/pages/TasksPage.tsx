@@ -162,7 +162,7 @@ function TaskCards({ enabledMap, onToggle }: { enabledMap: Record<string, boolea
         const enabled = enabledMap[task.id]
         const status = statusBadge[task.lastStatus]
         return (
-          <div key={task.id} className="flex flex-col rounded-xl border bg-card shadow-sm p-5">
+          <div key={task.id} className="flex flex-col rounded-xl border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md p-5">
             <div className="flex items-start gap-3">
               <i className="fa-regular fa-clock mt-0.5 text-primary" />
               <div className="min-w-0 flex-1">

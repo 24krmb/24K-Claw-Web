@@ -12,7 +12,7 @@ interface PluginCardProps {
 /** 插件卡片：图标块 + 名称 + 分类/版本/状态小标签 + 启停开关（右上角） + 描述 */
 export default function PluginCard({ plugin, enabled, onToggle }: PluginCardProps) {
   return (
-    <div className="flex flex-col rounded-xl border bg-card shadow-sm p-5">
+    <div className="flex flex-col rounded-xl border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md p-5">
       {/* 图标块 + 名称 + 元信息标签 + 启停开关（右上角） */}
       <div className="flex items-start gap-3">
         <div

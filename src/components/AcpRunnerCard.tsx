@@ -15,7 +15,7 @@ interface AcpRunnerCardProps {
 /** ACP Runner 卡片（样式对齐 ImChannelCard）：圆形品牌图标/LOGO + 名称 + 启停开关（右上角） + 描述 + 状态徽章 */
 export default function AcpRunnerCard({ runner, enabled, onToggle }: AcpRunnerCardProps) {
   return (
-    <div className="flex flex-col rounded-xl border bg-card shadow-sm p-5 transition-colors duration-150">
+    <div className="flex flex-col rounded-xl border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md p-5">
       {/* 圆形品牌图标（LOGO 图片优先，无图回退品牌色块） + 名称 + 启停开关（右上角） */}
       <div className="flex items-center gap-3">
         {runner.logo ? (
