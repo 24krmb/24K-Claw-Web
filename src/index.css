@@ -35,7 +35,7 @@
   --ring: #27bd51; /* 焦点环 */
   --destructive: #d64545; /* 危险 */
   --destructive-foreground: #ffffff;
-  --success: #27bd51; /* 成功 / 运行中（蓝色系，与绿色品牌色区分语义；白字对比 ≥4.5:1） */
+  --success: #27bd51; /* 成功 / 运行中（与品牌主色同值，语义独立便于日后单独调整；白字对比 ≥4.5:1） */
   --success-foreground: #ffffff;
   --warning: #d97706; /* 警告 */
   --warning-foreground: #ffffff;
