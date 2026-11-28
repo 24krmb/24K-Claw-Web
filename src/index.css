@@ -1,17 +1,6 @@
 @import "tailwindcss";
-
 /* 暗色模式：.dark 类挂在 <html> 上时生效（class 策略，配合顶栏切换按钮） */
 @custom-variant dark (&:where(.dark, .dark *));
-
-/* ============================================================
-   设计规范来源：DESIGN.md（Linear 风格）
-   规则要点：
-   1. 暗色为原生介质：页面 #08090a → 面板 #0f1011 → 抬升面 #191a1b
-      层级靠「表面亮度递进」表达，不再依赖投影。
-   2. 边框一律半透明白（5% / 8%），暗底上不使用实色描边。
-   3. 文字分四级：primary / secondary / tertiary / quaternary。
-   4. 品牌靛蓝 #5e6ad2（填充）+ #7170ff（交互强调）跨明暗同源。
-   ============================================================ */
 
 :root {
   /* —— 表面（浅色：白底 + 浅灰分层） —— */
@@ -46,7 +35,7 @@
   --ring: #27bd51; /* 焦点环 */
   --destructive: #d64545; /* 危险 */
   --destructive-foreground: #ffffff;
-  --success: #1a6fc4; /* 成功 / 运行中（蓝色系，与绿色品牌色区分语义；白字对比 ≥4.5:1） */
+  --success: #27bd51; /* 成功 / 运行中（蓝色系，与绿色品牌色区分语义；白字对比 ≥4.5:1） */
   --success-foreground: #ffffff;
   --warning: #d97706; /* 警告 */
   --warning-foreground: #ffffff;
